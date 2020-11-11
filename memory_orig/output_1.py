@@ -2,6 +2,14 @@ import random
 import turtle
 import numpy as np
 
+num_led_x = 16
+num_led_y = 32
+rgbmatrix_initialzed = gh_rpi.rgbmatrix_init(num_led_x, num_panels)
+if (rgbmatrix_initialzed == 1) then
+  -- Initialization OK
+else
+  -- Initialization FAILED!
+
 
 map = [[0 for col in range(16)] for row in range(32)]
 
