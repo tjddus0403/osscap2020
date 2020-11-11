@@ -1,6 +1,18 @@
 import random
 import turtle
+import time
+import RPi.GPIO as GPIO
+import gpiozero
+import tkinter as tk
 import numpy as np
+
+GPIO.setmode(GPIO.BOARD)
+LED = #핀번호 묶어서 할당하면 되지 않을까??
+GPIO.setup(LED, GOIO.OUT, initail=GPIO.LOW)
+
+except keyboardInterrupt:
+	pass
+
 
 num_led_x = 16
 num_led_y = 32
