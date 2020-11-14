@@ -38,12 +38,12 @@ arrayScreen=[
    [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
+arrayBlk=[[3,3,3,3],[3,3,3,3],[3,3,3,3],[3,3,3,3]]
 
 
-level = input("난이도 easy는 1, hard는 2를 입력하세요: ")
+level = int(input("난이도 easy는 1, hard는 2를 입력하세요: "))
 
 if level == 1:
-   arrayBlk=[[3,3,3,3],[3,3,3,3],[3,3,3,3],[3,3,3,3]]
    lighton=sample(list(range(1,22)),7)
    print (lighton)
    currBlk=Matrix(arrayBlk)
@@ -67,11 +67,8 @@ if level == 1:
          for a in range(top,top+currBlk.get_dy()):
             for b in range(left,left+currBlk.get_dx()):
                arrayScreen[a][b]=3
-   iScreen=Matrix(arrayScreen)
-   oScreen=Matrix(iScreen)
-   draw_matrix(oScreen); print()
 
-if level == 2:
+elif level == 2:
    arrayBlk=[[3,3,3,3],[3,3,3,3],[3,3,3,3],[3,3,3,3]]
    lighton=sample(list(range(1,22)),8)
    red=lighton[:3]
@@ -116,6 +113,6 @@ if level == 2:
                elif i in green:
                   arrayScreen[a][b]=5
 
-   iScreen=Matrix(arrayScreen)
-   oScreen=Matrix(iScreen)
-   draw_matrix(oScreen); print()
+iScreen=Matrix(arrayScreen)
+oScreen=Matrix(iScreen)
+draw_matrix(oScreen); print()
