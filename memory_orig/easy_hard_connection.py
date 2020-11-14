@@ -1,6 +1,26 @@
 from matrix import*
 from random import*
 
+def draw_matrix(m):
+      array=m.get_array()
+      for y in range (m.get_dy()):
+         for x in range(m.get_dx()):
+            if array[y][x]==0:
+               print("□", end=' ')
+            elif array[y][x]==1:
+               print("■", end=' ')
+            elif array[y][x]==2:
+               print("▣", end=' ')
+            elif array[y][x]==3:
+               print("▨", end=' ')
+            elif array[y][x]==4:
+               print("▤", end=' ')
+            elif array[y][x]==5:
+               print("▩", end=' ')
+            else:
+               print("X", end=' ')
+         print()
+
 arrayScreen=[
    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
@@ -19,30 +39,13 @@ arrayScreen=[
    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
 
-level = input("난이도를 선택하세요(easy or hard): ")
 
-if level == "easy":
-   def draw_matrix(m):
-      array=m.get_array()
-      for y in range (m.get_dy()):
-         for x in range(m.get_dx()):
-            if array[y][x]==0:
-               print("□", end=' ')
-            elif array[y][x]==1:
-               print("■", end=' ')
-            elif array[y][x]==2:
-               print("▣", end=' ')
-            elif array[y][x]==3:
-               print("▨", end=' ')
-            else:
-               print("X", end=' ')
-         print()
-         
+level = input("난이도 easy는 1, hard는 2를 입력하세요: ")
 
+if level == 1:
    arrayBlk=[[3,3,3,3],[3,3,3,3],[3,3,3,3],[3,3,3,3]]
    lighton=sample(list(range(1,22)),7)
    print (lighton)
-
    currBlk=Matrix(arrayBlk)
    for i in lighton:
       top=2
@@ -68,28 +71,7 @@ if level == "easy":
    oScreen=Matrix(iScreen)
    draw_matrix(oScreen); print()
 
-
-if level == "hard":
-   def draw_matrix(m):
-      array=m.get_array()
-      for y in range (m.get_dy()):
-         for x in range(m.get_dx()):
-            if array[y][x]==0:
-               print("□", end=' ')
-            elif array[y][x]==1:
-               print("■", end=' ')
-            elif array[y][x]==2:
-               print("▣", end=' ')
-            elif array[y][x]==3:
-               print("▨", end=' ')
-            elif array[y][x]==4:
-               print("▤", end=' ')
-            elif array[y][x]==5:
-               print("▩", end=' ')
-            else:
-               print("X", end=' ')
-         print()
-
+if level == 2:
    arrayBlk=[[3,3,3,3],[3,3,3,3],[3,3,3,3],[3,3,3,3]]
    lighton=sample(list(range(1,22)),8)
    red=lighton[:3]
@@ -133,7 +115,7 @@ if level == "hard":
                   arrayScreen[a][b]=3
                elif i in green:
                   arrayScreen[a][b]=5
+
    iScreen=Matrix(arrayScreen)
    oScreen=Matrix(iScreen)
    draw_matrix(oScreen); print()
-
