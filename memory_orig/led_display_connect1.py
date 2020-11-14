@@ -2,27 +2,35 @@ import connect_led_between_code as LD
 from matrix import*
 from random import*
 
-def draw_matrix(m):
+def draw_matrix(m): #modified by 3 on 20201114
       array=m.get_array()
       for y in range (m.get_dy()):
          for x in range(m.get_dx()):
+			color = -1
             if array[y][x]==0:
-               print("□", end=' ')
+				LD.set_pixel(y, x, 0)
+				continue
             elif array[y][x]==1:
-               print("■", end=' ')
+				LD.set_pixel(y, x, 4)
+				continue
             elif array[y][x]==2:
-               print("▣", end=' ')
+            	LD.set_pixel(y, x, 5)
+				continue
             elif array[y][x]==3:
-               print("▨", end=' ')
+            	LD.set_pixel(y, x, 6)
+				continue
             elif array[y][x]==4:
-               print("▤", end=' ')
+            	LD.set_pixel(y, x, 7)
+				continue
             elif array[y][x]==7:
-               print("▩", end=' ')
+            	LD.set_pixel(y, x, 8)
+				continue
             else:
-               print("X", end=' ')
-         print()
+               #print("X", end=' ')
+				continue
 
-		LD.set_pixel(i, j, color)
+			print()
+			
 arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
 currBlk=Matrix(arrayBlk)
 
