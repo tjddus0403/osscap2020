@@ -1,28 +1,22 @@
-import gpiozero
-import tkinter as tk
-import numpy as np
-
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(LED, GOIO.OUT, initail=GPIO.LOW)
-
 import RPi.GPIO as GPIO
 import time
 
-delay = 0.000001
+delay = 0.0015
 
 GPIO.setmode(GPIO.BCM)
-red1_pin = 17
-green1_pin = 18
-blue1_pin = 22
-red2_pin = 23
-green2_pin = 24
-blue2_pin = 25
-clock_pin = 3
-a_pin = 7
-b_pin = 8
-c_pin = 9
+GPIO.setwarnings(False)
+red1_pin = 11
+green1_pin = 27
+blue1_pin = 7
+red2_pin = 8
+green2_pin = 9
+blue2_pin = 10
+clock_pin = 17
+a_pin = 22
+b_pin = 23
+c_pin = 24
 latch_pin = 4
-oe_pin = 2
+oe_pin = 18
 
 GPIO.setup(red1_pin, GPIO.OUT)
 GPIO.setup(green1_pin, GPIO.OUT)
@@ -37,7 +31,7 @@ GPIO.setup(c_pin, GPIO.OUT)
 GPIO.setup(latch_pin, GPIO.OUT)
 GPIO.setup(oe_pin, GPIO.OUT)
 
-screen = [[0 for x in xrange(32)] for x in xrange(16)]
+screen = [[0 for x in range(32)] for x in range(16)]
 
 def clock():
     GPIO.output(clock_pin, 1)
@@ -92,6 +86,20 @@ def refresh():
         GPIO.output(oe_pin, 0)
         time.sleep(delay)
 
+def push():
+    for row in range(8):
+        GPIO.output(oe_pin, 1)
+        set_color_top(0)
+        set_row(row)
+        #time.sleep(delay)
+        for col in range(32):
+            set_color_top(screen[row][col])
+            set_color_bottom(screen[row+8][col])
+            clock()
+        #GPIO.output(oe_pin, 0)
+        GPIO.output(oe_pin, 0)
+        time.sleep(100)
+
 def fill_rectangle(x1, y1, x2, y2, color):
     for x in range(x1, x2):
         for y in range(y1, y2):
@@ -101,9 +109,6 @@ def fill_rectangle(x1, y1, x2, y2, color):
 def set_pixel(x, y, color):
     screen[y][x] = color
 
-fill_rectangle(0, 0, 12, 12, 1)
-fill_rectangle(20, 4, 30, 15, 2)
-fill_rectangle(15, 0, 19, 7, 7)
-
-while True:
-    refresh()
+def main() :
+    while True:
+        refresh()
