@@ -45,7 +45,6 @@ level = int(input("난이도 easy는 1, hard는 2를 입력하세요: "))
 
 if level == 1:
    lighton=sample(list(range(1,22)),7)
-   print (lighton)
    currBlk=Matrix(arrayBlk)
    for i in lighton:
       top=2
@@ -74,8 +73,6 @@ elif level == 2:
    red=lighton[:3]
    yellow=lighton[3:5]
    green=lighton[5:]
-   print (lighton)
-   print(red,yellow,green)
    currBlk=Matrix(arrayBlk)
    for i in lighton:
       top=2
