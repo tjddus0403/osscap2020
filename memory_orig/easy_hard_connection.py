@@ -110,29 +110,3 @@ elif level == 2:
 iScreen=Matrix(arrayScreen)
 oScreen=Matrix(iScreen)
 draw_matrix(oScreen); print()
-
-while True:
-    #게임진행
-    #입출력확인시작
-    i = 0
-    for a in range(2,14):
-        for b in range(2, 30):
-            if Qscreen[a][b] != Ascreen[a][b]:
-                print("실패하셨습니다.")
-                thehalgguenya = input("게임을 다시 시작하시겠습니까? (Y/N): ")
-                if thehalgguenya == "Y":
-                    i = 1
-                    break
-                elif thehalgguenya == "N":
-                    i = 2
-                    break
-                if i == 1:
-                    pass
-                    #아예 첫화면으로 가서 다시 시작
-                elif i == 0:
-                    pass
-                    #print("success")
-                    #while루프 다시돌아가면서 다음난이도 출력되며 게임 진행
-                elif i == 2:
-                    pass
-                    #아예 게임 종료
