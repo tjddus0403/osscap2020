@@ -23,6 +23,7 @@ def draw_matrix(m):
 arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
 currBlk=Matrix(arrayBlk)
 i=0
+level=int(input("난이도 easy는 1, hard는 2를 입력하세요: "))
 while True:
    if i==1:
       print("게임을 다시 시작합니다.")
@@ -31,7 +32,7 @@ while True:
       break
    while True:
 #output
-      i=0
+    
       QarrayScreen=[
          [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
          [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
@@ -51,7 +52,8 @@ while True:
          [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
 
 
-      level = int(input("난이도 easy는 1, hard는 2를 입력하세요: "))
+      if(i!=0):
+         level = int(input("난이도 easy는 1, hard는 2를 입력하세요: "))
 
       if level == 1:
          lighton=sample(list(range(1,22)),7)
