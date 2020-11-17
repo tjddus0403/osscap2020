@@ -330,7 +330,7 @@ def gallery_mode_exe():
                     continue
                     # for i in picture 루프로 돌아가 다음 그림 출력
                                          
-                elif (i==1)or(i==2):
+                if (i==1)or(i==2):
                     break
 
             if i == 0:
@@ -348,8 +348,5 @@ def gallery_mode_exe():
             if (i==1)or(i==2):
                 break
 
-                    
-        if (i==1)or(i==2):
-            break
 
 gallery_mode_exe()
