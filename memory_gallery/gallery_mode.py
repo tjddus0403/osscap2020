@@ -41,12 +41,16 @@ def draw_matrix(m):
 def gallery_mode_exe():
     arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
     currBlk=Matrix(arrayBlk)
-    i=0
     count=0
     hint=0
+    Q=0
+    i=0
     
     while True:
-        print("환영합니다. 게임을 시작합니다.")
+        if Q==1:
+            print("게임을 중도포기하셨습니다. 게임을 종료합니다.")
+            break
+        
         if count==5:
             print("갤러리 모드를 성공하셨습니다. 게임을 종료합니다.")
             break
@@ -55,6 +59,7 @@ def gallery_mode_exe():
         elif i==2:
             print("게임을 종료합니다.")
             break
+        print("환영합니다. 게임을 시작합니다.")
         
         #갤러리 속 그림의 종류 수박,아스크림,당근,하트,강아지 총 5가지
         # a,b,c,d같은 요소는 수박 4등분한 각각의 그림파일을 의미
@@ -125,7 +130,7 @@ def gallery_mode_exe():
 
                 QoScreen=Matrix(QiScreen)
                 draw_matrix(QoScreen); print()
-                time.sleep(15)
+                time.sleep(1)
 
                 # input
                 AiScreenDy=12
@@ -168,6 +173,7 @@ def gallery_mode_exe():
                     print('Finish : \' \'')
                     key=input('Enter a key : ')
                     if key=='q':
+                        Q=1
                         print('Game terminated')
                         break
                     elif key=='a':
@@ -263,6 +269,10 @@ def gallery_mode_exe():
                     AoScreen.paste(tempBlk, top, left)
                     draw_matrix(AoScreen); print()
 
+                if Q==1:
+                    i=-1
+                    break
+                
                 draw_matrix(AiScreen); print()
                     
                 #input_output_corfirm
@@ -307,6 +317,8 @@ def gallery_mode_exe():
                 
             if (i==1)or(i==2):
                 break
-
+            
+            if Q==1:
+                break
 
 gallery_mode_exe()
