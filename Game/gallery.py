@@ -127,7 +127,7 @@ def gallery_mode_exe():
 
                 QoScreen=Matrix(QiScreen)
                 draw_matrix(QoScreen); print()
-                time.sleep(1)
+                time.sleep(10)
 
                 # input
                 AiScreenDy=12
