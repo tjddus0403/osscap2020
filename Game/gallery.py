@@ -305,16 +305,3 @@ def gallery_mode_exe():
                 break
 
 #gallery_mode_exe()
-
-         f = open("짝맞추기1등.txt", 'r')
-         file = f.read()
-         f.close()
-         list = file.splitlines()
-         print(list[0])
-         print(runtime)
-         for line in list:
-             print(line)
-             if float(line)>runtime:
-                f= open("짝맞추기1등.txt", 'w')
-                line = f.write(str(runtime))
-         f.close()
