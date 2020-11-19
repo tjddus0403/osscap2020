@@ -15,7 +15,7 @@ def draw_matrix(m):
                #blue
             elif array[y][x]==2:
                print("▣", end=' ')
-               #purple
+               #skyblue
             elif array[y][x]==3:
                print("▨", end=' ')
                #yellow
