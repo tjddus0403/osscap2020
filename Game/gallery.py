@@ -97,6 +97,7 @@ def gallery_mode_exe():
                 QoScreen=Matrix(QiScreen)
                 draw_matrix(QoScreen); print()
                 time.sleep(15)
+                start_time = time.time()
 
                 # input
                 AiScreenDy=12
@@ -235,12 +236,14 @@ def gallery_mode_exe():
                     AoScreen = Matrix(AiScreen)
                     AoScreen.paste(tempBlk, top, left)
                     draw_matrix(AoScreen); print()
+       
 
                 if Q==1:
                     i=-1
                     break
                 
                 draw_matrix(AiScreen); print()
+                end_time = time.time()
                     
                 #input_output_corfirm
                 i = 0
@@ -289,3 +292,16 @@ def gallery_mode_exe():
                 break
 
 #gallery_mode_exe()
+
+         f = open("짝맞추기1등.txt", 'r')
+         file = f.read()
+         f.close()
+         list = file.splitlines()
+         print(list[0])
+         print(runtime)
+         for line in list:
+             print(line)
+             if float(line)>runtime:
+                f= open("짝맞추기1등.txt", 'w')
+                line = f.write(str(runtime))
+         f.close()
