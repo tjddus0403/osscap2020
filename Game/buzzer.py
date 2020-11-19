@@ -5,7 +5,7 @@ GPIO.setmode(GPIO.BCM)
 
 buzzer = Buzzer(17)
 scale=[261,294,329,349,392,440,493,523]
-GPIO.setup(buzzer,GPIO.OUT)
+GPIO.setup(buzzer,scale)
 p=GPIO.PWM(buzzer,600)
 p.start(50)
 try:
