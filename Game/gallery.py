@@ -3,7 +3,7 @@ from random import*
 import random
 import time
 from original import*
-from original import draw_matrix
+
 def gallery_mode_exe():
     arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
     currBlk=Matrix(arrayBlk)
