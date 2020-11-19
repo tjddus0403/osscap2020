@@ -1,5 +1,4 @@
 from matrix import*
-from original import draw_matrix
 from original import*
 import copy
 from random import*
@@ -35,9 +34,9 @@ def memory_to():
       red=lighton[:4]
       yellow=lighton[4:8]
       green=lighton[8:12]
-      brown=lighton[12:16]
-      orange=lighton[16:]
-      print(red, yellow, green, brown, orange)
+      blue=lighton[12:16]
+      pink=lighton[16:]
+      print(red, yellow, green, blue, pink)
       arrayBlk=[[2,2,2,2],[2,0,0,2],[2,0,0,2],[2,2,2,2]]
       currBlk=Matrix(arrayBlk)
       
@@ -54,9 +53,9 @@ def memory_to():
                      QarrayScreen[a][b]=3
                   elif i in green:
                      QarrayScreen[a][b]=7
-                  elif i in brown:
+                  elif i in blue:
                      QarrayScreen[a][b]=12
-                  elif i in orange:
+                  elif i in pink:
                      QarrayScreen[a][b]=20
          elif ((i==8)or(i==9)or(i==10)or(i==11)or(i==12)or(i==13)or(i==14)):
             top=6
@@ -69,9 +68,9 @@ def memory_to():
                      QarrayScreen[a][b]=3
                   elif i in green:
                      QarrayScreen[a][b]=7
-                  elif i in brown:
+                  elif i in blue:
                      QarrayScreen[a][b]=12
-                  elif i in orange:
+                  elif i in pink:
                      QarrayScreen[a][b]=20
          elif ((i==15)or(i==16)or(i==17)or(i==18)or(i==19)or(i==20)or(i==21)):
             top=10
@@ -84,9 +83,9 @@ def memory_to():
                      QarrayScreen[a][b]=3
                   elif i in green:
                      QarrayScreen[a][b]=7
-                  elif i in brown:
+                  elif i in blue:
                      QarrayScreen[a][b]=12
-                  elif i in orange:
+                  elif i in pink:
                      QarrayScreen[a][b]=20
 
       QiScreen=Matrix(QarrayScreen)
