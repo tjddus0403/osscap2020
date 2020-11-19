@@ -11,6 +11,7 @@ def gallery_mode_exe():
     hint=0
     Q=0
     i=0
+    score=0
     
     while True:
         if Q==1:
@@ -25,8 +26,20 @@ def gallery_mode_exe():
         elif i==2:
             print("게임을 종료합니다.")
             break
-        print("환영합니다. 게임을 시작합니다.")
-        
+        if score>0:
+         f = open("갤러리1등.txt", 'r')
+         file = f.read()
+         f.close()
+         list = file.splitlines()
+         for line in list:
+             print(line)
+             if int(line)<score:
+                f= open("갤러리1등.txt", 'w')
+                line = f.write(str(score))
+         f.close() 
+    
+        print("환영합니다. 게임을 시작합니다.")        
+       
         #갤러리 속 그림의 종류 수박,아스크림,당근,하트,강아지 총 5가지
         # a,b,c,d같은 요소는 수박 4등분한 각각의 그림파일을 의미
         gallery = [['a','b','c','d'],['e','f','g','h'],['i','j'],['k','l'],['m','n','o','p','q','r']]
@@ -97,7 +110,6 @@ def gallery_mode_exe():
                 QoScreen=Matrix(QiScreen)
                 draw_matrix(QoScreen); print()
                 time.sleep(15)
-                start_time = time.time()
 
                 # input
                 AiScreenDy=12
@@ -217,6 +229,7 @@ def gallery_mode_exe():
 
                     elif key=='h':
                         if hint==0:
+                            score-=1
                             draw_matrix(QoScreen);print()
                             time.sleep(5)
                             hint+=1
@@ -243,7 +256,6 @@ def gallery_mode_exe():
                     break
                 
                 draw_matrix(AiScreen); print()
-                end_time = time.time()
                     
                 #input_output_corfirm
                 i = 0
@@ -264,6 +276,7 @@ def gallery_mode_exe():
                     if (i==1)or(i==2):
                         break
                 if i == 0:
+                    score+=2
                     print("success")
                     continue
                     # for i in picture 루프로 돌아가 다음 그림 출력                                
