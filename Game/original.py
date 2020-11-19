@@ -37,7 +37,7 @@ def draw_matrix(m):
                LMD.set_pixel(x,y,4)
             elif array[y][x]==20:   #orange
                #print("▧", end=' ')
-               LMD.set_pixel(x,y,5)
+               LMD.set_pixel(x,y,8)
             else:
                #print("X", end=' ')
                LMD.set_pixel(x,y,7)
