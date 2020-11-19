@@ -1,5 +1,6 @@
 from matrix import*
 from original import draw_matrix
+from original import*
 import copy
 from random import*
 import time
