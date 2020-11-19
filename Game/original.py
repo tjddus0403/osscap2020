@@ -143,6 +143,7 @@ def memory_key():
 
             QiScreen=Matrix(QarrayScreen)
             QoScreen=Matrix(QiScreen)
+            LED_init()
             draw_matrix(QoScreen); print()
             time.sleep(7)
             #input
