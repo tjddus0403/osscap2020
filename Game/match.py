@@ -200,7 +200,7 @@ def memory_to():
                   draw_matrix(QoScreen);print()
                   time.sleep(4)
                   hint+=1
-            continue
+            
          elif key==' ':
             break
          else:
