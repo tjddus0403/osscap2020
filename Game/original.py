@@ -16,31 +16,31 @@ def draw_matrix(m):
          for x in range(m.get_dx()):
             if array[y][x]==0:
                #print("□", end=' ')
-               LMD.set_pixel(y,19-x,0)
+               LMD.set_pixel(y,x,0)
             elif array[y][x]==1:
                #print("■", end=' ')
-               LMD.set_pixel(y,19-x,4)
+               LMD.set_pixel(y,x,4)
             elif array[y][x]==2:
                #print("▣", end=' ')
-               LMD.set_pixel(y,19-x,4)
+               LMD.set_pixel(y,x,4)
             elif array[y][x]==3:
                #print("▨", end=' ')
-               LMD.set_pixel(y,19-x,4)
+               LMD.set_pixel(y,x,4)
             elif array[y][x]==4:
                #print("▤", end=' ')
-               LMD.set_pixel(y,19-x,4)
+               LMD.set_pixel(y,x,4)
             elif array[y][x]==7:
                #print("▩", end=' ')
-               LMD.set_pixel(y,19-x,4)
+               LMD.set_pixel(y,x,4)
             elif array[y][x]==12:
                #print("▦", end=' ')
-               LMD.set_pixel(y,19-x,4)
+               LMD.set_pixel(y,x,4)
             elif array[y][x]==20:
                #print("▧", end=' ')
-               LMD.set_pixel(y,19-x,4)
+               LMD.set_pixel(y,x,4)
             else:
                #print("X", end=' ')
-               LMD.set_pixel(y,19-x,0)
+               LMD.set_pixel(y,x,0)
          print()
 def memory_key():
       arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
