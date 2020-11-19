@@ -170,6 +170,7 @@ def gallery_mode_exe():
                     print('Direction : q(quit), a(left), d(right), s(down)')
                     print('Fix the color block : r(red), y(yellow), g(green), b(brown), o(orange)')
                     print('Erase the block : e(erase)')
+                    print('Use a hint : h(hint)')
                     print('Finish : \' \'')
                     key=input('Enter a key : ')
                     if key=='q':
