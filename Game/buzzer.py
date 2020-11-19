@@ -1,6 +1,6 @@
 from gpiozero import Buzzer
 import RPi.GPIO as GPIO
-from time
+import time
 GPIO.setwarning(False)
 GPIO.setmode(GPIO.BCM)
 
