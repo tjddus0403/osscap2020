@@ -17,27 +17,27 @@ def draw_matrix(m):
             if array[y][x]==0:
                #print("□", end=' ')
                LMD.set_pixel(x,y,0)
-            elif array[y][x]==1:
+            elif array[y][x]==1:   #blue
                #print("■", end=' ')
                LMD.set_pixel(x,y,4)
-            elif array[y][x]==2:
+            elif array[y][x]==2:  #skyblue
                #print("▣", end=' ')
                LMD.set_pixel(x,y,6)
-            elif array[y][x]==3:
+            elif array[y][x]==3:  #yellow
                #print("▨", end=' ')
                LMD.set_pixel(x,y,3)
-            elif array[y][x]==4:
+            elif array[y][x]==4: #red
                #print("▤", end=' ')
                LMD.set_pixel(x,y,1)
-            elif array[y][x]==7:
+            elif array[y][x]==7:   #green
                #print("▩", end=' ')
                LMD.set_pixel(x,y,2)
-            elif array[y][x]==12:
+            elif array[y][x]==12:   #brown
                #print("▦", end=' ')
                LMD.set_pixel(x,y,4)
-            elif array[y][x]==20:
+            elif array[y][x]==20:   #orange
                #print("▧", end=' ')
-               LMD.set_pixel(x,y,4)
+               LMD.set_pixel(x,y,5)
             else:
                #print("X", end=' ')
                LMD.set_pixel(x,y,7)
