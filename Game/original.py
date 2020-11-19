@@ -22,7 +22,7 @@ def draw_matrix(m):
                LMD.set_pixel(x,y,4)
             elif array[y][x]==2:
                #print("▣", end=' ')
-               LMD.set_pixel(x,y,7)
+               LMD.set_pixel(x,y,6)
             elif array[y][x]==3:
                #print("▨", end=' ')
                LMD.set_pixel(x,y,3)
@@ -40,7 +40,7 @@ def draw_matrix(m):
                LMD.set_pixel(x,y,4)
             else:
                #print("X", end=' ')
-               LMD.set_pixel(x,y,1)
+               LMD.set_pixel(x,y,7)
          print()
 def memory_key():
       arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
