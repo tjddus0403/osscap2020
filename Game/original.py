@@ -17,9 +17,9 @@ def draw_matrix(m):
             if array[y][x]==0:
                #print("□", end=' ')
                LMD.set_pixel(x,y,0)
-            elif array[y][x]==1:   #blue
+            elif array[y][x]==1:   #white(테두리)
                #print("■", end=' ')
-               LMD.set_pixel(x,y,4)
+               LMD.set_pixel(x,y,7)
             elif array[y][x]==2:  #skyblue
                #print("▣", end=' ')
                LMD.set_pixel(x,y,6)
@@ -32,14 +32,14 @@ def draw_matrix(m):
             elif array[y][x]==7:   #green
                #print("▩", end=' ')
                LMD.set_pixel(x,y,2)
-            elif array[y][x]==12:   #brown
+            elif array[y][x]==12:   #blue
                #print("▦", end=' ')
-               LMD.set_pixel(x,y,8)
-            elif array[y][x]==20:   #orange
+               LMD.set_pixel(x,y,4)
+            elif array[y][x]==20:   #pink
                #print("▧", end=' ')
-               LMD.set_pixel(x,y,12)
+               LMD.set_pixel(x,y,5)
             else:
-               #print("X", end=' ')
+               #print("X", end=' ') #white(겹칠떄)
                LMD.set_pixel(x,y,7)
          print()
 def memory_key():
