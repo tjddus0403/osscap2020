@@ -1,5 +1,6 @@
 from matrix import*
 from random import*
+from random import shuffle
 import random
 import time
 from original import*
