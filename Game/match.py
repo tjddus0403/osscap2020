@@ -90,6 +90,7 @@ def memory_to():
 
       QiScreen=Matrix(QarrayScreen)
       QoScreen=Matrix(QiScreen)
+      LED_init()
       draw_matrix(QoScreen); print()
       time.sleep(15)
       start_time=time.time()
