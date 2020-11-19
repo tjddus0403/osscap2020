@@ -65,11 +65,14 @@ def gallery_mode_exe():
         # a,b,c,d같은 요소는 수박 4등분한 각각의 그림파일을 의미
         gallery = [['a','b','c','d'],['e','f','g','h'],['i','j'],['k','l'],['m','n','o','p','q','r']]
         random.shuffle(gallery)
+        #print(gallery)
 
         for picture in gallery:
             count = count+1
             random.shuffle(picture)
+            #print(picture)
             for order in picture:
+                #print(order)
                 if order == 'a':
                     from watermelon import QarrayScreen1 as QarrayScreen
                     QiScreen=Matrix(QarrayScreen)
@@ -127,7 +130,7 @@ def gallery_mode_exe():
 
                 QoScreen=Matrix(QiScreen)
                 draw_matrix(QoScreen); print()
-                time.sleep(10)
+                time.sleep(1)
 
                 # input
                 AiScreenDy=12
@@ -167,6 +170,7 @@ def gallery_mode_exe():
                     print('Direction : q(quit), a(left), d(right), s(down)')
                     print('Fix the color block : r(red), y(yellow), g(green), b(brown), o(orange)')
                     print('Erase the block : e(erase)')
+                    print('Use a hint : h(hint)')
                     print('Finish : \' \'')
                     key=input('Enter a key : ')
                     if key=='q':
@@ -303,11 +307,11 @@ def gallery_mode_exe():
                 elif order == 'e' or order == 'f' or order == 'g' or order == 'h':
                     from icecream import QarrayScreen 
                 elif order == 'i' or order == 'j':
-                    from icecream import QarrayScreen
+                    from carrot import QarrayScreen
                 elif order == 'k' or order == 'l':
-                    from icecream import QarrayScreen
+                    from heart import QarrayScreen
                 elif order == 'm' or order == 'n' or order == 'o' or order == 'p'or order == 'q' or order == 'r':
-                    from icecream import QarrayScreen
+                    from dog import QarrayScreen
                 QiScreen=Matrix(QarrayScreen)
                 QoScreen=Matrix(QiScreen)
                 draw_matrix(QoScreen); print()
@@ -317,3 +321,5 @@ def gallery_mode_exe():
             
             if Q==1:
                 break
+
+#gallery_mode_exe()
