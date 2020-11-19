@@ -306,11 +306,11 @@ def gallery_mode_exe():
                 elif order == 'e' or order == 'f' or order == 'g' or order == 'h':
                     from icecream import QarrayScreen 
                 elif order == 'i' or order == 'j':
-                    from icecream import QarrayScreen
+                    from carrot import QarrayScreen
                 elif order == 'k' or order == 'l':
-                    from icecream import QarrayScreen
+                    from heart import QarrayScreen
                 elif order == 'm' or order == 'n' or order == 'o' or order == 'p'or order == 'q' or order == 'r':
-                    from icecream import QarrayScreen
+                    from dog import QarrayScreen
                 QiScreen=Matrix(QarrayScreen)
                 QoScreen=Matrix(QiScreen)
                 draw_matrix(QoScreen); print()
