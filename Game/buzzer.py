@@ -1,7 +1,6 @@
 from gpiozero import Buzzer
 import RPi.GPIO as GPIO
 import time
-GPIO.setwarning(False)
 GPIO.setmode(GPIO.BCM)
 
 buzzer = Buzzer(17)
