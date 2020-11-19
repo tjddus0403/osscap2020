@@ -16,13 +16,13 @@ def draw_matrix(m):
          for x in range(m.get_dx()):
             if array[y][x]==0:
                #print("□", end=' ')
-               LMD.set_pixel(x,y,0)
+               LMD.set_pixel(19-x,y,0)
             elif array[y][x]==1:
                #print("■", end=' ')
-               LMD.set_pixel(x,y,4)
+               LMD.set_pixel(19-x,y,4)
             elif array[y][x]==2:
                #print("▣", end=' ')
-               LMD.set_pixel(x,y,4)
+               LMD.set_pixel(19-x,y,4)
             elif array[y][x]==3:
                #print("▨", end=' ')
                LMD.set_pixel(x,y,4)
