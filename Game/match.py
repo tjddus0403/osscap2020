@@ -36,7 +36,7 @@ def memory_to():
       green=lighton[8:12]
       blue=lighton[12:16]
       pink=lighton[16:]
-      print(red, yellow, green, blue, pink)
+    
       arrayBlk=[[2,2,2,2],[2,0,0,2],[2,0,0,2],[2,2,2,2]]
       currBlk=Matrix(arrayBlk)
       
