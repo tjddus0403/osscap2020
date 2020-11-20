@@ -315,5 +315,5 @@ def memory_key():
                            line = f.write(str(success))
                            print("새로운 1등 기록 : ",line)
                            f.close()
-             break
+               break
       
