@@ -43,15 +43,15 @@ def draw_matrix(m):
                LMD.set_pixel(x,y,7)
          print()
 def memory_key():
-      player=input("사용자 이름을 입력하세요 : ")
+      #player=input("사용자 이름을 입력하세요 : ")
       arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
       currBlk=Matrix(arrayBlk)
       i=0
-      success=0
+      #success=0
       level = int(input("난이도 easy는 1, hard는 2를 입력하세요: "))
       while True:
          if i==1:
-            success=0
+            #success=0
             print("게임을 다시 시작합니다.")
          elif i==2:
             print("게임을 종료합니다.")
@@ -246,7 +246,7 @@ def memory_key():
                         AarrayScreen[a][b]=0
                elif key=='h':
                   if hint==0:
-                        success-=0.5
+                        #success-=0.5
                         draw_matrix(QoScreen);print()
                         time.sleep(3)
                         hint+=1
@@ -286,11 +286,11 @@ def memory_key():
          
             if i == 0:
                print("success")
-               success+=1
+               #success+=1
                continue
                                
             elif (i==1)or(i==2):
-               if level==1:
+              ''' if level==1:
                    f = open("오리지널easy_1등.txt", 'r')
                    file = f.read()
                    f.close()
@@ -314,6 +314,6 @@ def memory_key():
                            f= open("오리지널hard_1등.txt", 'w')
                            line = f.write(str(success))
                            print("새로운 1등 기록 : ",line)
-                           f.close()
+                           f.close()'''
                break
       
