@@ -1,3 +1,5 @@
+#너무졸리다 열시미햇는데 넘어렵다 성연아 나자러갈게 나 오늘 시간 많으니까 자고인나서 계쏙해볼게
+
 from matrix import*
 from random import*
 import random
@@ -324,8 +326,8 @@ while True:
                   draw_matrix(AiScreen); print()
             
                   #input_output_corfirm
-                  '''입출력 일치 확인할 차례인데 위에서 Qarrayscreen을 출력하고 지우고 출력하고 지우고해서
-                  아마 여기서 다시한번 Qarrayscreen 정상으로 만들어놓고나서 Aarrayscreen이랑 비교해야할듯'''
+                  '''입출력 일치 확인할 차례인데 위에서 Qarrayscreen을 출력하고 지우고 출력하고 지우고햇으니까
+                  밑에처럼 코드들 다시한번 써서 Qarrayscreen 정상으로 만들어놓고나서 Aarrayscreen이랑 비교해야할듯'''
                   for i in lighton:        
                         top=2
                         left=2
