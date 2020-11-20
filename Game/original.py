@@ -3,7 +3,7 @@ from random import*
 import time
 import LED_display as LMD
 import threading
-
+import RPi.GPIO as GPIO
 def LED_init():
     thread=threading.Thread(target=LMD.main, args=())
     thread.setDaemon(True)
