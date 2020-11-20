@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-list=[261,294,329,349,393,440,493,523]
+list=[261.6256,293.6648,329.6276,349.2282,391.9954,440,493.8833,523.2511]
 num=[0,1,2,3,4,5,6,7]
 buzzer_pin=17
 GPIO.setwarnings(False)
