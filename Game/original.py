@@ -308,12 +308,12 @@ def memory_key():
                        if level==1:
                            f= open("오리지널easy_1등.txt", 'w')
                            line = f.write(str(success))
-                           print("새로운 1등 기록 : ",line)
+                           print("새로운 1등 기록 : ",success)
                            f.close()
                        elif level==2:
                            f= open("오리지널hard_1등.txt", 'w')
                            line = f.write(str(success))
-                           print("새로운 1등 기록 : ",line)
+                           print("새로운 1등 기록 : ",success)
                            f.close()
                break
       
