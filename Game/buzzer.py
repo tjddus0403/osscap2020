@@ -7,7 +7,7 @@ buzzer_pin=17
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(buzzer_pin,GPIO.OUT)
 try:
-    pwm=GPIO.PWM(buzzer_bin,100);
+    pwm=GPIO.PWM(buzzer_pin,100);
     pwm.start(100)
     pwm.ChangeDutyCycle(90)
     for i in range(80):
