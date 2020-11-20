@@ -32,14 +32,6 @@ def gallery_mode_exe():
             print("게임을 종료합니다.")
             break
         if score>0:
-            print(score)
-            score_list.append(score)
-            score_list.sort(reverse=True)
-            if len(score_list)<=2:
-                  print(score_list)
-            if len(score_list)>=3:
-                  print(score_list[:3])
-         if score>0:
             f = open("갤러리1등.txt", 'r')
             file = f.read()
             f.close()
