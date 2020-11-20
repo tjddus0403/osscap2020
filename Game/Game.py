@@ -7,7 +7,9 @@ while True:
    print("1. Original \n 2. Matching \n 3. Gallery \n 4. Turn off")
    choice=int(input("Select the Mode : "))
    if choice==1:
+      GPIO.setmode(GPIO.BCM)
       memory_key()
+      GPIO.cleanup()
       continue
    elif choice==2:
       memory_to()
