@@ -8,18 +8,12 @@ while True:
    choice=int(input("Select the Mode : "))
    if choice==1:
       memory_key()
-      refresh()   #erase
-      draw_matrix();print() #erase
       continue
    elif choice==2:
       memory_to()
-      refresh(screen)
-      draw_matrix(screen);print()
       continue
    elif choice==3:
       gallery_mode_exe()
-      refresh(screen)
-      draw_matrix(screen);print()
       continue
    elif choice==4:
       break
