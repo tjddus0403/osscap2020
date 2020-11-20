@@ -88,10 +88,10 @@ def gallery_mode_exe():
                     from icecream import QarrayScreen8 as QarrayScreen
                     QiScreen=Matrix(QarrayScreen)
                 if order == 'i':
-                    from carrot import QarrayScreen9 as QarrayScreen
+                    from strawberry import QarrayScreen9 as QarrayScreen
                     QiScreen=Matrix(QarrayScreen)
                 if order == 'j':
-                    from carrot import QarrayScreen10 as QarrayScreen
+                    from strawberry import QarrayScreen10 as QarrayScreen
                     QiScreen=Matrix(QarrayScreen)
                 if order == 'k':
                     from heart import QarrayScreen11 as QarrayScreen
@@ -302,7 +302,7 @@ def gallery_mode_exe():
                 elif order == 'e' or order == 'f' or order == 'g' or order == 'h':
                     from icecream import QarrayScreen 
                 elif order == 'i' or order == 'j':
-                    from carrot import QarrayScreen
+                    from strawberry import QarrayScreen
                 elif order == 'k' or order == 'l':
                     from heart import QarrayScreen
                 elif order == 'm' or order == 'n' or order == 'o' or order == 'p'or order == 'q' or order == 'r':
