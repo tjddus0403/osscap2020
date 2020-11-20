@@ -265,6 +265,7 @@ def memory_key():
                   for b in range(2, 30):
                         if QarrayScreen[a][b] != AarrayScreen[a][b]:
                             print("실패하셨습니다.")
+                            GPIO.cleanup()
                             thehalgguenya = input("게임을 다시 시작하시겠습니까? (Y/N): ")
                             if thehalgguenya == "Y":
                                 i = 1
