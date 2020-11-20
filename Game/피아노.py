@@ -79,6 +79,7 @@ GPIO.setup(buzzer_pin,GPIO.OUT)'''
 #일단 노래가 두가지라고 가정. a가 비행기, b가 하울이라고 가정.
 playlist = ['a','b']
 random.shuffle(playlist)
+i=0
 
 while True:
       if (i==1)or(i==2):
