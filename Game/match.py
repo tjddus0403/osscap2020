@@ -221,8 +221,12 @@ def memory_to():
                if QarrayScreen[a][b] != AarrayScreen[a][b]:
                      print("Game over")
                      i=1
+                     refresh(AiScreen)
+                     draw_matrix(AiScreen); print()
                      break
          if i==1:
+            refresh(AiScreen)
+            draw_matrix(AiScreen); print()
             break
       
       if i==0:
