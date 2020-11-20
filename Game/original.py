@@ -285,7 +285,5 @@ def memory_key():
                continue
                                
             elif (i==1)or(i==2):
-               refresh(AiScreen)
-               draw_matrix(AiScreen); print()
                break
       
