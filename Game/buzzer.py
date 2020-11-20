@@ -12,7 +12,7 @@ try:
     pwm.ChangeDutyCycle(90)
     for i in range(80):
         pwm.ChangeFrequency(list[num[i]])
-        time.sleep(0.3)
+        time.sleep(1)
 except KeyboardInterrupt:
-    PWM.stop()
+    pwm.stop()
     GPIO.cleanup()
