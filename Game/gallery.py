@@ -115,7 +115,7 @@ def gallery_mode_exe():
                 QoScreen=Matrix(QiScreen)
                 LED_init()
                 draw_matrix(QoScreen); print()
-                time.sleep(15)
+                time.sleep(10)
 
                 # input
                 AiScreenDy=12
@@ -153,7 +153,7 @@ def gallery_mode_exe():
                 while True:
 
                     print('Direction : q(quit), a(left), d(right), s(down)')
-                    print('Fix the color block : r(red), y(yellow), g(green), b(brown), o(orange)')
+                    print('Fix the color block : r(red), y(yellow), g(green), B(blue), P(Pink)')
                     print('Erase the block : e(erase)')
                     print('Use a hint : h(hint)')
                     print('Finish : \' \'')
@@ -218,7 +218,7 @@ def gallery_mode_exe():
                                     AarrayScreen[a][b]=0
                                     continue
 
-                    elif key=='o':
+                    elif key=='p':
                         for a in range(top,top+currBlk.get_dy()):
                             for b in range(left,left+currBlk.get_dx()):
                                 if (AarrayScreen[a][b]==0)or(AarrayScreen[a][b]==4)or(AarrayScreen[a][b]==3)or(AarrayScreen[a][b]==7)or(AarrayScreen[a][b]==12):
