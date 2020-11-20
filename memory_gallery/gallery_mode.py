@@ -42,40 +42,65 @@ def gallery_mode_exe():
     arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
     currBlk=Matrix(arrayBlk)
     count=0
-    hint=0
     Q=0
     i=0
-    score=0
-    score_list=[]
     
     while True:
+        score=0
+        player=0
         if Q==1:
             print("게임을 중도포기하셨습니다. 게임을 종료합니다.")
             break
         if count==5:
             print("갤러리 모드를 성공하셨습니다. 게임을 종료합니다.")
-            break
-        if i==1:
-            print("게임을 다시 시작합니다.")
-        elif i==2:
-            print("게임을 종료합니다.")
-            break
-        if score>0:
             f = open("갤러리1등.txt", 'r')
             file = f.read()
             f.close()
-            list = file.splitlines()
+            list = file.splitlines()      
             for line in list:
+                print("1등의 기록 : ", line)
+                print(player,"의 기록: ",score)
                 if int(line)<score:
-                        f=open("갤러리1등.txt", 'w')
-                        line = f.write(str(score))
-                        f.close()
-                    
-            print(score)
+                    print("축하드립니다. 신기록을 세우셨군요!!")
+                    f= open("갤러리1등.txt", 'w')
+                    line = f.write(str(score))
+                    print("새로운 1등 기록 : ",score)
+            f.close()
+            break
+        if i==1:
+            f = open("갤러리1등.txt", 'r')
+            file = f.read()
+            f.close()
+            list = file.splitlines()      
             for line in list:
-                print(line)
+                print("1등의 기록 : ", line)
+                print(player,"의 기록: ",score)
+                if int(line)<score:
+                    print("축하드립니다. 신기록을 세우셨군요!!")
+                    f= open("갤러리1등.txt", 'w')
+                    line = f.write(str(score))
+                    print("새로운 1등 기록 : ",score)
+            f.close()
+            print("게임을 다시 시작합니다.")
+        elif i==2:
+            f = open("갤러리1등.txt", 'r')
+            file = f.read()
+            f.close()
+            list = file.splitlines()      
+            for line in list:
+                print("1등의 기록 : ", line)
+                print(player,"의 기록: ",score)
+                if int(line)<score:
+                    print("축하드립니다. 신기록을 세우셨군요!!")
+                    f= open("갤러리1등.txt", 'w')
+                    line = f.write(str(score))
+                    print("새로운 1등 기록 : ",score)
+            f.close()
+            print("게임을 종료합니다.")
+            break
                     
         print("환영합니다. 게임을 시작합니다.")
+        player = input("플레이어의 이름을 입력하세요: ")
         
         #갤러리 속 그림의 종류 수박,아스크림,당근,하트,강아지 총 5가지
         # a,b,c,d같은 요소는 수박 4등분한 각각의 그림파일을 의미
@@ -146,7 +171,7 @@ def gallery_mode_exe():
 
                 QoScreen=Matrix(QiScreen)
                 draw_matrix(QoScreen); print()
-                time.sleep(15)
+                time.sleep(5)
 
                 # input
                 AiScreenDy=12
@@ -180,11 +205,12 @@ def gallery_mode_exe():
                 tempBlk=tempBlk+currBlk
                 AoScreen.paste(tempBlk,top,left)
                 draw_matrix(AoScreen); print()
+                hint=0
 
                 while True:
 
                     print('Direction : q(quit), a(left), d(right), s(down)')
-                    print('Fix the color block : r(red), y(yellow), g(green), b(brown), o(orange)')
+                    print('Fix the color block : r(red), y(yellow), g(green), B(blue), P(Pink)')
                     print('Erase the block : e(erase)')
                     print('Use a hint : h(hint)')
                     print('Finish : \' \'')
@@ -249,7 +275,7 @@ def gallery_mode_exe():
                                     AarrayScreen[a][b]=0
                                     continue
 
-                    elif key=='o':
+                    elif key=='p':
                         for a in range(top,top+currBlk.get_dy()):
                             for b in range(left,left+currBlk.get_dx()):
                                 if (AarrayScreen[a][b]==0)or(AarrayScreen[a][b]==4)or(AarrayScreen[a][b]==3)or(AarrayScreen[a][b]==7)or(AarrayScreen[a][b]==12):
@@ -325,7 +351,7 @@ def gallery_mode_exe():
                 elif order == 'e' or order == 'f' or order == 'g' or order == 'h':
                     from icecream import QarrayScreen 
                 elif order == 'i' or order == 'j':
-                    from starwberry import QarrayScreen
+                    from strawberry import QarrayScreen
                 elif order == 'k' or order == 'l':
                     from heart import QarrayScreen
                 elif order == 'm' or order == 'n' or order == 'o' or order == 'p'or order == 'q' or order == 'r':
@@ -333,13 +359,12 @@ def gallery_mode_exe():
                 QiScreen=Matrix(QarrayScreen)
                 QoScreen=Matrix(QiScreen)
                 draw_matrix(QoScreen); print()
+                time.sleep(5)
                 
             if (i==1)or(i==2):
                 break
             
             if Q==1:
                 break
-
-
 
 gallery_mode_exe()
