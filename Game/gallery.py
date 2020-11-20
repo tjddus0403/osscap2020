@@ -236,6 +236,7 @@ def gallery_mode_exe():
                     elif key=='h':
                         if hint==0:
                             score=-1
+                            LED_init()
                             draw_matrix(QoScreen);print()
                             time.sleep(5)
                             hint+=1
@@ -301,7 +302,9 @@ def gallery_mode_exe():
                     from dog import QarrayScreen
                 QiScreen=Matrix(QarrayScreen)
                 QoScreen=Matrix(QiScreen)
+                LED_init()
                 draw_matrix(QoScreen); print()
+                time.sleep(5)
                 
             if (i==1)or(i==2):
                 break
