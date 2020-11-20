@@ -51,6 +51,7 @@ def memory_key():
       level = int(input("난이도 easy는 1, hard는 2를 입력하세요: "))
       while True:
          if i==1:
+            success=0
             print("게임을 다시 시작합니다.")
          elif i==2:
             print("게임을 종료합니다.")
