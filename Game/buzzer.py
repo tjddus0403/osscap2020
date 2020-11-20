@@ -11,7 +11,7 @@ try:
     pwm=GPIO.PWM(buzzer_pin,100);
     pwm.start(100)
     pwm.ChangeDutyCycle(90)
-    for i in range(80):
+    for i in range(len(num)):
         pwm.ChangeFrequency(list[num[i]])
         time.sleep(1)
 except KeyboardInterrupt:
