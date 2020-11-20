@@ -4,6 +4,7 @@ import time
 list=[261,294,329,349,393,440,493,523]
 num=[0,1,2,3,4,5,6,7]
 buzzer_pin=17
+GPIO.setwarning(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(buzzer_pin,GPIO.OUT)
 try:
