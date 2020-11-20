@@ -8,12 +8,15 @@ while True:
    choice=int(input("Select the Mode : "))
    if choice==1:
       memory_key()
+      GPIO.cleanup()
       continue
    elif choice==2:
       memory_to()
+      GPIO.cleanup()
       continue
    elif choice==3:
       gallery_mode_exe()
+      GPIO.cleanup()
       continue
    elif choice==4:
       break
