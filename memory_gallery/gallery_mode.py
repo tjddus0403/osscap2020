@@ -61,14 +61,19 @@ def gallery_mode_exe():
             print("게임을 종료합니다.")
             break
         if score>0:
+            f = open("갤러리1등.txt", 'r')
+            file = f.read()
+            f.close()
+            list = file.splitlines()
+            for line in list:
+                if int(line)<score:
+                        f=open("갤러리1등.txt", 'w')
+                        line = f.write(str(score))
+                        f.close()
+                    
             print(score)
-            score_list.append(score)
-            score_list.sort(reverse=True)
-            if len(score_list)<=2:
-                  print(score_list)
-            if len(score_list)>=3:
-                  print(score_list[:3])
-            
+            for line in list:
+                print(line)
                     
         print("환영합니다. 게임을 시작합니다.")
         
@@ -109,10 +114,10 @@ def gallery_mode_exe():
                     from icecream import QarrayScreen8 as QarrayScreen
                     QiScreen=Matrix(QarrayScreen)
                 if order == 'i':
-                    from carrot import QarrayScreen9 as QarrayScreen
+                    from strawberry import QarrayScreen9 as QarrayScreen
                     QiScreen=Matrix(QarrayScreen)
                 if order == 'j':
-                    from carrot import QarrayScreen10 as QarrayScreen
+                    from strawberry import QarrayScreen10 as QarrayScreen
                     QiScreen=Matrix(QarrayScreen)
                 if order == 'k':
                     from heart import QarrayScreen11 as QarrayScreen
@@ -320,7 +325,7 @@ def gallery_mode_exe():
                 elif order == 'e' or order == 'f' or order == 'g' or order == 'h':
                     from icecream import QarrayScreen 
                 elif order == 'i' or order == 'j':
-                    from carrot import QarrayScreen
+                    from starwberry import QarrayScreen
                 elif order == 'k' or order == 'l':
                     from heart import QarrayScreen
                 elif order == 'm' or order == 'n' or order == 'o' or order == 'p'or order == 'q' or order == 'r':
@@ -335,17 +340,6 @@ def gallery_mode_exe():
             if Q==1:
                 break
 
-            if i==0:
-                f = open("갤러리1등.txt", 'r')
-                file = f.read()
-                f.close()
-                list = file.splitlines()
-                print(list[0])
-                for line in list:
-                    print(line)
-                    if float(line)>runtime:
-                        f= open("갤러리1등.txt", 'w')
-                        line = f.write(str(runtime))
-                f.close()
+
 
 gallery_mode_exe()
