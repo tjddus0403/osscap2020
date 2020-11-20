@@ -17,6 +17,7 @@ def gallery_mode_exe():
     count=0
     Q=0
     i=0
+    score=0
     
     while True:
         if Q==1:
@@ -24,21 +25,8 @@ def gallery_mode_exe():
             break
         if count==5:
             print("갤러리 모드를 성공하셨습니다. 게임을 종료합니다.")
-            f = open("갤러리1등.txt", 'r')
-            file = f.read()
-            f.close()
-            list = file.splitlines()      
-            for line in list:
-                print("1등의 기록 : ", line)
-                print(player,"의 기록: ",score)
-                if int(line)<score:
-                    print("축하드립니다. 신기록을 세우셨군요!!")
-                    f= open("갤러리1등.txt", 'w')
-                    line = f.write(str(score))
-                    print("새로운 1등 기록 : ",score)
-            f.close()
             break
-        if i==1:
+        if (i==1)or(i==2):
             f = open("갤러리1등.txt", 'r')
             file = f.read()
             f.close()
@@ -52,26 +40,12 @@ def gallery_mode_exe():
                     line = f.write(str(score))
                     print("새로운 1등 기록 : ",score)
             f.close()
-            print("게임을 다시 시작합니다.")
-        elif i==2:
-            f = open("갤러리1등.txt", 'r')
-            file = f.read()
-            f.close()
-            list = file.splitlines()      
-            for line in list:
-                print("1등의 기록 : ", line)
-                print(player,"의 기록: ",score)
-                if int(line)<score:
-                    print("축하드립니다. 신기록을 세우셨군요!!")
-                    f= open("갤러리1등.txt", 'w')
-                    line = f.write(str(score))
-                    print("새로운 1등 기록 : ",score)
-            f.close()
-            print("게임을 종료합니다.")
-            break
-        
-        score=0
-        player=0
+            if i==1:
+                print("게임을 다시 시작합니다.")
+            elif i==2:
+                print("게임을 종료합니다.")
+                break
+
         print("환영합니다. 게임을 시작합니다.")
         player = input("플레이어의 이름을 입력하세요: ")
         
@@ -266,7 +240,7 @@ def gallery_mode_exe():
 
                     elif key=='h':
                         if hint==0:
-                            score=-1
+                            score=-0.5
                             LED_init()
                             draw_matrix(QoScreen);print()
                             time.sleep(5)
@@ -313,7 +287,7 @@ def gallery_mode_exe():
                     if (i==1)or(i==2):
                         break
                 if i == 0:
-                    score+=2
+                    score+=1
                     print("success")
                     continue
                     # for i in picture 루프로 돌아가 다음 그림 출력                                
