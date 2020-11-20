@@ -43,8 +43,8 @@ def gallery_mode_exe():
                 if int(line)<score:
                     print("축하드립니다. 신기록을 세우셨군요!!")
                     f= open("갤러리1등.txt", 'w')
-                    line = f.write(str(runtime))
-                    print("새로운 1등 기록 : ",line)
+                    line = f.write(str(score))
+                    print("새로운 1등 기록 : ",score)
             f.close()
     
                     
