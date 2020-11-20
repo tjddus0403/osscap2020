@@ -15,7 +15,6 @@ def gallery_mode_exe():
     arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
     currBlk=Matrix(arrayBlk)
     count=0
-    hint=0
     Q=0
     i=0
     score=0
@@ -149,6 +148,7 @@ def gallery_mode_exe():
                 tempBlk=tempBlk+currBlk
                 AoScreen.paste(tempBlk,top,left)
                 draw_matrix(AoScreen); print()
+                hint=0
 
                 while True:
 
