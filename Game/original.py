@@ -43,6 +43,7 @@ def draw_matrix(m):
                LMD.set_pixel(x,y,7)
          print()
 def memory_key():
+      global lighton
       player=input("사용자 이름을 입력하세요 : ")
       arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
       currBlk=Matrix(arrayBlk)
