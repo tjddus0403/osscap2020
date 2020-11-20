@@ -105,6 +105,7 @@ def gallery_mode_exe():
                     QiScreen=Matrix(QarrayScreen)
 
                 QoScreen=Matrix(QiScreen)
+                LED_init()
                 draw_matrix(QoScreen); print()
                 time.sleep(15)
 
