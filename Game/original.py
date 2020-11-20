@@ -43,7 +43,6 @@ def draw_matrix(m):
                LMD.set_pixel(x,y,7)
          print()
 def memory_key():
-      global lighton
       player=input("사용자 이름을 입력하세요 : ")
       arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
       currBlk=Matrix(arrayBlk)
@@ -295,13 +294,13 @@ def memory_key():
                    f = open("오리지널easy_1등.txt", 'r')
                    file = f.read()
                    f.close()
-                   list = file.splitlines()
+                   ls = file.splitlines()
                elif level==2:
                    f=open("오리지널hard_1등.txt",'r')
                    file=f.read()
                    f.close()
-                   list=file.splitlines()
-               for line in list:
+                   ls=file.splitlines()
+               for line in ls:
                    print("1등의 기록 : ", line)
                    print(player,"의 기록: ",success)
                    if float(line)<success:
