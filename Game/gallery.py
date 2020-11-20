@@ -19,7 +19,6 @@ def gallery_mode_exe():
     i=0
     
     while True:
-        player=0
         if Q==1:
             print("게임을 중도포기하셨습니다. 게임을 종료합니다.")
             break
@@ -72,6 +71,7 @@ def gallery_mode_exe():
             break
         
         score=0
+        player=0
         print("환영합니다. 게임을 시작합니다.")
         player = input("플레이어의 이름을 입력하세요: ")
         
