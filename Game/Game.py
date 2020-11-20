@@ -9,15 +9,15 @@ while True:
    if choice==1:
       memory_key()
       break
-      #continue
+
    elif choice==2:
       memory_to()
       break
-      #continue
+
    elif choice==3:
       gallery_mode_exe()
       break
-      #continue
+
    elif choice==4:
       break
    else:
