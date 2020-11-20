@@ -1,5 +1,4 @@
 from matrix import*
-from random import*
 import random
 import time
 
