@@ -187,7 +187,7 @@ def memory_to():
                AoScreen=Matrix(AiScreen)
                AoScreen.paste(tempBlk,top, left)
                draw_matrix(AoScreen); print()
-               time.sleep(2)  
+               time.sleep(1)  
                if AarrayScreen[t1][l1]!=AarrayScreen[t2][l2]:
                   for a in range(t1,t1+currBlk.get_dy()):
                      for b in range(l1,l1+currBlk.get_dx()):
@@ -221,12 +221,8 @@ def memory_to():
                if QarrayScreen[a][b] != AarrayScreen[a][b]:
                      print("Game over")
                      i=1
-                     refresh(AiScreen)
-                     draw_matrix(AiScreen); print()
                      break
          if i==1:
-            refresh(AiScreen)
-            draw_matrix(AiScreen); print()
             break
       
       if i==0:
