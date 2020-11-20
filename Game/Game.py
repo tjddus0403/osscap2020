@@ -8,8 +8,8 @@ while True:
    choice=int(input("Select the Mode : "))
    if choice==1:
       memory_key()
-      refresh(AiScreen)   #erase
-      draw_matrix(AiScreen);print() #erase
+      refresh()   #erase
+      draw_matrix();print() #erase
       continue
    elif choice==2:
       memory_to()
