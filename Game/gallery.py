@@ -1,8 +1,15 @@
 from matrix import*
 import random
 import time
-from original import*
 from original import draw_matrix
+import LED_display as LMD
+import threading
+
+def LED_init():
+    thread=threading.Thread(target=LMD.main, args=())
+    thread.setDaemon(True)
+    thread.start()
+    return
 
 def gallery_mode_exe():
     arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
