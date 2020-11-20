@@ -1,7 +1,7 @@
 from match import*
 from original import*
 from gallery import*
-from LED_display import*
+
 while True:
    print("MODE")
    print("1. Original \n 2. Matching \n 3. Gallery \n 4. Turn off")
