@@ -1,9 +1,7 @@
 from matrix import*
-from random import*
-from random import shuffle
 import random
 import time
-from original import*
+from original import draw_matrix
 
 def gallery_mode_exe():
     arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
@@ -13,12 +11,12 @@ def gallery_mode_exe():
     Q=0
     i=0
     score=0
+    score_list=[]
     
     while True:
         if Q==1:
             print("게임을 중도포기하셨습니다. 게임을 종료합니다.")
             break
-        
         if count==5:
             print("갤러리 모드를 성공하셨습니다. 게임을 종료합니다.")
             break
@@ -28,19 +26,17 @@ def gallery_mode_exe():
             print("게임을 종료합니다.")
             break
         if score>0:
-         f = open("갤러리1등.txt", 'r')
-         file = f.read()
-         f.close()
-         list = file.splitlines()
-         for line in list:
-             print(line)
-             if int(line)<score:
-                f= open("갤러리1등.txt", 'w')
-                line = f.write(str(score))
-         f.close() 
-    
-        print("환영합니다. 게임을 시작합니다.")        
-       
+            print(score)
+            score_list.append(score)
+            score_list.sort(reverse=True)
+            if len(score_list)<=2:
+                  print(score_list)
+            if len(score_list)>=3:
+                  print(score_list[:3])
+            
+                    
+        print("환영합니다. 게임을 시작합니다.")
+        
         #갤러리 속 그림의 종류 수박,아스크림,당근,하트,강아지 총 5가지
         # a,b,c,d같은 요소는 수박 4등분한 각각의 그림파일을 의미
         gallery = [['a','b','c','d'],['e','f','g','h'],['i','j'],['k','l'],['m','n','o','p','q','r']]
@@ -230,7 +226,7 @@ def gallery_mode_exe():
 
                     elif key=='h':
                         if hint==0:
-                            score-=1
+                            score=-1
                             draw_matrix(QoScreen);print()
                             time.sleep(5)
                             hint+=1
@@ -250,7 +246,6 @@ def gallery_mode_exe():
                     AoScreen = Matrix(AiScreen)
                     AoScreen.paste(tempBlk, top, left)
                     draw_matrix(AoScreen); print()
-       
 
                 if Q==1:
                     i=-1
