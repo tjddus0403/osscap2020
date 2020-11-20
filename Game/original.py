@@ -310,7 +310,7 @@ def memory_key():
                            print("새로운 1등 기록 : ",line)
                            f.close()
                        elif level==2:
-                           f= open("오리지널easy_1등.txt", 'w')
+                           f= open("오리지널hard_1등.txt", 'w')
                            line = f.write(str(success))
                            print("새로운 1등 기록 : ",line)
                            f.close()
