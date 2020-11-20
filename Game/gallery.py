@@ -17,9 +17,10 @@ def gallery_mode_exe():
     count=0
     Q=0
     i=0
-    score=0
     
     while True:
+        score=0
+        player=0
         if Q==1:
             print("게임을 중도포기하셨습니다. 게임을 종료합니다.")
             break
@@ -41,13 +42,14 @@ def gallery_mode_exe():
                 print(player,"의 기록: ",score)
                 if int(line)<score:
                     print("축하드립니다. 신기록을 세우셨군요!!")
-                    f= open("짝맞추기1등.txt", 'w')
+                    f= open("갤러리1등.txt", 'w')
                     line = f.write(str(runtime))
                     print("새로운 1등 기록 : ",line)
             f.close()
     
                     
         print("환영합니다. 게임을 시작합니다.")
+        player = input("플레이어의 이름을 입력하세요: ")
         
         #갤러리 속 그림의 종류 수박,아스크림,당근,하트,강아지 총 5가지
         # a,b,c,d같은 요소는 수박 4등분한 각각의 그림파일을 의미
