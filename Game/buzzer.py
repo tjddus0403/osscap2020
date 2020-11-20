@@ -15,9 +15,9 @@ try:
     for i in haul:
         pwm.ChangeFrequency(i)
         time.sleep(0.5)
-   ''' for i in range(len(num)):
-        pwm.ChangeFrequency(list[num[i]])
-        time.sleep(1)'''
+   #for i in range(len(num)):
+    #    pwm.ChangeFrequency(list[num[i]])
+     #   time.sleep(1)
 except KeyboardInterrupt:
     pwm.stop()
     GPIO.cleanup()
