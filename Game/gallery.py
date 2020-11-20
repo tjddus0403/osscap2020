@@ -18,7 +18,6 @@ def gallery_mode_exe():
     Q=0
     i=0
     score=0
-    score_list=[]
     
     while True:
         if Q==1:
@@ -40,7 +39,21 @@ def gallery_mode_exe():
                   print(score_list)
             if len(score_list)>=3:
                   print(score_list[:3])
-            
+         if score>0:
+            f = open("갤러리1등.txt", 'r')
+            file = f.read()
+            f.close()
+            list = file.splitlines()      
+            for line in list:
+                print("1등의 기록 : ", line)
+                print(player,"의 기록: ",score)
+                if int(line)<score:
+                    print("축하드립니다. 신기록을 세우셨군요!!")
+                    f= open("짝맞추기1등.txt", 'w')
+                    line = f.write(str(runtime))
+                    print("새로운 1등 기록 : ",line)
+            f.close()
+    
                     
         print("환영합니다. 게임을 시작합니다.")
         
