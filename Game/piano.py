@@ -212,9 +212,9 @@ def memory_piano():
                            print("새로운 1등 기록 : ",count)
                        elif int(line)==count:
                            print("축하드립니다! 공동 1등 입니다!")
-                       i=2    
-                       break
-                       continue
+                  i=2    
+                  break
+               continue
          elif song!=answer:
                print("실패하셨습니다.")
                again=input("게임을 다시 시작하시겠습니까? (Y/N): ")
