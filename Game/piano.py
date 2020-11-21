@@ -3,41 +3,16 @@ from random import*
 from original import*
 import random
 import time
-
-'''def draw_matrix(m):
-    array=m.get_array()
-    for y in range (m.get_dy()):
-        for x in range(m.get_dx()):
-            if array[y][x]==0:
-                print("□", end=' ')
-               #none 비어있음
-            elif array[y][x]==1:
-               print("■", end=' ')
-               #white
-            elif array[y][x]==2:
-               print("▣", end=' ')
-               #skyblue
-            elif array[y][x]==3:
-               print("▨", end=' ')
-               #yellow
-            elif array[y][x]==4:
-               print("▤", end=' ')
-               #red
-            elif array[y][x]==7:
-               print("▩", end=' ')
-               #green
-            elif array[y][x]==12:
-                print("▥", end=' ')
-                #blue
-            elif array[y][x]==20:
-                print("▦", end=' ')
-                #pink
-            else:
-               print("X", end=' ')
-               #white 겹치는거
-        print()'''
+#import RPi.GPIO as GPIO
 
 def memory_piano():
+   buzzer_pin=17
+   GPIO.setwarnings(False)
+   GPIO.setmode(GPIO.BCM)
+   GPIO.setup(buzzer_pin,GPIO.OUT)
+   pwm=GPIO.PWM(buzzer_pin,100)
+   pwm.start(100)
+   pwm.ChangeDutyCycle(90)
    arrayBlk=[[2,2,2,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,2,2,2]]
    currBlk=Matrix(arrayBlk)
    QarrayScreen=[
@@ -48,7 +23,7 @@ def memory_piano():
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],  
-                  [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],        
+                  [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
@@ -58,7 +33,7 @@ def memory_piano():
                   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
 
-   piano=[261,294,329,349,393,440,493,523]
+   piano=[261,294,329,349,393,440,493]
 
    star=[261,261,393,393,440,440,393]
 
@@ -86,24 +61,30 @@ def memory_piano():
                QiScreen=Matrix(QarrayScreen)
                if a==261:
                      left=2
-
+                     pwm.ChangeFrequency(261)
+                  
                elif a==294:
                      left+=4
-
+                     pwm.ChangeFrequency(294)
                elif a==329:
                      left+=8
+                     pwm.ChangeFrequency(329)
 
                elif a==349:
                      left+=12
+                     pwm.ChangeFrequency(349)
 
                elif a==393:
                      left+=16
+                     pwm.ChangeFrequency(393)
 
                elif a==440:
                      left+=20
+                     pwm.ChangeFrequency(440)
 
                elif a==493:
                      left+=24
+                     pwm.ChangeFrequency(493)
 
                tempBlk=QiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx())
                tempBlk=tempBlk+currBlk
@@ -128,7 +109,7 @@ def memory_piano():
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],  
-                  [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],        
+                  [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
@@ -242,3 +223,4 @@ def memory_piano():
                elif again=='N':
                    i=2
                    break
+memory_piano()
