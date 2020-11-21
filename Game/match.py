@@ -239,7 +239,7 @@ def memory_to():
                 print("축하드립니다. 신기록을 세우셨군요!!")
                 f= open("짝맞추기1등.txt", 'w')
                 line = f.write(str(runtime))
-                print("새로운 1등 기록 : ",line)
+                print("새로운 1등 기록 : ",runtime)
          f.close()
 
 
