@@ -61,30 +61,29 @@ def memory_piano():
                QiScreen=Matrix(QarrayScreen)
                if a==261:
                      left=2
-                     pwm.ChangeFrequency(261)
-                  
+                                         
                elif a==294:
                      left+=4
-                     pwm.ChangeFrequency(294)
+                    # pwm.ChangeFrequency(294)
                elif a==329:
                      left+=8
-                     pwm.ChangeFrequency(329)
+                    # pwm.ChangeFrequency(329)
 
                elif a==349:
                      left+=12
-                     pwm.ChangeFrequency(349)
+                    # pwm.ChangeFrequency(349)
 
                elif a==393:
                      left+=16
-                     pwm.ChangeFrequency(393)
+                    # pwm.ChangeFrequency(393)
 
                elif a==440:
                      left+=20
-                     pwm.ChangeFrequency(440)
+                     #pwm.ChangeFrequency(440)
 
                elif a==493:
                      left+=24
-                     pwm.ChangeFrequency(493)
+                    # pwm.ChangeFrequency(493)
 
                tempBlk=QiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx())
                tempBlk=tempBlk+currBlk
@@ -92,6 +91,7 @@ def memory_piano():
                QoScreen.paste(tempBlk, top, left)
                LED_init()
                draw_matrix(QoScreen); print()
+               pwm.ChangeFrequency(a)
                time.sleep(0.7)
                draw_matrix(QiScreen); print()
                            
