@@ -3,7 +3,7 @@ from random import*
 from original import*
 import random
 import time
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 
 def memory_piano():
    buzzer_pin=17
