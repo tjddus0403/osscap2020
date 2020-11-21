@@ -17,10 +17,9 @@ try:
         p.ChangeDutyCycle(90) # dutycycle 변경
         for i in range(len(list)): #len() => 길이 추출
             p.ChangeFrequency(scale[list[i]]) #주파수 변경
-            if (i+1)%7 == 0: # 7번째 음 박자 변경
-                time.sleep(1)
-            else :
-                time.sleep(0.5)
-                p.stop() #pwm 종료
+            time.sleep(1)
+        
+            
 except KeyboardInterrupt: #ctrl+c->종료
+    p.stop()
     GPIO.cleanup()
