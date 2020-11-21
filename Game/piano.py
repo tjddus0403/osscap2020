@@ -223,4 +223,3 @@ def memory_piano():
                elif again=='N':
                    i=2
                    break
-memory_piano()
