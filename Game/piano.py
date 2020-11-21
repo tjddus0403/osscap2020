@@ -13,14 +13,7 @@ pwm=GPIO.PWM(buzzer_pin,100)
 pwm.start(100)
 pwm.ChangeDutyCycle(90)
 def memory_piano():
- '''  buzzer_pin=17
-   GPIO.setwarnings(False)
-   GPIO.setmode(GPIO.BCM)
-   GPIO.setup(buzzer_pin,GPIO.OUT)
-   pwm=GPIO.PWM(buzzer_pin,100)
-   pwm.start(100)
-   pwm.ChangeDutyCycle(90)'''
-   arrayBlk=[[2,2,2,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,2,2,2]]
+    arrayBlk=[[2,2,2,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,2,2,2]]
    currBlk=Matrix(arrayBlk)
    QarrayScreen=[
                   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
