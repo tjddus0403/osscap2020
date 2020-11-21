@@ -46,10 +46,10 @@ def memory_piano():
                i=0
                player=input("사용자 이름을 입력하세요 : ")
                pl=copy.deepcopy(playlist)
-          buzzer_pin=17
-          GPIO.setwarnings(False)
-          GPIO.setmode(GPIO.BCM)
-          GPIO.setup(buzzer_pin,GPIO.OUT)
+         buzzer_pin=17
+         GPIO.setwarnings(False)
+         GPIO.setmode(GPIO.BCM)
+         GPIO.setup(buzzer_pin,GPIO.OUT)
          random.shuffle(pl)
          song=pl[0]
          pl.pop(0)
