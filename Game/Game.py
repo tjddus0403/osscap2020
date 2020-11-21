@@ -4,7 +4,7 @@ from gallery import*
 
 while True:
    print("MODE")
-   print("1. Original \n 2. Matching \n 3. Gallery \n 4. Turn off")
+   print("1. Original \n2. Matching \n3. Gallery \n4. Piano \n5.Turn off")
    choice=int(input("Select the Mode : "))
    if choice==1:
       memory_key()
@@ -19,7 +19,12 @@ while True:
       break
 
    elif choice==4:
+      memory_piano()
       break
+      
+   elif choice==5:
+      break
+      
    else:
       print("잘못된 번호를 입력하셨습니다.")
       continue
