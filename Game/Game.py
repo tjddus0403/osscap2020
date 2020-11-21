@@ -1,7 +1,7 @@
 from match import*
 from original import*
 from gallery import*
-
+from piano import*
 while True:
    print("MODE")
    print("1. Original \n2. Matching \n3. Gallery \n4. Piano \n5.Turn off")
