@@ -1,9 +1,10 @@
 from matrix import*
 from random import*
+from original import*
 import random
 import time
 
-def draw_matrix(m):
+'''def draw_matrix(m):
     array=m.get_array()
     for y in range (m.get_dy()):
         for x in range(m.get_dx()):
@@ -34,7 +35,7 @@ def draw_matrix(m):
             else:
                print("X", end=' ')
                #white 겹치는거
-        print()
+        print()'''
 
 def memory_piano():
    arrayBlk=[[2,2,2,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,2,2,2]]
@@ -108,6 +109,7 @@ def memory_piano():
                tempBlk=tempBlk+currBlk
                QoScreen = Matrix(QiScreen)
                QoScreen.paste(tempBlk, top, left)
+               LED_init()
                draw_matrix(QoScreen); print()
                time.sleep(0.7)
                draw_matrix(QiScreen); print()
