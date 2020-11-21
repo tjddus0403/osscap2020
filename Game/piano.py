@@ -209,9 +209,10 @@ def memory_piano():
                            print("축하드립니다. 신기록을 세우셨군요!!")
                            f=open("피아노 1등.txt",'w')
                            line=f.write(str(count))
-                           print("새로운 1등 기록 : ",line)
+                           print("새로운 1등 기록 : ",count)
                        elif int(line)==count:
                            print("축하드립니다! 공동 1등 입니다!")
+                       i=2    
                        break
                        continue
          elif song!=answer:
