@@ -44,7 +44,6 @@ def memory_piano():
    butterfly=[393,329,329,349,294,294]
 
    playlist = [star,plane,butterfly]
-   random.shuffle(playlist)
    i=0
    count=0
    pl=copy.deepcopy(playlist)
@@ -54,6 +53,7 @@ def memory_piano():
                i=0
                player=input("사용자 이름을 입력하세요 : ")
                pl=copy.deepcopy(playlist)
+         random.shuffle(pl)
          song=pl[0]
          pl.pop(0)
          for a in song:
