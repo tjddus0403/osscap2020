@@ -108,7 +108,7 @@ while True:
             QoScreen = Matrix(QiScreen)
             QoScreen.paste(tempBlk, top, left)
             draw_matrix(QoScreen); print()
-            time.sleep(0.5)
+            time.sleep(0.7)
             draw_matrix(QiScreen); print()
                         
 
@@ -204,14 +204,18 @@ while True:
                file=f.read()
                f.close()
                ls=file.splitlines()
-               print("1등의 기록 : ",line)
-               print(player,"의 기록 : ",count)
-               if int(line)<count:
-                  print("축하드립니다. 신기록을 세우셨군요!!")
-               elif int(line)==count:
-                  print("축하드립니다! 공동 1등 입니다!")
-               break
-            continue
+               for line in ls:
+                    print("1등의 기록 : ",line)
+                    print(player,"의 기록 : ",count)
+                    if int(line)<count:
+                        print("축하드립니다. 신기록을 세우셨군요!!")
+                        f=open("피아노 1등.txt",'w')
+                        line=f.write(str(count))
+                        print("새로운 1등 기록 : ",line)
+                    elif int(line)==count:
+                        print("축하드립니다! 공동 1등 입니다!")
+                    break
+                    continue
       elif song!=answer:
             print("실패하셨습니다.")
             again=input("게임을 다시 시작하시겠습니까? (Y/N): ")
@@ -219,16 +223,20 @@ while True:
             file=f.read()
             f.close()
             ls=file.splitlines()
-            print("1등의 기록 : ",line)
-            print(player,"의 기록 : ",count)
-            if int(line)<count:
-               print("축하드립니다. 신기록을 세우셨군요!!")
-            elif int(line)==count:
-               print("축하드립니다! 공동 1등 입니다!")
+            for line in ls: 
+                print("1등의 기록 : ",line)
+                print(player,"의 기록 : ",count)
+                if int(line)<count:
+                    print("축하드립니다. 신기록을 세우셨군요!!")
+                    f=open("피아노 1등.txt",'w')
+                    line=f.write(str(count))
+                    print("새로운 1등 기록 : ",line)
+                elif int(line)==count:
+                    print("축하드립니다! 공동 1등 입니다!")
             if again=='Y':
-                  i=1
-                  continue
+                i=1
+                continue
             elif again=='N':
-                  i=2
-                  break
+                i=2
+                break
  
