@@ -4,6 +4,7 @@ from original import*
 import random
 import time
 import RPi.GPIO as GPIO
+import copy
 
 def memory_piano():
    buzzer_pin=17
@@ -46,13 +47,13 @@ def memory_piano():
    random.shuffle(playlist)
    i=0
    count=0
-   pl=playlist
+   pl=copy.deepcopy(playlist)
    player=input("사용자 이름을 입력하세요 : ")
    while True:
          if i==1:
                i=0
                player=input("사용자 이름을 입력하세요 : ")
-               pl=playlist
+               pl=copy.deepcopy(playlist)
          song=pl[0]
          pl.pop(0)
          for a in song:
