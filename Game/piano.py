@@ -148,18 +148,25 @@ def memory_piano():
                elif key=='p':
                      if left==2:
                            answer.append(261)
+                           pwm.ChangeFrequency(261)
                      elif left==6:
                            answer.append(294)
+                           pwm.ChangeFrequency(294)
                      elif left==10:
                            answer.append(329)
+                           pwm.ChangeFrequency(329)
                      elif left==14:
                            answer.append(349)
+                           pwm.ChangeFrequency(349)
                      elif left==18:
                            answer.append(393)
+                           pwm.ChangeFrequency(393)
                      elif left==22:
                            answer.append(440)
+                           pwm.ChangeFrequency(440)
                      elif left==26:
                            answer.append(493)
+                           pwm.ChangeFrequency(493)
                                                
                elif key==' ':
                      break
