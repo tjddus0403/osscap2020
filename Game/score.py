@@ -152,7 +152,7 @@ def score(score):
     Onescoreleft = 18
     
     ScoreOscreen=Matrix(Scorescreen)
-    ScoreIscreen=Matrix(ScoreOscreen)
+    
     LED_init()
     if Tenscore == 0:
        Onescoretop = 4
@@ -160,16 +160,16 @@ def score(score):
         
        tempBlk=ScoreOscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
        tempBlk=tempBlk+OnescoreBlk
-       ScoreIscreen.paste(tempBlk,Onescoretop,Onescoreleft)
-       draw_matrix(ScoreIscreen); print()
+       Scorescreen.paste(tempBlk,Onescoretop,Onescoreleft)
+       draw_matrix(Scorescreen); print()
     
     
     else:
         tempBlk=ScoreOscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
         tempBlk=tempBlk+OnescoreBlk
-        ScoreIscreen.paste(tempBlk,Onescoretop,Onescoreleft)
+        Scorescreen.paste(tempBlk,Onescoretop,Onescoreleft)
         tempBlk=ScoreOscreen.clip(Tenscoretop,Tenscoreleft,Tenscoretop+TenscoreBlk.get_dy(),Tenscoreleft+TenscoreBlk.get_dx())
         tempBlk=tempBlk+TenscoreBlk
-        ScoreIscreen.paste(tempBlk,Tenscoretop,Tenscoreleft)
-        draw_matrix(ScoreIscreen); print()
+        Scorescreen.paste(tempBlk,Tenscoretop,Tenscoreleft)
+        draw_matrix(Scorescreen); print()
     
