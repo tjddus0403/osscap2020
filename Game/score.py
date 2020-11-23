@@ -1,4 +1,5 @@
 from matrix import*
+from original import*
 def scoreBlk(num):
     if num == 0:
         scoreBlk = [
