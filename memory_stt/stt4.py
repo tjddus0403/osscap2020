@@ -26,7 +26,7 @@ def voice():
       elif ('빨강' in stt):
         return 'r'
       elif ('노랑' in stt):
-        return 'o'
+        return 'y'
       elif ('초록' in stt):
         return 'g'
       elif ('지워' in stt):
