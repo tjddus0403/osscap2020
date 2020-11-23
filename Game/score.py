@@ -138,6 +138,7 @@ def score(score):
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]]
     score=int(score)
+    score="{:g}".format(score)
     Tenscore = score // 10
     Onescore = score % 10
     TenscoreBlk = Matrix(scoreBlk(Tenscore))
