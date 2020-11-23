@@ -3,6 +3,7 @@ from random import*
 import time
 import LED_display as LMD
 import threading
+from score import*
 
 def LED_init():
     thread=threading.Thread(target=LMD.main, args=())
