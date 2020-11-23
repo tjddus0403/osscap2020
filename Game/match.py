@@ -94,7 +94,7 @@ def memory_to():
       QoScreen=Matrix(QiScreen)
       LED_init()
       draw_matrix(QoScreen); print()
-      time.sleep(15)
+      time.sleep(2)
       start_time=time.time()
       
       AiScreenDy=12
@@ -229,15 +229,18 @@ def memory_to():
       if i==0:
          runtime=(end_time-start_time)//1
          runtime="{:g}".format(runtime)
+         print(type(runtime))
          f = open("짝맞추기1등.txt", 'r')
          file = f.read()
          f.close()
          list = file.splitlines()
         
          for line in list:
+             
              print("1등의 기록 : ", line)
-             line=float(line)
-             line="{:g}".format(line)
+             line=int(line)
+             print(type(line))
+            # line="{:g}".format(line)
              score(line)
              print(player,"의 기록: ",runtime)
              score(runtime)
