@@ -1,8 +1,7 @@
 from matrix import*
 from original import*
 from LED_display import*
-def scoreBlk(num):
-    global scoreBlk
+def ScoreBlk(num):
     if num == 0:
         scoreBlk = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -143,8 +142,8 @@ def Score(score):
 
     Tenscore = score // 10
     Onescore = score % 10
-    TenscoreBlk = Matrix(scoreBlk(Tenscore))
-    OnescoreBlk = Matrix(scoreBlk(Onescore))
+    TenscoreBlk = Matrix(ScoreBlk(Tenscore))
+    OnescoreBlk = Matrix(ScoreBlk(Onescore))
     
      # 숫자 출력 index 좌표값
     Tenscoretop = 4
