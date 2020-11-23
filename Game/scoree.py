@@ -1,6 +1,7 @@
 from matrix import*
 from original import*
 from LED_display import*
+from ScoreBlk import*
 
 def Score(score):
     Scorescreen=[[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
