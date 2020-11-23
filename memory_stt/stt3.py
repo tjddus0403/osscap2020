@@ -13,21 +13,21 @@ def voice():
         print(stt)
         time.sleep(0.01)
         if ('좌' in stt):
-		return 'a'
+	    return 'a'
         elif ('우' in stt):
-		return 'd'
+	    return 'd'
 	elif ('하' in stt):
-		return 's'
+	    return 's'
 	elif ('끝' in stt):
-		return 'q'
+	    return 'q'
 	elif ('빨강' in stt):
-		return 'r'
+	    return 'r'
 	elif ('노랑' in stt):
-		return 'y'
+	    return 'y'
 	elif ('초록' in stt):
-		return 'g'
+	    return 'g'
 	elif ('지워' in stt):
-		return 'e'
+	    return 'e'
 
 
 def draw_matrix(m):
