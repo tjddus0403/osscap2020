@@ -1,8 +1,8 @@
-import gspeech
+import gspeech2
 import time
 
 def voice():
-  gsp = gspeech.Gspeech()
+  gsp = gspeech2.Gspeech()
   while Ture:
       stt = gsp.getText()
       if stt is None:
