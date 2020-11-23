@@ -13,7 +13,7 @@ def voice():
         print(stt)
         time.sleep(0.01)
         if ('좌' in stt):
-            return 'a'
+		return 'a'
         elif ('우' in stt):
 		return 'd'
 	elif ('하' in stt):
