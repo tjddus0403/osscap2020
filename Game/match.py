@@ -234,12 +234,11 @@ def memory_to():
          list = file.splitlines()
         
          for line in list:
-             one=int(line)
-             print("1등의 기록 : ", one)
-             score(one)
+             print("1등의 기록 : ", line)
+             score(line)
              print(player,"의 기록: ",runtime)
              score(runtime)
-             if one>runtime:
+             if line>runtime:
                 print("축하드립니다. 신기록을 세우셨군요!!")
                 f= open("짝맞추기1등.txt", 'w')
                 line = f.write(str(runtime))
