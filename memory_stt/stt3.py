@@ -14,7 +14,7 @@ def voice():
         time.sleep(0.01)
         if ('좌' in stt):
             return 'a'
-		elif ('우' in stt):
+                if ('우' in stt):
 			return 'd'
 		elif ('하' in stt):
 			return 's'
