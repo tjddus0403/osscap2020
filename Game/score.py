@@ -76,7 +76,7 @@ def scoreBlk(num):
     elif num == 6:
         scoreBlk = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 0, 0, 0],
             [0, 0, 1, 0, 0, 0, 0, 0, 0],
             [0, 0, 1, 0, 0, 0, 0, 0, 0],
             [0, 0, 1, 1, 1, 1, 0, 0, 0],
@@ -118,7 +118,7 @@ def scoreBlk(num):
             [0, 0, 1, 1, 1, 1, 1, 0, 0],
             [0, 0, 0, 0, 0, 0, 1, 0, 0],
             [0, 0, 0, 0, 0, 0, 1, 0, 0],
-            [0, 0, 0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 1, 1, 1, 1, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0]]
     return scoreBlk
 def score(score):
@@ -146,30 +146,32 @@ def score(score):
     OnescoreBlk = Matrix(scoreBlk(Onescore))
     
      # 숫자 출력 index 좌표값
-    Tenscoretop = 3
-    Onescoretop = 3
+    Tenscoretop = 4
+    Onescoretop = 4
     Tenscoreleft = 4
     Onescoreleft = 18
     
     ScoreOscreen=Matrix(Scorescreen)
+    ScoreIscreen=Matrix(ScoreOscreen)
     LED_init()
     tempBlk=ScoreOscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
     tempBlk=tempBlk+OnescoreBlk
-    ScoreOscreen.paste(tempBlk,Onescoretop,Onescoreleft)
+    ScoreIscreen.paste(tempBlk,Onescoretop,Onescoreleft)
     tempBlk=ScoreOscreen.clip(Tenscoretop,Tenscoreleft,Tenscoretop+TenscoreBlk.get_dy(),Tenscoreleft+TenscoreBlk.get_dx())
     tempBlk=tempBlk+TenscoreBlk
-    ScoreOscreen.paste(tempBlk,Tenscoretop,Tenscoreleft)
-    draw_matrix(ScoreOscreen); print()
+    ScoreIscreen.paste(tempBlk,Tenscoretop,Tenscoreleft)
+    draw_matrix(ScoreIscreen); print()
 
     # 걸린시간이 한자리 수이면 숫자 하나를 가운데에 출력할 수 있게 index값 조정
     if Tenscore == 0:
-        Onescoretop = 3
+        Onescoretop = 4
         Onescoreleft = 11
         
         ScoreOscreen=Matrix(Scorescreen)
+        ScoreIscreen=Matrix(ScoreOscreen)
         LED_init()
         tempBlk=ScoreOscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
         tempBlk=tempBlk+OnescoreBlk
-        ScoreOscreen.paste(tempBLk,Onescoretop,Onescoreleft)
-        draw_matrix(ScoreOscreen); print()
+        ScoreIscreen.paste(tempBLk,Onescoretop,Onescoreleft)
+        draw_matrix(ScoreIscreen); print()
     
