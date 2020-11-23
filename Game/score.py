@@ -172,6 +172,6 @@ def score(score):
         LED_init()
         tempBlk=ScoreOscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
         tempBlk=tempBlk+OnescoreBlk
-        ScoreIscreen.paste(tempBLk,Onescoretop,Onescoreleft)
+        ScoreIscreen.paste(tempBlk,Onescoretop,Onescoreleft)
         draw_matrix(ScoreIscreen); print()
     
