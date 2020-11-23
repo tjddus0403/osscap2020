@@ -19,6 +19,8 @@ def voice():
         return 'd'
       elif ('하' in stt):
         return 's'
+      elif ('상' in stt):
+        return 'w'
       elif ('끝' in stt):
         return ' '
       elif ('빨강' in stt):
