@@ -150,24 +150,26 @@ def score(score):
     Onescoretop = 3
     Tenscoreleft = 4
     Onescoreleft = 18
+    
     ScoreOscreen=Matrix(Scorescreen)
+    LED_init()
     tempBlk=ScoreOscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
     tempBlk=tempBlk+OnescoreBlk
     ScoreOscreen.paste(tempBlk,Onescoretop,Onescoreleft)
     tempBlk=ScoreOscreen.clip(Tenscoretop,Tenscoreleft,Tenscoretop+TenscoreBlk.get_dy(),Tenscoreleft+TenscoreBlk.get_dx())
     tempBlk=tempBlk+TenscoreBlk
     ScoreOscreen.paste(tempBlk,Tenscoretop,Tenscoreleft)
-    LED_init()
     draw_matrix(ScoreOscreen); print()
 
     # 걸린시간이 한자리 수이면 숫자 하나를 가운데에 출력할 수 있게 index값 조정
     if Tenscore == 0:
         Onescoretop = 3
         Onescoreleft = 11
+        
         ScoreOscreen=Matrix(Scorescreen)
+        LED_init()
         tempBlk=ScoreOscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
         tempBlk=tempBlk+OnescoreBlk
         ScoreOscreen.paste(tempBLk,Onescoretop,Onescoreleft)
-        LED_init()
         draw_matrix(ScoreOscreen); print()
     
