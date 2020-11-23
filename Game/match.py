@@ -236,7 +236,8 @@ def memory_to():
         
          for line in list:
              print("1등의 기록 : ", line)
-             line=int(line)
+             line=float(line)
+             line="{:g}".format(line)
              score(line)
              print(player,"의 기록: ",runtime)
              score(runtime)
