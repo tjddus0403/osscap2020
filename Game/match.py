@@ -241,9 +241,9 @@ def memory_to():
              line=int(line)
              print(type(line))
             # line="{:g}".format(line)
-             score(line)
+             Score(line)
              print(player,"의 기록: ",runtime)
-             score(runtime)
+             Score(runtime)
              if line>runtime:
                 print("축하드립니다. 신기록을 세우셨군요!!")
                 f= open("짝맞추기1등.txt", 'w')
