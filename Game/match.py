@@ -226,7 +226,7 @@ def memory_to():
             break
       
       if i==0:
-         runtime=round(end_time-start_time,3)
+         runtime=int(end_time-start_time)
          f = open("짝맞추기1등.txt", 'r')
          file = f.read()
          f.close()
