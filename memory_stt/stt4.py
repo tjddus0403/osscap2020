@@ -7,7 +7,7 @@ import time
 
 def voice():
   gsp = gspeech.Gspeech()
-  while Ture:
+  while True:
       stt = gsp.getText()
       if stt is None:
           break
