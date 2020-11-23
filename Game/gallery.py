@@ -240,7 +240,7 @@ def gallery_mode_exe():
 
                     elif key=='h':
                         if hint==0:
-                            score=-0.5
+                            score=-1
                             LED_init()
                             draw_matrix(QoScreen);print()
                             time.sleep(5)
@@ -287,7 +287,7 @@ def gallery_mode_exe():
                     if (i==1)or(i==2):
                         break
                 if i == 0:
-                    score+=1
+                    score+=2
                     print("success")
                     continue
                     # for i in picture 루프로 돌아가 다음 그림 출력                                

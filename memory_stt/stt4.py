@@ -7,7 +7,7 @@ import time
 
 def voice():
   gsp = gspeech.Gspeech()
-  while Ture:
+  while True:
       stt = gsp.getText()
       if stt is None:
           break
@@ -19,12 +19,14 @@ def voice():
         return 'd'
       elif ('하' in stt):
         return 's'
+      elif ('상' in stt):
+        return 'w'
       elif ('끝' in stt):
         return ' '
       elif ('빨강' in stt):
         return 'r'
       elif ('노랑' in stt):
-        return 'o'
+        return 'y'
       elif ('초록' in stt):
         return 'g'
       elif ('지워' in stt):
@@ -273,3 +275,5 @@ def memory_to():
                 line = f.write(str(runtime))
                 print("새로운 1등 기록 : ",runtime)
          f.close()
+voice() 
+memory_to()

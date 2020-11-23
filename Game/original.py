@@ -238,7 +238,7 @@ def memory_key():
                         AarrayScreen[a][b]=0
                elif key=='h':
                   if hint==0:
-                        success-=0.5
+                        success-=1
                         draw_matrix(QoScreen);print()
                         time.sleep(3)
                         hint+=1
@@ -278,7 +278,7 @@ def memory_key():
          
             if i == 0:
                print("success")
-               success+=1
+               success+=2
                continue
                                
             elif (i==1)or(i==2):

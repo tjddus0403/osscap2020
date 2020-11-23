@@ -3,6 +3,7 @@ from original import*
 import copy
 from random import*
 import time
+from score import*
 def memory_to():
       player=input("플레이어의 이름을 입력하세요 : ")
       QarrayScreen=[
@@ -93,7 +94,7 @@ def memory_to():
       QoScreen=Matrix(QiScreen)
       LED_init()
       draw_matrix(QoScreen); print()
-      time.sleep(15)
+      time.sleep(2)
       start_time=time.time()
       
       AiScreenDy=12
@@ -226,16 +227,24 @@ def memory_to():
             break
       
       if i==0:
-         runtime=round(end_time-start_time,3)
+         runtime=(end_time-start_time)//1
+         runtime=int(runtime)
+         print(type(runtime))
          f = open("짝맞추기1등.txt", 'r')
          file = f.read()
          f.close()
          list = file.splitlines()
         
          for line in list:
+             
              print("1등의 기록 : ", line)
+             line=int(line)
+             print(type(line))
+            # line="{:g}".format(line)
+             score(line)
              print(player,"의 기록: ",runtime)
-             if float(line)>runtime:
+             score(runtime)
+             if line>runtime:
                 print("축하드립니다. 신기록을 세우셨군요!!")
                 f= open("짝맞추기1등.txt", 'w')
                 line = f.write(str(runtime))
