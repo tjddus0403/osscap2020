@@ -147,20 +147,22 @@ def score(score):
     Onescoretop = 3
     Tenscoreleft = 4
     Onescoreleft = 18
-    tempBlk=Scorescreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
+    ScoreOscreen=Matrix(Scorescreen)
+    tempBlk=ScoreOscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
     tempBlk=tempBlk+OnescoreBlk
-    Scorescreen.paste(tempBlk,Onescoretop,Onescoreleft)
-    tempBlk=Scorescreen.clip(Tenscoretop,Tenscoreleft,Tenscoretop+TenscoreBlk.get_dy(),Tenscoreleft+TenscoreBlk.get_dx())
+    ScoreOscreen.paste(tempBlk,Onescoretop,Onescoreleft)
+    tempBlk=ScoreOscreen.clip(Tenscoretop,Tenscoreleft,Tenscoretop+TenscoreBlk.get_dy(),Tenscoreleft+TenscoreBlk.get_dx())
     tempBlk=tempBlk+TenscoreBlk
-    Scorescreen.paste(tempBlk,Tenscoretop,Tenscoreleft)
-    draw_matrix(Scorescreen); print()
+    ScoreOscreen.paste(tempBlk,Tenscoretop,Tenscoreleft)
+    draw_matrix(ScoreOscreen); print()
 
     # 걸린시간이 한자리 수이면 숫자 하나를 가운데에 출력할 수 있게 index값 조정
     if Tenscore == 0:
         Onescoretop = 3
         Onescoreleft = 11
-        tempBlk=Scorescreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
+        ScoreOscreen=Matrix(Scorescreen)
+        tempBlk=ScoreOscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
         tempBlk=tempBlk+OnescoreBlk
-        Scorescreen.paste(tempBLk,Onescoretop,Onescoreleft)
-        draw_matrix(Scorescreen); print()
+        ScoreOscreen.paste(tempBLk,Onescoretop,Onescoreleft)
+        draw_matrix(ScoreOscreen); print()
     
