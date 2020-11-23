@@ -173,6 +173,3 @@ def score(score):
 
     LED_init() 
     draw_matrix(Scoreoscreen); print()
-    
-score(13)
-    
