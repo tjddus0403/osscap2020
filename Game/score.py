@@ -148,12 +148,12 @@ def score(score):
      # 숫자 출력 index 좌표값
     Tenscoretop = 4
     Onescoretop = 4
-    Tenscoreleft = 4
-    Onescoreleft = 18
+    Tenscoreleft = 8
+    Onescoreleft = 14
     
     Scoreiscreen=Matrix(Scorescreen)
     Scoreoscreen=Matrix(Scoreiscreen)
-    LED_init()
+    
     if Tenscore == 0:
        Onescoretop = 4
        Onescoreleft = 11
@@ -161,7 +161,6 @@ def score(score):
        tempBlk=Scoreiscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
        tempBlk=tempBlk+OnescoreBlk
        Scoreoscreen.paste(tempBlk,Onescoretop,Onescoreleft)
-       draw_matrix(Scoreoscreen); print()
     
     
     else:
@@ -171,7 +170,9 @@ def score(score):
         tempBlk=Scoreiscreen.clip(Tenscoretop,Tenscoreleft,Tenscoretop+TenscoreBlk.get_dy(),Tenscoreleft+TenscoreBlk.get_dx())
         tempBlk=tempBlk+TenscoreBlk
         Scoreoscreen.paste(tempBlk,Tenscoretop,Tenscoreleft)
-        draw_matrix(Scoreoscreen); print()
-        
+
+    LED_init() 
+    draw_matrix(Scoreoscreen); print()
+    
 score(13)
     
