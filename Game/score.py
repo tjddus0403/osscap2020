@@ -172,4 +172,6 @@ def score(score):
         tempBlk=tempBlk+TenscoreBlk
         Scoreoscreen.paste(tempBlk,Tenscoretop,Tenscoreleft)
         draw_matrix(Scoreoscreen); print()
+        
+score(13)
     
