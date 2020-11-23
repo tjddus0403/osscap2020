@@ -273,3 +273,5 @@ def memory_to():
                 line = f.write(str(runtime))
                 print("새로운 1등 기록 : ",runtime)
          f.close()
+ 
+memory_to()
