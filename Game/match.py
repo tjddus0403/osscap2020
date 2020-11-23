@@ -228,7 +228,7 @@ def memory_to():
       
       if i==0:
          runtime=(end_time-start_time)//1
-         runtime=int(runtime)
+         runtime="{:g}".format(runtime)
          f = open("짝맞추기1등.txt", 'r')
          file = f.read()
          f.close()
