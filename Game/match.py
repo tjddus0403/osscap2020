@@ -227,18 +227,19 @@ def memory_to():
             break
       
       if i==0:
-         runtime=(end_time-start_time)//10000
+         runtime=(end_time-start_time)//1
          f = open("짝맞추기1등.txt", 'r')
          file = f.read()
          f.close()
          list = file.splitlines()
         
          for line in list:
-             print("1등의 기록 : ", line)
-             score(int(line))
+             one=int(line)
+             print("1등의 기록 : ", one)
+             score(one)
              print(player,"의 기록: ",runtime)
              score(runtime)
-             if int(line)>runtime:
+             if one>runtime:
                 print("축하드립니다. 신기록을 세우셨군요!!")
                 f= open("짝맞추기1등.txt", 'w')
                 line = f.write(str(runtime))
