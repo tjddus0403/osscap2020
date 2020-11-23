@@ -151,25 +151,25 @@ def score(score):
     Tenscoreleft = 4
     Onescoreleft = 18
     
-    ScoreOscreen=Matrix(Scorescreen)
-    
+    Scoreiscreen=Matrix(Scorescreen)
+    Scoreoscreen=Matrix(Scoreiscreen)
     LED_init()
     if Tenscore == 0:
        Onescoretop = 4
        Onescoreleft = 11
         
-       tempBlk=ScoreOscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
+       tempBlk=Scoreiscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
        tempBlk=tempBlk+OnescoreBlk
-       Scorescreen.paste(tempBlk,Onescoretop,Onescoreleft)
-       draw_matrix(Scorescreen); print()
+       Scoreoscreen.paste(tempBlk,Onescoretop,Onescoreleft)
+       draw_matrix(Scoreoscreen); print()
     
     
     else:
-        tempBlk=ScoreOscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
+        tempBlk=Scoreiscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
         tempBlk=tempBlk+OnescoreBlk
-        Scorescreen.paste(tempBlk,Onescoretop,Onescoreleft)
-        tempBlk=ScoreOscreen.clip(Tenscoretop,Tenscoreleft,Tenscoretop+TenscoreBlk.get_dy(),Tenscoreleft+TenscoreBlk.get_dx())
+        Scoreoscreen.paste(tempBlk,Onescoretop,Onescoreleft)
+        tempBlk=Scoreiscreen.clip(Tenscoretop,Tenscoreleft,Tenscoretop+TenscoreBlk.get_dy(),Tenscoreleft+TenscoreBlk.get_dx())
         tempBlk=tempBlk+TenscoreBlk
-        Scorescreen.paste(tempBlk,Tenscoretop,Tenscoreleft)
-        draw_matrix(Scorescreen); print()
+        Scoreoscreen.paste(tempBlk,Tenscoretop,Tenscoreleft)
+        draw_matrix(Scoreoscreen); print()
     
