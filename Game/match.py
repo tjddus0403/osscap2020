@@ -4,7 +4,7 @@ import copy
 from random import*
 import time
 from scoree import*
-from ScoreBlk import*
+
 def memory_to():
       player=input("플레이어의 이름을 입력하세요 : ")
       QarrayScreen=[
