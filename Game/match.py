@@ -227,7 +227,7 @@ def memory_to():
             break
       
       if i==0:
-         runtime=int(end_time-start_time)
+         runtime=(end_time-start_time)//10000
          f = open("짝맞추기1등.txt", 'r')
          file = f.read()
          f.close()
