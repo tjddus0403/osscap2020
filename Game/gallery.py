@@ -4,7 +4,8 @@ import time
 from original import draw_matrix
 import LED_display as LMD
 import threading
-from score import*
+from score import ScoreBlk
+from score import Score
 
 def LED_init():
     thread=threading.Thread(target=LMD.main, args=())
