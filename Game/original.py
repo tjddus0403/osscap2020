@@ -293,6 +293,7 @@ def memory_key():
                    f.close()
                    ls=file.splitlines()
                for line in ls:
+                   success=int(success)
                    print("1등의 기록 : ", line)
                    line=int(line)
                    draw_matrix(Score(line))
