@@ -29,12 +29,12 @@ def gallery_mode_exe():
             print("갤러리 모드를 성공하셨습니다. 게임을 종료합니다.")
             break
         if (i==1)or(i==2):
+            score=int(score)
             f = open("갤러리1등.txt", 'r')
             file = f.read()
             f.close()
             list = file.splitlines()      
             for line in list:
-                score=int(score)
                 print("1등의 기록 : ", line)
                 line=int(line)
                 draw_matrix(Score(line))
@@ -42,7 +42,7 @@ def gallery_mode_exe():
                 print(player,"의 기록: ",score)
                 draw_matrix(Score(score))
                 time.sleep(2)
-                if int(line)<score:
+                if line<score:
                     print("축하드립니다. 신기록을 세우셨군요!!")
                     f= open("갤러리1등.txt", 'w')
                     line = f.write(str(score))
