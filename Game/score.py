@@ -1,8 +1,9 @@
 from matrix import*
 from original import*
 from LED_display import*
+scoreBlk = []
 def ScoreBlk(num):
-    global num
+    global scoreBlk
     if num == 0:
         scoreBlk = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
