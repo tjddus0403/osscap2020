@@ -153,7 +153,7 @@ def Score(score):
     
     Scoreiscreen=Matrix(Scorescreen)
     Scoreoscreen=Matrix(Scoreiscreen)
-    
+    LED_init()
     if Tenscore == 0:
        Onescoretop = 4
        Onescoreleft = 11
@@ -171,5 +171,5 @@ def Score(score):
         tempBlk=tempBlk+TenscoreBlk
         Scoreoscreen.paste(tempBlk,Tenscoretop,Tenscoreleft)
 
-    LED_init() 
+    #LED_init() 
     draw_matrix(Scoreoscreen); print()
