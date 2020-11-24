@@ -297,10 +297,10 @@ def memory_key():
                    print("1등의 기록 : ", line)
                    line=int(line)
                    draw_matrix(Score(line))
-                   time.sleep(1)
+                   time.sleep(2)
                    print(player,"의 기록: ",success)
                    draw_matrix(Score(success))
-                   time.sleep(1)
+                   time.sleep(2)
                    if float(line)<success:
                        print("축하드립니다. 신기록을 세우셨군요!!")
                        if level==1:
