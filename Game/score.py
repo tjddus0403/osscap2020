@@ -161,7 +161,7 @@ def Score(score):
        tempBlk=Scoreiscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
        tempBlk=tempBlk+OnescoreBlk
        Scoreoscreen.paste(tempBlk,Onescoretop,Onescoreleft)
-    
+       draw_matrix(Scoreoscreen); print()
     
     else:
         tempBlk=Scoreiscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
@@ -170,6 +170,7 @@ def Score(score):
         tempBlk=Scoreiscreen.clip(Tenscoretop,Tenscoreleft,Tenscoretop+TenscoreBlk.get_dy(),Tenscoreleft+TenscoreBlk.get_dx())
         tempBlk=tempBlk+TenscoreBlk
         Scoreoscreen.paste(tempBlk,Tenscoretop,Tenscoreleft)
+        draw_matrix(Scoreoscreen); print()
 
     #LED_init() 
-    draw_matrix(Scoreoscreen); print()
+   # draw_matrix(Scoreoscreen); print()
