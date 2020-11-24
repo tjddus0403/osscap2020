@@ -4,6 +4,7 @@ import copy
 from random import*
 import time
 from score import*
+
 def memory_to():
       player=input("플레이어의 이름을 입력하세요 : ")
       QarrayScreen=[
@@ -241,9 +242,11 @@ def memory_to():
              line=int(line)
              print(type(line))
             # line="{:g}".format(line)
-             score(line)
+             draw_matrix(Score(line))
+             time.sleep(1)
              print(player,"의 기록: ",runtime)
-             score(runtime)
+             draw_matrix(Score(runtime))
+             time.sleep(1)
              if line>runtime:
                 print("축하드립니다. 신기록을 세우셨군요!!")
                 f= open("짝맞추기1등.txt", 'w')
