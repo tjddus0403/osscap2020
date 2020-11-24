@@ -243,10 +243,10 @@ def memory_to():
              print(type(line))
             # line="{:g}".format(line)
              draw_matrix(Score(line))
-             time.sleep(1)
+             time.sleep(2)
              print(player,"의 기록: ",runtime)
              draw_matrix(Score(runtime))
-             time.sleep(1)
+             time.sleep(2)
              if line>runtime:
                 print("축하드립니다. 신기록을 세우셨군요!!")
                 f= open("짝맞추기1등.txt", 'w')
