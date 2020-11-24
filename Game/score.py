@@ -151,10 +151,13 @@ def Score(score):
 
 
     Tenscore = score // 10
+    print(Tenscore)
     Onescore = score % 10
+    print(Onescore)
     TenscoreBlk = Matrix(ScoreBlk(Tenscore))
+    print(TenscoreBlk)
     OnescoreBlk = Matrix(ScoreBlk(Onescore))
-    
+    print(TenscoreBlk)
      # 숫자 출력 index 좌표값
     Tenscoretop = 4
     Onescoretop = 4
@@ -163,7 +166,7 @@ def Score(score):
     
     Scoreiscreen=Matrix(Scorescreen)
     Scoreoscreen=Matrix(Scoreiscreen)
-    LED_init()
+    #LED_init()
     if Tenscore == 0:
        Onescoretop = 4
        Onescoreleft = 11
@@ -171,7 +174,7 @@ def Score(score):
        tempBlk=Scoreiscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
        tempBlk=tempBlk+OnescoreBlk
        Scoreoscreen.paste(tempBlk,Onescoretop,Onescoreleft)
-       draw_matrix(Scoreoscreen); print()
+       #draw_matrix(Scoreoscreen)
     
     else:
         tempBlk=Scoreiscreen.clip(Onescoretop,Onescoreleft,Onescoretop+OnescoreBlk.get_dy(),Onescoreleft+OnescoreBlk.get_dx())
@@ -180,7 +183,7 @@ def Score(score):
         tempBlk=Scoreiscreen.clip(Tenscoretop,Tenscoreleft,Tenscoretop+TenscoreBlk.get_dy(),Tenscoreleft+TenscoreBlk.get_dx())
         tempBlk=tempBlk+TenscoreBlk
         Scoreoscreen.paste(tempBlk,Tenscoretop,Tenscoreleft)
-        draw_matrix(Scoreoscreen); print()
-
+        #draw_matrix(Scoreoscreen)
+    return Scoreoscreen
     #LED_init() 
    # draw_matrix(Scoreoscreen); print()
