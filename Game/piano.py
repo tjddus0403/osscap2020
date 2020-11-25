@@ -36,7 +36,9 @@ def memory_piano():
 
    butterfly=[393,329,329,349,294,294]
 
-   playlist = [star,plane,butterfly]
+   schoolbell=[393,393,440,440,393,393,329]
+   
+   playlist = [star,plane,butterfly,schoolbell]
    i=0
    count=0
    pl=copy.deepcopy(playlist)
