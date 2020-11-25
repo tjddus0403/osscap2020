@@ -37,7 +37,7 @@ def draw_matrix(m):
             else:        #white(겹칠떄)
                LMD.set_pixel(x,y,7)
          print()
-def memory_key():
+def memory_voice():
       player=input("사용자 이름을 입력하세요 : ")
       arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
       currBlk=Matrix(arrayBlk)
