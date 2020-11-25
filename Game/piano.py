@@ -41,7 +41,7 @@ def memory_piano():
    count=0
    pl=copy.deepcopy(playlist)
    player=input("사용자 이름을 입력하세요 : ")
-   buzzer_pin=17
+   buzzer_pin=26
    GPIO.setwarnings(False)
    GPIO.setmode(GPIO.BCM)
    GPIO.setup(buzzer_pin,GPIO.OUT)
