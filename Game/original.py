@@ -19,28 +19,28 @@ def draw_matrix(m):
                LMD.set_pixel(x,y,0)
             elif array[y][x]==1:   #white(테두리)
                LMD.set_pixel(x,y,7)
-            elif array[y][x]==2:  #skyblue
+            elif array[y][x]==2:  #skyblue (컨트롤하는 블록의 색상)
                LMD.set_pixel(x,y,6)
-            elif array[y][x]==3:  #yellow
+            elif array[y][x]==3:  #yellow (설치되는 노란색 블록)
                LMD.set_pixel(x,y,3)
-            elif array[y][x]==4: #red
+            elif array[y][x]==4: #red  (설치되는 빨간색 블록)
                LMD.set_pixel(x,y,1)
-            elif array[y][x]==7:   #green
+            elif array[y][x]==7:   #green  (설치되는 초록색 블록)
                LMD.set_pixel(x,y,2)
-            elif array[y][x]==12:   #blue
+            elif array[y][x]==12:   #blue  (설치되는 파란색 블록)
                LMD.set_pixel(x,y,4)
-            elif array[y][x]==20:   #pink
+            elif array[y][x]==20:   #pink  (설치되는 핑크색 블록)
                LMD.set_pixel(x,y,5)
-            else:        #white(겹칠떄)
+            else:        #white(겹칠 때 즉, 컨트롤하는 블록이 이동한 위치에 이미 설치된 블록이 있으면 설치된 상태라는 것을 하얀색 블록을 통해 알려줌)
                LMD.set_pixel(x,y,7)
          print()
-def memory_key():
-      player=input("사용자 이름을 입력하세요 : ")
-      arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
-      currBlk=Matrix(arrayBlk)
-      i=0
-      success=0
-      level = int(input("난이도 easy는 1, hard는 2를 입력하세요: "))
+def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
+      player=input("사용자 이름을 입력하세요 : ")  #플레이어의 정보(이름) 받기
+      arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]   #플레이어가 컨트롤하는 블록 설정
+      currBlk=Matrix(arrayBlk)   # 위에서 정한 컨트롤할 블록을 매트릭스 형태로 변환
+      i=0   # 성공해서 다음단계로 넘어가는 것인지(i=0), 실패해서 다시 시작하는 것인지(i=1), 실패해서 게임을 종료하는 것인지(i=2) 구분하기 위한 변수i 설정
+      success=0  #스코어를 누적하는 변수 success 설정
+      level = int(input("난이도 easy는 1, hard는 2를 입력하세요: "))  #사용자로부터 난이도를 level이라는 변수에 입력받기
       while True:
          if i==1:
             success=0
@@ -49,9 +49,9 @@ def memory_key():
             print("게임을 종료합니다.")
             break
          while True:
-      #output
-            i=0
-            QarrayScreen=[
+      #문제 화면 출력하기
+            i=0 #게임을 다시 시작하게 되더라도 여기서 i=0으로 바뀌기 때문에, 처음 상태로 초기화 되어 플레이 할 수 있음
+            QarrayScreen=[                                                         #문제 화면을 출력할 2차원 배열 QarrayScreen 설정
                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
@@ -69,10 +69,9 @@ def memory_key():
                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
 
-            if level == 1:
-               lighton=sample(list(range(1,22)),7)
-
-               currBlk=Matrix(arrayBlk)
+            if level == 1:               #level이 easy일 때의 문제 화면 출력 과정
+               lighton=sample(list(range(1,22)),7)   #21개의 칸 중 불을 킬 7개의 칸 랜덤으로 정하기
+            
                for i in lighton:
                   top=2
                   left=2
@@ -94,7 +93,7 @@ def memory_key():
                         for b in range(left,left+currBlk.get_dx()):
                            QarrayScreen[a][b]=3
                
-            if level == 2:
+            if level == 2:             #level이 hard일 때의 문제 화면 출력 과정
                lighton=sample(list(range(1,22)),8)
                red=lighton[:3]
                yellow=lighton[3:5]
