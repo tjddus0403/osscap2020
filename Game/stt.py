@@ -307,12 +307,12 @@ def memory_voice():
                    if float(line)<success:
                        print("축하드립니다. 신기록을 세우셨군요!!")
                        if level==1:
-                           f= open("오리지널easy_1등.txt", 'w')
+                           f= open("Voice_easy_1등.txt", 'w')
                            line = f.write(str(success))
                            print("새로운 1등 기록 : ",success)
                            f.close()
                        elif level==2:
-                           f= open("오리지널hard_1등.txt", 'w')
+                           f= open("Voice_hard_1등.txt", 'w')
                            line = f.write(str(success))
                            print("새로운 1등 기록 : ",success)
                            f.close()
