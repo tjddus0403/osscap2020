@@ -1,6 +1,4 @@
 import gspeech2
-import time
-
 import copy
 
 def voice():
@@ -44,4 +42,11 @@ def voice():
       if ('힌트' in stt):
         return 'h'
         break
+      if ('예' in stt):
+        return 'Y'
+        break
+      if ('아니오' in stt):
+        return 'N'
+        break
+
 
