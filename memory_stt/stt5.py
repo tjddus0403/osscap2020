@@ -4,7 +4,8 @@ import copy
 from matrix import*
 from random import*
 
-import fuc
+import gspeech2
+import time
 
 
 def draw_matrix(m):
@@ -172,7 +173,7 @@ while True:
          print('Fix the color block : r(red), y(yellow), g(green)')
          print('Erase the block : e(erase)')
          print('Finish : \' \'')
-         key=fuc.voice()
+         key=voice()
          if key=='q':
             print('Game terminated')
             break
