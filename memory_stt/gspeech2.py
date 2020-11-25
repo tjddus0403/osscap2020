@@ -186,6 +186,7 @@ class Gspeech(Thread):
             return
 
 
+command = ['끝', '노랑', '빨강', '초록', '위', '상', '하', '아래', '좌', '우', '힌트', '지워']
 
 def main():
     gsp = Gspeech()
@@ -196,7 +197,7 @@ def main():
             break
         print(stt)
         time.sleep(0.01)
-        if ('끝내자' in stt):
+        if (command in stt):
             break
 
 
