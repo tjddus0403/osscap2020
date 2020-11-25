@@ -151,7 +151,7 @@ def Score(score):
 
 
     if score<0:
-            return Scorescreen
+            return Matrix(Scorescreen)
     Tenscore = score // 10
     Onescore = score % 10
     TenscoreBlk = Matrix(ScoreBlk(Tenscore))
