@@ -97,7 +97,7 @@ def memory_piano():
              #  GPIO.setup(buzzer_pin,GPIO.OUT)
              #  pwm=GPIO.PWM(buzzer_pin,100)
                pwm.start(100)
-               pwm.ChangeDutyCycle(90)
+              # pwm.ChangeDutyCycle(90)
                pwm.ChangeFrequency(a)
                time.sleep(0.7)
                draw_matrix(QiScreen); print()
