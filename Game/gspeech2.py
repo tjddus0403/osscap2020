@@ -198,8 +198,7 @@ def main():
         print(stt)
         time.sleep(0.01)
         if (command in stt):
-			return stt
-			break
+            break
 
 
 if __name__ == '__main__':
