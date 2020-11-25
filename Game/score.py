@@ -150,6 +150,8 @@ def Score(score):
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]]
 
 
+    if score<0:
+            return Scorescreen
     Tenscore = score // 10
     Onescore = score % 10
     TenscoreBlk = Matrix(ScoreBlk(Tenscore))
