@@ -1,4 +1,5 @@
 import gspeech2
+import time
 import copy
 
 def voice():
