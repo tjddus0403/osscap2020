@@ -11,7 +11,7 @@ def exam():
             break
         print(stt)
         time.sleep(0.01)
-        if ('끝내자' in stt):
+        if ('끝' in stt):
             return 'a'
             break
 

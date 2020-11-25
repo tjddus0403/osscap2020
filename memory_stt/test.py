@@ -6,7 +6,7 @@ def voice():
   while Ture:
       stt = gsp.getText()
       if stt is None:
-          break
+         break
       print(stt)
       time.sleep(0.01)
       if ('좌' in stt):
@@ -15,7 +15,7 @@ def voice():
       if ('우' in stt):
         return 'd'
         break
-      if ('하', '아래' in stt):
+      if ('하' in stt):
         return 's'
         break
       if ('끝' in stt):
