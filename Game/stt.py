@@ -317,4 +317,3 @@ def memory_key():
                            print("새로운 1등 기록 : ",success)
                            f.close()
                break
-memory_key()
