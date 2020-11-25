@@ -27,7 +27,7 @@ from threading import Thread
 import time
 
 # Audio recording parameters
-RATE = 16000
+RATE = 44100
 CHUNK = int(RATE / 10)  # 100ms
 
 class MicrophoneStream(object):
@@ -198,8 +198,7 @@ def main():
         print(stt)
         time.sleep(0.01)
         if (command in stt):
-			return stt
-			break
+            break
 
 
 if __name__ == '__main__':

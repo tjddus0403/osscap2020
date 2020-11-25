@@ -2,7 +2,7 @@
 
 import gspeech2
 import time
-def main():
+def exam():
     gsp = gspeech2.Gspeech()
     while True:
         # 음성 인식 될때까지 대기 한다.
@@ -12,9 +12,10 @@ def main():
         print(stt)
         time.sleep(0.01)
         if ('끝내자' in stt):
+            return 'a'
             break
 
 
-if __name__ == '__main__':
-    main()
+a = exam()
+print(a)
 

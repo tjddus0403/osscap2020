@@ -218,8 +218,7 @@ def listen_print_loop(responses, stream):
 
             # Exit recognition if any of the transcribed phrases could be
             # one of our keywords.
-            if re.search(r"\b(exit|quit)\b", transcript, re.I):
-                sys.stdout.write(YELLOW)
+            if re.search(r"\b(exit|'끝')\b", transcript, re.I):
                 sys.stdout.write("Exiting...\n")
                 stream.closed = True
                 break
@@ -249,18 +248,11 @@ def main():
 
     mic_manager = ResumableMicrophoneStream(SAMPLE_RATE, CHUNK_SIZE)
     print(mic_manager.chunk_size)
-    sys.stdout.write(YELLOW)
-    sys.stdout.write('\nListening, say "Quit" or "Exit" to stop.\n\n')
-    sys.stdout.write("End (ms)       Transcript Results/Status\n")
-    sys.stdout.write("=====================================================\n")
-
+    
     with mic_manager as stream:
 
         while not stream.closed:
             sys.stdout.write(YELLOW)
-            sys.stdout.write(
-                "\n" + str(STREAMING_LIMIT * stream.restart_counter) + ": NEW REQUEST\n"
-            )
 
             stream.audio_input = []
             audio_generator = stream.generator()

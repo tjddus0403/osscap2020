@@ -35,8 +35,10 @@ def memory_piano():
           294, 294, 329, 393, 393 ]
 
    butterfly=[393,329,329,349,294,294]
+   
+   schoolbell=[393,393,440,440,393,393,329]
 
-   playlist = [star,plane,butterfly]
+   playlist = [schoolbell]
    i=0
    count=0
    pl=copy.deepcopy(playlist)
@@ -45,7 +47,7 @@ def memory_piano():
    GPIO.setwarnings(False)
    GPIO.setmode(GPIO.BCM)
    GPIO.setup(buzzer_pin,GPIO.OUT)
-   pwm=GPIO.PWM(buzzer_pin,100)
+   pwm=GPIO.PWM(buzzer_pin,600)
    while True:
          if i==1:
                i=0
@@ -96,8 +98,8 @@ def memory_piano():
              #  GPIO.setmode(GPIO.BCM)
              #  GPIO.setup(buzzer_pin,GPIO.OUT)
              #  pwm=GPIO.PWM(buzzer_pin,100)
-               pwm.start(100)
-               pwm.ChangeDutyCycle(90)
+               pwm.start(50)
+               pwm.ChangeDutyCycle(50)
                pwm.ChangeFrequency(a)
                time.sleep(0.7)
                draw_matrix(QiScreen); print()
@@ -243,3 +245,4 @@ def memory_piano():
                elif again=='N':
                    i=2
                    break
+memory_piano()

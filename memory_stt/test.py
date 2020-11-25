@@ -11,24 +11,34 @@ def voice():
       time.sleep(0.01)
       if ('좌' in stt):
         return 'a'
-      elif ('우' in stt):
+        break
+      if ('우' in stt):
         return 'd'
-      elif ('하', '아래' in stt):
+        break
+      if ('하', '아래' in stt):
         return 's'
-      elif ('끝' in stt):
+        break
+      if ('끝' in stt):
         return ' '
-      elif ('빨강' in stt):
+        break
+      if ('빨강' in stt):
         return 'r'
-      elif ('노랑' in stt):
+        break
+      if ('노랑' in stt):
         return 'o'
-      elif ('초록' in stt):
+        break
+      if ('초록' in stt):
         return 'g'
-      elif ('지워' in stt):
+        break
+      if ('지워' in stt):
         return 'e'
-      elif ('열기' in stt):
+        break
+      if ('열기' in stt):
         return 'o'
-      elif ('힌트' in stt):
+        break
+      if ('힌트' in stt):
         return 'h'
+        break
 
 key=voice()
 print(key)
