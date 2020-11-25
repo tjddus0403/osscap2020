@@ -158,8 +158,8 @@ def Score(score):
     Tenscoretop = 4
     Onescoretop = 4
     Tenscoreleft = 8
-    Onescoreleft = 14
-    
+    Onescoreleft = 16
+            
     Scoreiscreen=Matrix(Scorescreen)
     Scoreoscreen=Matrix(Scoreiscreen)
     #LED_init()
