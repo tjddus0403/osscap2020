@@ -25,7 +25,7 @@ while True:
       break
       
    elif choice==5:
-      stt()
+      memory_voice()
       break
       
    elif choice==6:
