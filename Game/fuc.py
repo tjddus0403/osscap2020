@@ -46,7 +46,7 @@ def voice():
       if ('예' in stt):
         return 'Y'
         break
-      if ('아니오' in stt):
+      if ('아니요' in stt):
         return 'N'
         break
 
