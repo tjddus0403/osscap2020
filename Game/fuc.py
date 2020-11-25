@@ -5,20 +5,23 @@ import copy
 
 def voice():
   gsp = gspeech2.Gspeech()
-  while Ture:
+  while True:
       stt = gsp.getText()
       if stt is None:
          break
       print(stt)
       time.sleep(0.01)
-      if ('좌' in stt):
+      if ('왼쪽' in stt):
         return 'a'
         break
-      if ('우' in stt):
+      if ('오른쪽' in stt):
         return 'd'
         break
-      if ('하' in stt):
+      if ('아래' in stt):
         return 's'
+        break
+      if ('위로' in stt):
+        return 'w'
         break
       if ('끝' in stt):
         return ' '
@@ -27,7 +30,7 @@ def voice():
         return 'r'
         break
       if ('노랑' in stt):
-        return 'o'
+        return 'y'
         break
       if ('초록' in stt):
         return 'g'
