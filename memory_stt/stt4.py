@@ -2,16 +2,15 @@ from matrix import*
 from original import*
 import copy
 from random import*
-import gspeech
+import gspeech2
 import time
 
 def voice():
-  gsp = gspeech.Gspeech()
+  gsp = gspeech2.Gspeech()
   while True:
       stt = gsp.getText()
       if stt is None:
           break
-      print(stt)
       time.sleep(0.01)
       if ('좌' in stt):
         return 'a'

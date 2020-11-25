@@ -13,7 +13,7 @@ def voice():
         return 'a'
       elif ('우' in stt):
         return 'd'
-      elif ('하' in stt):
+      elif ('하', '아래' in stt):
         return 's'
       elif ('끝' in stt):
         return ' '
