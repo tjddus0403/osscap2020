@@ -151,13 +151,9 @@ def Score(score):
 
 
     Tenscore = score // 10
-    print(Tenscore)
     Onescore = score % 10
-    print(Onescore)
     TenscoreBlk = Matrix(ScoreBlk(Tenscore))
-    print(TenscoreBlk)
     OnescoreBlk = Matrix(ScoreBlk(Onescore))
-    print(TenscoreBlk)
      # 숫자 출력 index 좌표값
     Tenscoretop = 4
     Onescoretop = 4
