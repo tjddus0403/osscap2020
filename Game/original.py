@@ -258,47 +258,46 @@ def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
             draw_matrix(AiScreen); print()  #최종으로 사용자가 제출한 답안 화면을 LED matrix에 보여줌
 
             #input_output_corfirm
-            i = 0
-            for a in range(2,14):
-                  for b in range(2, 30):
+            i = 0   #성공, 실패를 구분하기 위한 변수 i 생성
+            for a in range(2,14):       #LED matrix의 모든 칸을 돌면서 QarrayScreen과 AarrayScreen이 동일한지 판단 
+                  for b in range(2,30):
                         if QarrayScreen[a][b] != AarrayScreen[a][b]:
-                            print("실패하셨습니다.")
-                            thehalgguenya = input("게임을 다시 시작하시겠습니까? (Y/N): ")
-                            if thehalgguenya == "Y":
+                            print("실패하셨습니다.")       #틀리다면 실패문구 출력
+                            thehalgguenya = input("게임을 다시 시작하시겠습니까? (Y/N): ")  #게임을 다시 할 것인지 사용자로부터 입력받음
+                            if thehalgguenya == "Y":        # 다시 한다면 i=1이 됨
                                 i = 1
                                 break
-                            elif thehalgguenya == "N":
+                            elif thehalgguenya == "N":      # 그만 한다면 i=2가 됨
                                 i = 2
                                 break
                   if (i==1)or(i==2):
                         break
          
-            if i == 0:
+            if i == 0:  #성공했다면 i에 변화가 없기에 그대로 0일 것임 
                print("success")
-               success+=2
+               success+=2   #성공 점수에 2점을 추가하고 다음 문제로 게임 계속 진행
                continue
                                
-            elif (i==1)or(i==2):
-               if level==1:
-                   f = open("오리지널easy_1등.txt", 'r')
+            elif (i==1)or(i==2):    #실패했다면 다시 시작하는 것의 유무와 상관없이 점수를 출력해줌 (1등의 점수, 사용자의 점수 순서대로 출력됨 (점수는 익명)->펀치기계같은 점수관리)
+               if level==1:     #easy모드라면, easy모드 1등의 점수가 적힌 파일을 열어서 1등 점수 읽어오기
+                   f = open("오리지널easy_1등.txt", 'r') 
                    file = f.read()
                    f.close()
                    ls = file.splitlines()
-               elif level==2:
+               elif level==2:      #hard모드라면, hard모드 1등 점수가 적힌 파일을 열어서 1등 점수 읽어오기
                    f=open("오리지널hard_1등.txt",'r')
                    file=f.read()
                    f.close()
                    ls=file.splitlines()
-               for line in ls:
-                   success=int(success)
-                   print("1등의 기록 : ", line)
-                   line=int(line)
-                   draw_matrix(Score(line))
+               for line in ls:      
+                   print("1등의 기록 : ", line) #1등의 기록 출력
+                   line=int(line)   #1등의 기록을 숫자형태로 바꾼후 
+                   draw_matrix(Score(line)) #score 파일에 있는 Score함수에 인자로 넣어서 그 리턴값으로 1등 점수가 적힌 스크린 받아온 후, 그것을 draw_matrix함수를 통해 LED matrix에 표현 
+                   time.sleep(2)    #2초동안 보여줌
+                   print(player,"의 기록: ",success)   #마찬가지로 사용자의 기록 출력
+                   draw_matrix(Score(success))  #위와 동일한 방식으로 사용자의 기록을 LED matrix에 2초간 출력
                    time.sleep(2)
-                   print(player,"의 기록: ",success)
-                   draw_matrix(Score(success))
-                   time.sleep(2)
-                   if float(line)<success:
+                   if float(line)<success:  #만약 사용자 기록이 1등의 기록보다 높다면, 해당 모드의 파일 열어서 사용자의 기록으로 1등 기록 갱신
                        print("축하드립니다. 신기록을 세우셨군요!!")
                        if level==1:
                            f= open("오리지널easy_1등.txt", 'w')
