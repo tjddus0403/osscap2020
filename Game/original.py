@@ -233,7 +233,7 @@ def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
                      for b in range(left,left+currBlk.get_dx()):
                         AarrayScreen[a][b]=0
                
-                elif key=='h':      # h 선택 시, 힌트 사용
+               elif key=='h':      # h 선택 시, 힌트 사용
                   if hint==0:   #힌트를 한번도 사용하지 않은 상태라면, 힌트 사용가능 (두번은 사용할 수 X)
                         success-=1      # 성공 점수에서 1점 깎임
                         draw_matrix(QoScreen);print()   # 문제화면을 LED matrix에 3초간 보여줌
