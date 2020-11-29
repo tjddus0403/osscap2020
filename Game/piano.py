@@ -7,9 +7,9 @@ import RPi.GPIO as GPIO
 import copy
 
 def memory_piano():
-   arrayBlk=[[2,2,2,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,2,2,2]]
-   currBlk=Matrix(arrayBlk)
-   QarrayScreen=[
+   arrayBlk=[[2,2,2,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,0,0,2],[2,2,2,2]] #사용자가 컨트롤 할 블럭 배열 arrayBlk생성
+   currBlk=Matrix(arrayBlk)   #arrayBlk를 행렬형태로 만든 currBlk생성
+   QarrayScreen=[                                                                         #문제화면을 보여줄 배열 QarrayScreen 생성
                   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
@@ -27,37 +27,36 @@ def memory_piano():
                   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
 
-   piano=[261,294,329,349,393,440,493]
+   piano=[261,294,329,349,393,440,493]    #도,레,미,파,솔,라,시 의 주파수를 담은 피아노 리스트 생성
 
-   star=[261,261,393,393,440,440,393]
-
-   plane=[329, 294, 261, 294, 329, 329, 329, 294,
+   star=[261,261,393,393,440,440,393]     #작은별 노래의 주파수를 담은 리스트 생성
+   
+   plane=[329, 294, 261, 294, 329, 329, 329, 294,     #비행기 노래의 주파수를 담은 리스트 생성
           294, 294, 329, 393, 393 ]
 
-   butterfly=[393,329,329,349,294,294]
+   butterfly=[393,329,329,349,294,294]    #나비야 노래의 주파수를 담은 리스트 생성
 
-   schoolbell=[393,393,440,440,393,393,329]
+   schoolbell=[393,393,440,440,393,393,329]  #학교종 노래의 주파수를 담은 리스트 생성
    
-   playlist = [star,plane,butterfly,schoolbell]
-   i=0
-   count=0
-   pl=copy.deepcopy(playlist)
-   player=input("사용자 이름을 입력하세요 : ")
-   buzzer_pin=26
-   GPIO.setwarnings(False)
+   playlist = [star,plane,butterfly,schoolbell]    #각 노래를 담은 플레이리스트 리스트 생성
+   i=0   #성공, 실패를 판단하기 위한 변수 i 
+   count=0  #맞춘 갯수(점수)를 판단하기 위한 변수 count 생성
+   pl=copy.deepcopy(playlist)    #playlist를 카피한 리스트 pl 생성
+   player=input("사용자 이름을 입력하세요 : ")    #사용자의 이름 입력받기
+   buzzer_pin=26     #피에조 부저를 연결한 GPIO 핀 번호 (26), 아래는 피에조부저 소리를 출력하기 위한 과정임
+   GPIO.setwarnings(False) 
    GPIO.setmode(GPIO.BCM)
    GPIO.setup(buzzer_pin,GPIO.OUT)
    pwm=GPIO.PWM(buzzer_pin,600)
    while True:
-         if i==1:
+         if i==1:    #i=1이라면 게임을 다시 시작하는 상태이기 때문에 위에서 정한 초기값을 다시 받아야함 아래는 그 과정임
                i=0
                player=input("사용자 이름을 입력하세요 : ")
                pl=copy.deepcopy(playlist)
-        
-         random.shuffle(pl)
-         song=pl[0]
-         pl.pop(0)
-         for a in song:
+         random.shuffle(pl)   #pl내용을 랜덤으로 섞기
+         song=pl[0]  #p1에 있는 첫번째 곡을 저장한 리스트 변수 song 생성
+         pl.pop(0)   #pl에 있는 첫번째 곡 빼기
+         for a in song: #song에 있는 숫자에 따라 나타내는 소리가 다르기에 
                top=2
                left=2
                QiScreen=Matrix(QarrayScreen)
@@ -191,7 +190,6 @@ def memory_piano():
          draw_matrix(AiScreen); print()
                
          #input_output_corfirm            
-         i = 0
          if song==answer:
                print("성공하셨습니다.")
                count+=1
