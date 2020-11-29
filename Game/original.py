@@ -162,6 +162,8 @@ def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
 
+            AiScreen=Matrix(AarrayScreen)
+            AoScreen=Matrix(AiScreen)
             currBlk=Matrix(arrayBlk)
             tempBlk=AiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx())
             tempBlk=tempBlk+currBlk
