@@ -167,7 +167,7 @@ def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
             tempBlk=AiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx())  #원하는 위치로 블럭을 옮기기 위해 원하는 위치의 칸을 AiScreen에서 잘라서 tempBlk생성
             tempBlk=tempBlk+currBlk        #currBlk의 형태를 가진 tempBlk재생성
             AoScreen.paste(tempBlk,top,left)    #tempBlk을 AoScreen에 붙여주기
-            draw_matrix(AoScreen); print()      #최종적으로 블럭이 옮겨진 화면(AoScreen)을 LED matrix에서 보여주기
+            draw_matrix(AoScreen); print()      #최종적으로 블럭이 위치한 화면(AoScreen)을 LED matrix에서 보여주기
             hint=0  #처음엔 힌트를 안사용했으므로 0으로 초기화
             
             while True:     #키를 계속 사용해 움직여야하기에 무한루프 생성
