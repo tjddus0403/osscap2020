@@ -56,56 +56,48 @@ def memory_piano():
          random.shuffle(pl)   #pl내용을 랜덤으로 섞기
          song=pl[0]  #p1에 있는 첫번째 곡을 저장한 리스트 변수 song 생성
          pl.pop(0)   #pl에 있는 첫번째 곡 빼기
-         for a in song: #song에 있는 숫자에 따라 나타내는 소리가 다르기에 
+         for a in song: #song에 있는 숫자에 따라 나타내는 소리가 다르기에 하나씩 뽑아서 맞는 칸에 currBlk이 뜨게 하고 해당 칸에 맞는 음이 나도록 해야함
                top=2
                left=2
-               QiScreen=Matrix(QarrayScreen)
-               if a==261:
+               QiScreen=Matrix(QarrayScreen)    #QarrayScreen을 행렬형태로 받는 QiScreen생성
+               if a==261:  #a가 261일 경우, 도를 나타내며 currBlk의 left위치는 2
                      left=2
                                          
-               elif a==294:
+               elif a==294:   #a가 294일 경우, 레를 나타내며 currBlk의 left위치는 2+4
                      left+=4
-                    # pwm.ChangeFrequency(294)
-               elif a==329:
+
+               elif a==329:    #a가 329일 경우, 미를 나타내며 currBlk의 left위치는 2+8
                      left+=8
-                    # pwm.ChangeFrequency(329)
-
-               elif a==349:
+      
+               elif a==349:    #a가 349일 경우, 파를 나타내며 currBlk의 left위치는 2+12
                      left+=12
-                    # pwm.ChangeFrequency(349)
 
-               elif a==393:
+               elif a==393:    #a가 393일 경우, 솔을 나타내며 currBlk의 left위치는 2+16
                      left+=16
-                    # pwm.ChangeFrequency(393)
 
-               elif a==440:
+               elif a==440:    #a가 440일 경우, 라를 나타내며 currBlk의 left위치는 2+20
                      left+=20
-                     #pwm.ChangeFrequency(440)
 
-               elif a==493:
+               elif a==493:    #a가 493일 경우, 시를 나타내며 currBlk의 left위치는 2+24
                      left+=24
-                    # pwm.ChangeFrequency(493)
 
-               tempBlk=QiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx())
-               tempBlk=tempBlk+currBlk
-               QoScreen = Matrix(QiScreen)
-               QoScreen.paste(tempBlk, top, left)
-               LED_init()
-               draw_matrix(QoScreen); print()
+               tempBlk=QiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx()) #컨트롤하는 블럭의 위치를 나타내는 tempBlk을 QiScreen으로부터 잘라와 생성
+               tempBlk=tempBlk+currBlk #위치 나타내는 tempBlk과 모양을 나타내는 currBlk을 합쳐 최종 컨트롤블럭 tempBlk 재생성
+               QoScreen = Matrix(QiScreen)   #QiScreen을 행렬형태로 받는 QoScreen생성
+               QoScreen.paste(tempBlk, top, left)  #QoScreen에 tempBlk붙여넣기
+               LED_init()  #LED matrix에 불켜기
+               draw_matrix(QoScreen); print()  #QoScreen을 LED matrix에 출력 
             
-               pwm.start(50)
+               pwm.start(50)              #아래는 피에조부저에서 song에 있는 음들이 나오게 하는 코드임
                pwm.ChangeDutyCycle(90)
                pwm.ChangeFrequency(a)
                time.sleep(0.7)
                draw_matrix(QiScreen); print()
-                           
 
-                
-                     # input
          top=2
          left=2
-         answer=[]
-         AarrayScreen=[
+         answer=[] #문제에서 들려준 순서대로 사용자가 입력했는지 답안을 저장할 리스트 answer 생성
+         AarrayScreen=[                                                                #사용자가 입력할 화면 AarrayScreen생성
                   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
@@ -122,7 +114,7 @@ def memory_piano():
                   [1,1,4,4,4,4,3,3,3,3,7,7,7,7,12,12,12,12,7,7,7,7,3,3,3,3,4,4,4,4,1,1],
                   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
-                     #prepare the initial screen output
+                    
          AiScreen=Matrix(AarrayScreen)
          AoScreen=Matrix(AiScreen)
          tempBlk=AiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx())
@@ -132,7 +124,6 @@ def memory_piano():
          hint=0
 
          while True:
-
                print('Direction : q(quit), a(left), d(right)')
                print('Push the piano : p(push)')
                print('Finish : \' \'')
