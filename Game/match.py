@@ -6,8 +6,8 @@ import time
 from score import*
 
 def memory_to():
-      player=input("플레이어의 이름을 입력하세요 : ")
-      QarrayScreen=[
+      player=input("플레이어의 이름을 입력하세요 : ")  #사용자 이름 입력받는 변수 player생성
+      QarrayScreen=[                                                                      #문제화면을 나타내는 QarrayScreen생성 
                      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                      [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
@@ -25,28 +25,28 @@ def memory_to():
                      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
       
-      lighton=[]
+      lighton=[] #불이 들어올 칸들의 리스트 생성
       for i in range(20):
          num=randint(1,21)
          while True:
             if num in lighton:
-               num=randint(1,21)
+               num=randint(1,21)    #21개의 칸 중 20개의 칸만 랜덤으로 선택
             else:
                break
-         lighton.append(num)
-      red=lighton[:4]
-      yellow=lighton[4:8]
-      green=lighton[8:12]
-      blue=lighton[12:16]
-      pink=lighton[16:]
+         lighton.append(num)  #선택된 20개의 칸을 위에서 생성한 리스트에 추가
+      red=lighton[:4]   #리스트의 맨 처음부터 4번째까지의 칸으로 빨간색 리스트 생성
+      yellow=lighton[4:8]     #리스트의 5번째부터 8번째까지의 칸으로 노란색 리스트 생성
+      green=lighton[8:12]     #리스트의 9번째부터 12번째까지의 칸으로 초록색 리스트 생성
+      blue=lighton[12:16]     #리스트의 13번째부터 16번째까지의 칸으로 파란색 리스트 생성 
+      pink=lighton[16:]       #리스트의 17번째부터 마지막까지의 칸으로 핑크색 리스트 생성
     
-      arrayBlk=[[2,2,2,2],[2,0,0,2],[2,0,0,2],[2,2,2,2]]
-      currBlk=Matrix(arrayBlk)
+      arrayBlk=[[2,2,2,2],[2,0,0,2],[2,0,0,2],[2,2,2,2]] #사용자가 컨트롤할 블럭 배열
+      currBlk=Matrix(arrayBlk)      #사용자가 컨트롤할 블럭배열을 행렬형태로 만든 currBlk생성
       
-      for i in lighton:
-         top=2
-         left=2
-         if ((i==1)or(i==2)or(i==3)or(i==4)or(i==5)or(i==6)or(i==7)):
+      for i in lighton:       #오리지널 모드와 마찬가지로 각 칸에 알맞은 색상 설정하기
+         top=2                      #추가된 것은 파란색(번호12)과 핑크색(번호20) 두가지 뿐임
+         left=2                                #문제 화면 띄우는 아래 과정들은 오리지널 모드와 동일
+         if ((i==1)or(i==2)or(i==3)or(i==4)or(i==5)or(i==6)or(i==7)):   
             left=left+(i-1)*4
             for a in range(top,top+currBlk.get_dy()):
                for b in range(left,left+currBlk.get_dx()):
@@ -95,15 +95,12 @@ def memory_to():
       QoScreen=Matrix(QiScreen)
       LED_init()
       draw_matrix(QoScreen); print()
-      time.sleep(7)
-      start_time=time.time()
+      time.sleep(7)     #문제화면 7초간 보여주기
+      start_time=time.time()  #사용자의 기록을 시간으로 보여주기 위해서 시작시간 받아놓기
       
-      AiScreenDy=12
-      AiScreenDx=28
-      AiScreenDw=2
       top=2
       left=2
-      AarrayScreen=[
+      AarrayScreen=[                                                               #사용자의 입력을 받을 정답화면 AarrayScreen 생성
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
             [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
@@ -121,7 +118,6 @@ def memory_to():
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
 
-                  #prepare the initial screen output
       AiScreen=Matrix(AarrayScreen)
       AoScreen=Matrix(AiScreen)
       currBlk=Matrix(arrayBlk)
