@@ -310,6 +310,6 @@ def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
                            print("새로운 1등 기록 : ",success)
                            f.close()
                    elif float(line)==success:
-                        printf("축하드립니다. 공동 1등 입니다!")
+                        print("축하드립니다. 공동 1등 입니다!")
                break
       
