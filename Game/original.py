@@ -1,17 +1,17 @@
-from matrix import*
+from matrix import*  
 from random import*
 import time
 import LED_display as LMD
 import threading
 from score import*
 
-def LED_init():
+def LED_init():     #LED에 불 들어오게 하기 위한 함수(threading)
     thread=threading.Thread(target=LMD.main, args=())
     thread.setDaemon(True)
     thread.start()
     return
 
-def draw_matrix(m):
+def draw_matrix(m):     #원하는대로 matrix를 그리기 위한 함수
       array=m.get_array()
       for y in range (m.get_dy()):
          for x in range(m.get_dx()):
@@ -52,7 +52,7 @@ def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
       #문제 화면 출력하기
             i=0 #게임을 다시 시작하게 되더라도 여기서 i=0으로 바뀌기 때문에, 처음 상태로 초기화 되어 플레이 할 수 있음
             QarrayScreen=[                                                         #문제 화면을 출력할 2차원 배열 QarrayScreen 설정
-               [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+               [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],       #총 블럭의 갯수는 7*3=21개
                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
                [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
@@ -73,37 +73,37 @@ def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
                lighton=sample(list(range(1,22)),7)   #21개의 칸 중 불을 킬 7개의 칸 랜덤으로 정하기
             
                for i in lighton:
-                  top=2
+                  top=2     #첫번째 줄의 top위치
                   left=2
-                  if ((i==1)or(i==2)or(i==3)or(i==4)or(i==5)or(i==6)or(i==7)):
-                     left=left+(i-1)*4
+                  if ((i==1)or(i==2)or(i==3)or(i==4)or(i==5)or(i==6)or(i==7)):      #첫 줄에 있는 7개의 칸들 중 불이 들어와야한다면, 
+                        left=left+(i-1)*4       #첫번째 줄의 left위치                       #해당 블록의 숫자를 3으로 바꿔 LED에 노란색 불로 켜지게 하기                     
+                     for a in range(top,top+currBlk.get_dy()):
+                        for b in range(left,left+currBlk.get_dx()):
+                           QarrayScreen[a][b]=3         
+                  elif ((i==8)or(i==9)or(i==10)or(i==11)or(i==12)or(i==13)or(i==14)):       #두번째 줄에 있는 7개의 칸들 중 불이 들어와야 할 때, 위와 동일
+                     top=6      #두번째 줄의 top위치
+                     left=left+(i-8)*4  #두번째 줄의 left위치
                      for a in range(top,top+currBlk.get_dy()):
                         for b in range(left,left+currBlk.get_dx()):
                            QarrayScreen[a][b]=3
-                  elif ((i==8)or(i==9)or(i==10)or(i==11)or(i==12)or(i==13)or(i==14)):
-                     top=6
-                     left=left+(i-8)*4
-                     for a in range(top,top+currBlk.get_dy()):
-                        for b in range(left,left+currBlk.get_dx()):
-                           QarrayScreen[a][b]=3
-                  elif ((i==15)or(i==16)or(i==17)or(i==18)or(i==19)or(i==20)or(i==21)):
-                     top=10
-                     left=left+(i-15)*4
+                  elif ((i==15)or(i==16)or(i==17)or(i==18)or(i==19)or(i==20)or(i==21)):         #세번째 줄에 있는 7개의 칸들 중 불이 들어와야 할 때, 위와 동일
+                     top=10     #세번째 줄의 top위치
+                     left=left+(i-15)*4     #세번째 줄의 left위치
                      for a in range(top,top+currBlk.get_dy()):
                         for b in range(left,left+currBlk.get_dx()):
                            QarrayScreen[a][b]=3
                
             if level == 2:             #level이 hard일 때의 문제 화면 출력 과정
-               lighton=sample(list(range(1,22)),8)
-               red=lighton[:3]
-               yellow=lighton[3:5]
-               green=lighton[5:]
+               lighton=sample(list(range(1,22)),8)  #21개의 칸 중 불을 킬 8개의 칸 랜덤으로 정하기
+               red=lighton[:3]      #뽑은 리스트 중 맨 앞 세 개는 빨간색
+               yellow=lighton[3:5]      #중간 두 개는 노란색
+               green=lighton[5:]        #맨 마지막 세 개는 초록색이 됨
 
                for i in lighton:
                   top=2
                   left=2
-                  if ((i==1)or(i==2)or(i==3)or(i==4)or(i==5)or(i==6)or(i==7)):
-                     left=left+(i-1)*4
+                  if ((i==1)or(i==2)or(i==3)or(i==4)or(i==5)or(i==6)or(i==7)):  #easy모드와 비슷하지만, hard모드는 첫 줄에 있는 7개의 칸들 중 불이 들어와야 할 때, 
+                     left=left+(i-1)*4                                                     # 해당 블록의 숫자를 4,3,7으로 바꿔 LED에 빨간색, 노란색, 초록색 불로 켜지게 하기
                      for a in range(top,top+currBlk.get_dy()):
                         for b in range(left,left+currBlk.get_dx()):
                            if i in red:
@@ -112,7 +112,7 @@ def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
                               QarrayScreen[a][b]=3
                            elif i in green:
                               QarrayScreen[a][b]=7
-                  elif ((i==8)or(i==9)or(i==10)or(i==11)or(i==12)or(i==13)or(i==14)):
+                  elif ((i==8)or(i==9)or(i==10)or(i==11)or(i==12)or(i==13)or(i==14)):   #두번째 줄에 있는 7개의 칸들 중 불이 들어와야 할 때, 위와 동일
                      top=6
                      left=left+(i-8)*4
                      for a in range(top,top+currBlk.get_dy()):
@@ -123,8 +123,8 @@ def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
                               QarrayScreen[a][b]=3
                            elif i in green:
                               QarrayScreen[a][b]=7
-                  elif ((i==15)or(i==16)or(i==17)or(i==18)or(i==19)or(i==20)or(i==21)):
-                     top=10
+                  elif ((i==15)or(i==16)or(i==17)or(i==18)or(i==19)or(i==20)or(i==21)):     #세번째 줄에 있는 7개의 칸들 중 불이 들어와야 할 때, 위와 동일
+                     top=10        
                      left=left+(i-15)*4
                      for a in range(top,top+currBlk.get_dy()):
                         for b in range(left,left+currBlk.get_dx()):
@@ -135,18 +135,16 @@ def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
                            elif i in green:
                               QarrayScreen[a][b]=7
 
-            QiScreen=Matrix(QarrayScreen)
-            QoScreen=Matrix(QiScreen)
-            LED_init()
-            draw_matrix(QoScreen); print()
-            time.sleep(7)
+            QiScreen=Matrix(QarrayScreen)   #문제화면(QarrayScreen)을 행렬형태로 바꾼 QiScreen설정
+            QoScreen=Matrix(QiScreen)       #QiScreen을 또 행렬형태로 바꾼 QoScreen설정
+            LED_init()      #LED판에 불이 들어오게 하기 (threading문제가 생길 수 있으므로 한 번만 해줄 것)
+            draw_matrix(QoScreen); print()      #draw_matrix함수를 이용해 QoScreen을 LED matrix에 그리기
+            time.sleep(7)       #그린 상태로 7초간 사용자에게 보여주기
+            
             #input
-            AiScreenDy=12
-            AiScreenDx=28
-            AiScreenDw=2
             top=2
             left=2
-            AarrayScreen=[
+            AarrayScreen=[                                                               #사용자의 답을 입력받을 AarrayScreen생성
                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
@@ -164,9 +162,6 @@ def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
 
-            #prepare the initial screen output
-            AiScreen=Matrix(AarrayScreen)
-            AoScreen=Matrix(AiScreen)
             currBlk=Matrix(arrayBlk)
             tempBlk=AiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx())
             tempBlk=tempBlk+currBlk
