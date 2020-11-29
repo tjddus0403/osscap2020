@@ -115,61 +115,61 @@ def memory_piano():
                   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
                     
-         AiScreen=Matrix(AarrayScreen)
-         AoScreen=Matrix(AiScreen)
-         tempBlk=AiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx())
+         AiScreen=Matrix(AarrayScreen) #AarrayScreen을 행렬형태로 만든 AiScreen생성
+         AoScreen=Matrix(AiScreen) #AiScreen을 행렬형태로 받은 AoScreen생성
+         tempBlk=AiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx()) # 위의 내용(Qarray에서 설명)과 동일
          tempBlk=tempBlk+currBlk
          AoScreen.paste(tempBlk,top,left)
          draw_matrix(AoScreen); print()
-         hint=0
+         hint=0   #힌트 사용 여부를 알기 위한 변수 hint 생성
 
          while True:
                print('Direction : q(quit), a(left), d(right)')
                print('Push the piano : p(push)')
                print('Finish : \' \'')
-               key=input('Enter a key : ')
-               if key=='q':
+               key=input('Enter a key : ')   #사용자로부터 키 값 입력받기
+               if key=='q':   # q 입력 시, 반복문을 탈출하면서 게임종료
                      print('Game terminated')
                      break
-               elif key=='a':
+               elif key=='a':    # a 입력 시, 컨트롤 블럭의 위치 left를 4칸 왼쪽으로 이동, 블럭이 왼쪽 벽이 닿아있을 시 더이상 이동하지X
                      if left==2:
                            continue
                      left-=4
-               elif key=='d':
+               elif key=='d':    # d 입력 시, 컨트롤 블럭의 위치 left를 4칸 오른쪽으로 이동, 블럭이 오른쪽 벽이 닿아있을 시 더이상 이동하지X
                      if left==26:
                            continue
                      left+=4
-               elif key=='p':
-                     if left==2:
+               elif key=='p':    # p 입력 시, 블럭의 위치에 따라 피에조 부저에서 울리는 음이 다름
+                     if left==2:       #블럭의 위치 left가 2일때, 주파수 261인 도 음이 울리고, 261이라는 숫자가 사용자의 정답리스트에 추가됨
                            answer.append(261)
                            pwm.ChangeFrequency(261)
-                     elif left==6:
+                     elif left==6:     #블럭의 위치 left가 6일때, 주파수 294인 레 음이 울리고, 294이라는 숫자가 사용자의 정답리스트에 추가됨
                            answer.append(294)
                            pwm.ChangeFrequency(294)
-                     elif left==10:
+                     elif left==10:    #블럭의 위치 left가 10일때, 주파수 329인 미 음이 울리고, 329이라는 숫자가 사용자의 정답리스트에 추가됨
                            answer.append(329)
                            pwm.ChangeFrequency(329)
-                     elif left==14:
+                     elif left==14:    #블럭의 위치 left가 14일때, 주파수 349인 파 음이 울리고, 349이라는 숫자가 사용자의 정답리스트에 추가됨
                            answer.append(349)
                            pwm.ChangeFrequency(349)
-                     elif left==18:
+                     elif left==18:    #블럭의 위치 left가 18일때, 주파수 393인 솔 음이 울리고, 393이라는 숫자가 사용자의 정답리스트에 추가됨
                            answer.append(393)
                            pwm.ChangeFrequency(393)
-                     elif left==22:
+                     elif left==22:    #블럭의 위치 left가 22일때, 주파수 440인 라 음이 울리고, 440이라는 숫자가 사용자의 정답리스트에 추가됨
                            answer.append(440)
                            pwm.ChangeFrequency(440)
-                     elif left==26:
+                     elif left==26:    #블럭의 위치 left가 26일때, 주파수 493인 시 음이 울리고, 493이라는 숫자가 사용자의 정답리스트에 추가됨
                            answer.append(493)
                            pwm.ChangeFrequency(493)
                                                
-               elif key==' ':
+               elif key==' ':    #스페이스바 입력 시, 사용자의 정답 화면과 answer리스트 제출
                      break
                                      
-               else:
-                     print('Wrong key!')
+               else:    #잘못된 키 값 입력시, 다시 입력 받음
+                     print('Wrong key!')  
                      continue
 
-               AiScreen=Matrix(AarrayScreen)
+               AiScreen=Matrix(AarrayScreen)    # 아래는 오리지널, 짝맞추기 게임과 같은 루틴/ 위에 문제화면 출력할때와 같은 방식임
                                       
                tempBlk=AiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx())
                tempBlk=tempBlk+currBlk
@@ -181,36 +181,36 @@ def memory_piano():
          draw_matrix(AiScreen); print()
                
          #input_output_corfirm            
-         if song==answer:
+         if song==answer:     #문제 노래의 리스트와 사용자가 입력하여 생성된 리스트가 같다면 성공
                print("성공하셨습니다.")
-               count+=1
-               if count==3:
-                  f=open("피아노 1등.txt",'r')
-                  file=f.read()
+               count+=1 #성공 시, 점수 1점 받음
+               if count==4:      #모든 노래(4곡)를 성공했을 때, 
+                  f=open("피아노 1등.txt",'r')      #피아노 모드 1등 기록이 적힌 파일을 열어 1등기록 읽어오기
+                  file=f.read()  
                   f.close()
                   ls=file.splitlines()
                   for line in ls:
-                       print("1등의 기록 : ",line)
-                       line=int(line)
-                       draw_matrix(Score(line))
-                       time.sleep(2)
-                       print(player,"의 기록 : ",count)
-                       draw_matrix(Score(count))
-                       time.sleep(2)
-                       if int(line)<count:
+                       print("1등의 기록 : ",line)     #1등 기록 화면에 출력
+                       line=int(line)        #1등기록을 정수형으로 바꾸기
+                       draw_matrix(Score(line))    #1등기록을 score파일에 있는 Score함수의 인자로 넘겨주어 점수가 적힌 스크린 받아온 후, draw_matrix를 통해 그것을 LED화면에 출력
+                       time.sleep(2)   #2초동안 보여줌
+                       print(player,"의 기록 : ",count)  #사용자 기록 화면에 출력
+                       draw_matrix(Score(count))   #사용자 기록을 score파일에 있는 Score함수의 인자로 넘겨주어 점수가 적힌 스크린 받아온 후, draw_matrix를 통해 그것을 LED화면에 출력
+                       time.sleep(2)   #2초동안 보여줌
+                       if int(line)<count:   #사용자 기록이 1등기록보다 높은 경우, 1등기록이 적힌 파일 열어 1등기록 갱신 
                            print("축하드립니다. 신기록을 세우셨군요!!")
                            f=open("피아노 1등.txt",'w')
                            line=f.write(str(count))
                            print("새로운 1등 기록 : ",count)
-                       elif int(line)==count:
+                       elif int(line)==count:   
                            print("축하드립니다! 공동 1등 입니다!")
-                  i=2    
+                  i=2    #자동적으로 게임이 끝남(다시 시작 안하고 게임 끝난다는 의미의 i=2)
                   break
                continue
-         elif song!=answer:
+         elif song!=answer:   #실패했을 경우
                print("실패하셨습니다.")
-               again=input("게임을 다시 시작하시겠습니까? (Y/N): ")
-               f=open("피아노 1등.txt",'r')
+               again=input("게임을 다시 시작하시겠습니까? (Y/N): ")   #다시 할 것인지 사용자에게 입력받은 변수 again생성
+               f=open("피아노 1등.txt",'r')         # 아래는 점수 출력과정으로 바로 위(성공했을 때)경우와 동일함
                file=f.read()
                f.close()
                ls=file.splitlines()
@@ -229,9 +229,9 @@ def memory_piano():
                        print("새로운 1등 기록 : ",line)
                    elif int(line)==count:
                        print("축하드립니다! 공동 1등 입니다!")
-               if again=='Y':
+               if again=='Y':       #again이 Y일 경우, i=1(다시 시작하겠다는 의미)
                    i=1
                    continue
-               elif again=='N':
+               elif again=='N':     #again이 N일 경우, i=2(다시 시작 안하고 게임 끝낸다는 의미)
                    i=2
                    break
