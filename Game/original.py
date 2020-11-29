@@ -76,7 +76,7 @@ def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
                   top=2     #첫번째 줄의 top위치
                   left=2
                   if ((i==1)or(i==2)or(i==3)or(i==4)or(i==5)or(i==6)or(i==7)):      #첫 줄에 있는 7개의 칸들 중 불이 들어와야한다면, 
-                        left=left+(i-1)*4       #첫번째 줄의 left위치                       #해당 블록의 숫자를 3으로 바꿔 LED에 노란색 불로 켜지게 하기                     
+                     left=left+(i-1)*4       #첫번째 줄의 left위치                       #해당 블록의 숫자를 3으로 바꿔 LED에 노란색 불로 켜지게 하기                     
                      for a in range(top,top+currBlk.get_dy()):
                         for b in range(left,left+currBlk.get_dx()):
                            QarrayScreen[a][b]=3         
