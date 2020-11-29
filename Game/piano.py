@@ -202,7 +202,12 @@ def memory_piano():
                   ls=file.splitlines()
                   for line in ls:
                        print("1등의 기록 : ",line)
+                       line=int(line)
+                       draw_matrix(Score(line))
+                       time.sleep(2)
                        print(player,"의 기록 : ",count)
+                       draw_matrix(Score(count))
+                       time.sleep(2)
                        if int(line)<count:
                            print("축하드립니다. 신기록을 세우셨군요!!")
                            f=open("피아노 1등.txt",'w')
