@@ -118,12 +118,11 @@ def memory_to():
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
 
-      AiScreen=Matrix(AarrayScreen)
-      AoScreen=Matrix(AiScreen)
-      currBlk=Matrix(arrayBlk)
-      tempBlk=AiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx())
-      tempBlk=tempBlk+currBlk
-      AoScreen.paste(tempBlk,top,left)
+      AiScreen=Matrix(AarrayScreen)       #AarrayScreen을 행렬형태로 만든 AiScreen 생성
+      AoScreen=Matrix(AiScreen)           #AiScreen을 행렬형태로 받은 AoScreen 생성
+      tempBlk=AiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx()) #AiScreen에서 잘라 사용자가 컨트롤하는 블럭이 LED matrix에 움직이는 걸 보여주기 위한 위치블럭 tempBlk생성   
+      tempBlk=tempBlk+currBlk       #위치블럭tempBlk에 모양블럭currBlk을 붙여 최종 사용자가 컨트롤하는 블럭tempBlk 재생성
+      AoScreen.paste(tempBlk,top,left)    #AoScreen에 tempBlk붙이기
       draw_matrix(AoScreen); print()
       hint=0
       t1=None
