@@ -141,7 +141,7 @@ def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
             draw_matrix(QoScreen); print()      #draw_matrix함수를 이용해 QoScreen을 LED matrix에 그리기
             time.sleep(7)       #그린 상태로 7초간 사용자에게 보여주기
             
-            #input
+            #사용자에게 입력받기
             top=2
             left=2
             AarrayScreen=[                                                               #사용자의 답을 입력받을 AarrayScreen생성
@@ -163,8 +163,7 @@ def memory_key(): #기억력 게임 original ver 게임 내용을 담은 함수
                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
 
             AiScreen=Matrix(AarrayScreen)       #AarrayScreen을 행렬형태로 바꾼 AiScreen 생성
-            AoScreen=Matrix(AiScreen)       #마찬가지로 AiScreen을 행렬형태로 받은 AoScreen생성
-          #  currBlk=Matrix(arrayBlk)    
+            AoScreen=Matrix(AiScreen)       #마찬가지로 AiScreen을 행렬형태로 받은 AoScreen생성  
             tempBlk=AiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx())  #원하는 위치로 블럭을 옮기기 위해 원하는 위치의 칸을 AiScreen에서 잘라서 tempBlk생성
             tempBlk=tempBlk+currBlk        #currBlk의 형태를 가진 tempBlk재생성
             AoScreen.paste(tempBlk,top,left)    #tempBlk을 AoScreen에 붙여주기
