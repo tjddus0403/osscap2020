@@ -83,7 +83,7 @@ to `browse the source`_ and  `report issues`_.
 
 
 
-빠른 시작: 클라이언트 라이브러리 사용
+Google Cloud SDK 설치
 ===============================================================================
 
 #. Cloud SDK에는 Python이 필요합니다. 지원되는 버전은 3.5~3.8 및 2.7.9 이상입니다.
@@ -94,8 +94,8 @@ to `browse the source`_ and  `report issues`_.
 
 #. 다음 중 하나를 다운로드합니다.
 
-.._Linux 64비트(x86_64) : google-cloud-sdk-318.0.0-linux-x86_64.tar.gz  /  
-.._Linux 32비트(x86) : google-cloud-sdk-318.0.0-linux-x86.tar.gz
+Linux 64비트(x86_64) : google-cloud-sdk-318.0.0-linux-x86_64.tar.gz  /  
+Linux 32비트(x86) : google-cloud-sdk-318.0.0-linux-x86.tar.gz
     
     
 #. 또는 명령줄에서 Linux 64비트 보관 파일을 다운로드하려면 다음을 실행합니다.
@@ -126,3 +126,36 @@ to `browse the source`_ and  `report issues`_.
         
         
 더 많은 안내는 https://cloud.google.com/sdk/docs/install#linux를 참고합니다.
+
+
+
+
+
+빠른 시작: 클라이언트 라이브러리 사용
+===============================================================================
+
+#. Cloud Console 프로젝트를 설정합니다.
+https://console.cloud.google.com/에서 프로젝트를 만들거나 선택합니다.
+프로젝트에 Cloud Speech-to-Text API를 사용 설정합니다.
+서비스 계정을 만듭니다.
+비공개 키를 JSON으로 다운로드합니다.
+
+#. GOOGLE_APPLICATION_CREDENTIALS 환경 변수를 서비스 계정 키가 포함된 JSON 파일의 경로로 설정합니다. 이 변수는 현재 셸 세션에만 적용되므로, 새 세션을 열 경우, 변수를 다시 설정합니다.
+
+[PATH]를 서비스 계정 키가 포함된 JSON 파일의 경로로 바꿉니다.
+
+    .. code-block:: bash
+   
+        $ export GOOGLE_APPLICATION_CREDENTIALS="[PATH]"
+        
+        
+#. Google SDK 설치 및 초기화
+
+#. 클라이언트 라이브러리 설치
+
+    .. code-block:: bash
+   
+        $ pip install --upgrade google-cloud-speech
+
+
+더 많은 안내는 https://cloud.google.com/speech-to-text/docs/quickstart-client-libraries#client-libraries-install-python를 참고합니다.
