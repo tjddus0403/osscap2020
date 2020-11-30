@@ -50,7 +50,7 @@
 2. Pyaudio 설치
 ===============================================================================
 
-#. Pyaudio를 설치한다.
+1. Pyaudio를 설치한다.
 
     .. code-block:: bash
    
@@ -58,11 +58,11 @@
         $ sudo apt install portaudio19-dev
         $ sudo pip3 install pyaudio
         
-#. 정상적으로 설치가 되지 않을 경우 아래 링크에 접속하여 자신의 machine 버전에 맞는 whl 파일을 다운한다.
+2. 정상적으로 설치가 되지 않을 경우 아래 링크에 접속하여 자신의 machine 버전에 맞는 whl 파일을 다운한다.
 
  https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio
 
-#. 다운받은 파일을 설치한다.
+3. 다운받은 파일을 설치한다.
 
     .. code-block:: bash
    
@@ -75,13 +75,13 @@
 3. 빠른 시작: 클라이언트 라이브러리 사용
 ===============================================================================
 
-#. Cloud Console 프로젝트를 설정합니다.
+1. Cloud Console 프로젝트를 설정합니다.
 https://console.cloud.google.com/에서 프로젝트를 만들거나 선택합니다.
 프로젝트에 Cloud Speech-to-Text API를 사용 설정합니다.
 서비스 계정을 만듭니다.
 비공개 키를 JSON으로 다운로드합니다.
 
-#. GOOGLE_APPLICATION_CREDENTIALS 환경 변수를 서비스 계정 키가 포함된 JSON 파일의 경로로 설정합니다. 이 변수는 현재 셸 세션에만 적용되므로, 새 세션을 열 경우, 변수를 다시 설정합니다.
+2. GOOGLE_APPLICATION_CREDENTIALS 환경 변수를 서비스 계정 키가 포함된 JSON 파일의 경로로 설정합니다. 이 변수는 현재 셸 세션에만 적용되므로, 새 세션을 열 경우, 변수를 다시 설정합니다.
 
 [PATH]를 서비스 계정 키가 포함된 JSON 파일의 경로로 바꿉니다.
 
@@ -90,9 +90,9 @@ https://console.cloud.google.com/에서 프로젝트를 만들거나 선택합�
         $ export GOOGLE_APPLICATION_CREDENTIALS="[PATH]"
         
         
-#. Google SDK 설치 및 초기화 <- 4. Google Cloud SDK 설치 참고
+3. Google SDK 설치 및 초기화 <- 4. Google Cloud SDK 설치 참고
 
-#. 클라이언트 라이브러리 설치
+4. 클라이언트 라이브러리 설치
 
     .. code-block:: bash
    
@@ -106,19 +106,19 @@ https://console.cloud.google.com/에서 프로젝트를 만들거나 선택합�
 4. Google Cloud SDK 설치
 ===============================================================================
 
-#. Cloud SDK에는 Python이 필요합니다. 지원되는 버전은 3.5~3.8 및 2.7.9 이상입니다.
+1. Cloud SDK에는 Python이 필요합니다. 지원되는 버전은 3.5~3.8 및 2.7.9 이상입니다.
    
     .. code-block:: bash
    
         $ python --version
 
-#. 다음 중 하나를 다운로드합니다.
+2. 다음 중 하나를 다운로드합니다.
 
-Linux 64비트(x86_64) : google-cloud-sdk-318.0.0-linux-x86_64.tar.gz  /  
-Linux 32비트(x86) : google-cloud-sdk-318.0.0-linux-x86.tar.gz
+    Linux 64비트(x86_64) : google-cloud-sdk-318.0.0-linux-x86_64.tar.gz  /  
+    Linux 32비트(x86) : google-cloud-sdk-318.0.0-linux-x86.tar.gz
     
     
-#. 또는 명령줄에서 Linux 64비트 보관 파일을 다운로드하려면 다음을 실행합니다.
+3. 또는 명령줄에서 Linux 64비트 보관 파일을 다운로드하려면 다음을 실행합니다.
 
     .. code-block:: bash
    
@@ -130,15 +130,15 @@ Linux 32비트(x86) : google-cloud-sdk-318.0.0-linux-x86.tar.gz
    
         $ curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-318.0.0-linux-x86.tar.gz
      
-#. 원하는 파일 시스템 위치에 파일 콘텐츠 압축을 풉니다. 기존 설치를 대체하려면 기존 google-cloud-sdk 디렉터리를 삭제하고 동일한 위치에 보관 파일 압축을 풉니다.
+4. 원하는 파일 시스템 위치에 파일 콘텐츠 압축을 풉니다. 기존 설치를 대체하려면 기존 google-cloud-sdk 디렉터리를 삭제하고 동일한 위치에 보관 파일 압축을 풉니다.
 
-#. 선택사항입니다. 설치 스크립트를 사용하여 경로에 Cloud SDK 도구를 추가합니다. 또한 셸 및 사용 통계 수집을 위한 명령어 완료 옵션을 선택할 수 있습니다. 이 명령어를 사용하여 스크립트를 실행합니다.
+5. 선택사항입니다. 설치 스크립트를 사용하여 경로에 Cloud SDK 도구를 추가합니다. 또한 셸 및 사용 통계 수집을 위한 명령어 완료 옵션을 선택할 수 있습니다. 이 명령어를 사용하여 스크립트를 실행합니다.
 
     .. code-block:: bash
    
         $ ./google-cloud-sdk/install.sh
       
-#. gcloud init을 실행하여 SDK를 초기화합니다.
+6. gcloud init을 실행하여 SDK를 초기화합니다.
 
     .. code-block:: bash
    
