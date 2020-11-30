@@ -147,8 +147,9 @@ https://console.cloud.google.com/에서 프로젝트를 만들거나 선택합�
         
 더 많은 안내는 https://cloud.google.com/sdk/docs/install#linux를 참고합니다.
 
-
-Google Cloud Speech API Python Samples
+　
+ 　
+5. Google Cloud Speech API Python Samples
 ===============================================================================
 
 .. image:: https://gstatic.com/cloudssh/images/open-btn.png
