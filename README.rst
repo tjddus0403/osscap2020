@@ -44,7 +44,7 @@ Memory_Game
             }
           }
 
-위 예시의 경우 card 2, device 0 이므로 hw:2, 0으로 적는다.
+위 예시의 경우 card 2, device 0 이므로 pcm.mic 안에 pcm "hw:2, 0"으로 적는다.
 
 3. 설정을 저장하고 라즈베리파이를 재부팅한다.
 
