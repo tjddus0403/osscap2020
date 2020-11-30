@@ -171,3 +171,15 @@ Pyaudio 설치
         $ sudo apt-get install python3-dev
         $ sudo apt install portaudio19-dev
         $ sudo pip3 install pyaudio
+        
+#. 정상적으로 설치가 되지 않을 경우 아래 링크에 접속하여 자신의 machine 버전에 맞는 whl 파일을 다운한다.
+
+ https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio
+
+#. 다운받은 파일을 설치한다.
+
+    .. code-block:: bash
+   
+        $ pip install "파일 "
+
+전반적인 과정을 참고할 수 있을 것 같다 : https://blog.naver.com/rose1216_/221319294390
