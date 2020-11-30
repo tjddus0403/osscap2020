@@ -258,7 +258,11 @@ to `browse the source`_ and  `report issues`_.
    
         $ https://github.com/tjddus0403/osscap2020.git
 
-2. Game.py 실행
+2. Final_code 폴더에 들어가서 Game.py 실행
+
+    .. code-block:: bash
+    
+        $ cd Final_code/
 
     .. code-block:: bash
    
