@@ -3,7 +3,7 @@ import time
 import copy
 
 def voice():
-  #gspeech2 파일에서 음성입력 -> 텍스트 변환 하는 함수를 가져옴
+  #gspeech2 파일에서 음성입력 -> 텍스트 변환 내용을 포함하는 Gspeech함수를 가져옴
   gsp = gspeech2.Gspeech()
   while True:
       stt = gsp.getText()
