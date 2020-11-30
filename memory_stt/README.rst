@@ -88,5 +88,41 @@ to `browse the source`_ and  `report issues`_.
 
 #. Cloud SDK에는 Python이 필요합니다. 지원되는 버전은 3.5~3.8 및 2.7.9 이상입니다.
    
-   .. code-block:: bash
-       $ git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
+    .. code-block:: bash
+   
+        $ python --version
+
+#. 다음 중 하나를 다운로드합니다.
+
+    Linux 64비트(x86_64) : google-cloud-sdk-318.0.0-linux-x86_64.tar.gz
+    Linux 32비트(x86) : google-cloud-sdk-318.0.0-linux-x86.tar.gz
+    
+    
+#. 또는 명령줄에서 Linux 64비트 보관 파일을 다운로드하려면 다음을 실행합니다.
+
+    .. code-block:: bash
+   
+        $ curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-318.0.0-linux-x86_64.tar.gz
+        
+   32비트 보관 파일의 경우 다음을 실행합니다.
+   
+    .. code-block:: bash
+   
+        $ curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-318.0.0-linux-x86.tar.gz
+     
+#. 원하는 파일 시스템 위치에 파일 콘텐츠 압축을 풉니다. 기존 설치를 대체하려면 기존 google-cloud-sdk 디렉터리를 삭제하고 동일한 위치에 보관 파일 압축을 풉니다.
+
+#. 선택사항입니다. 설치 스크립트를 사용하여 경로에 Cloud SDK 도구를 추가합니다. 또한 셸 및 사용 통계 수집을 위한 명령어 완료 옵션을 선택할 수 있습니다. 이 명령어를 사용하여 스크립트를 실행합니다.
+
+    .. code-block:: bash
+   
+        $ ./google-cloud-sdk/install.sh
+      
+#. gcloud init을 실행하여 SDK를 초기화합니다.
+
+    .. code-block:: bash
+   
+        $ ./google-cloud-sdk/bin/gcloud init
+        
+        
+더 많은 안내는 https://cloud.google.com/sdk/docs/install#linux를 참고합니다.
