@@ -7,72 +7,71 @@ import threading
 from score import ScoreBlk
 from score import Score
 
-def LED_init():
+def LED_init():                                        ## LED에 불빛이 들어오게 하는 함수
     thread=threading.Thread(target=LMD.main, args=())
     thread.setDaemon(True)
     thread.start()
     return
 
-def gallery_mode_exe():
-    arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]
-    currBlk=Matrix(arrayBlk)
-    count=0
-    Q=0
-    i=0
-    score=0
+def gallery_mode_exe():                                ## 갤러리 모드 게임을 실행하는 함수
+    arrayBlk=[[2,2,2,2],[2,2,2,2],[2,2,2,2],[2,2,2,2]]        ## 사용자가 조종하는 블록
+    currBlk=Matrix(arrayBlk)      ## matrix로 변환        
+    count=0      ## 그림 5개를 모두 맞췄는지 카운팅하기 위한 변수
+    Q=0        ## 게임을 중도포기 했을 때 바로 게임을 종료시키기 위해 사용되는 변수
+    i=0        ## 게임을 성공하거나 실패했을 때 게임을 계속 이어가거나 종료시키기 위해 사용되는 변수
+    score=0     ## 사용자의 게임 스코어를 매기기 위해 사용되는 변수
     
-    while True:
+    while True:               ##게임을 종료할 때까지 무한 루프
         if Q==1:
             print("게임을 중도포기하셨습니다. 게임을 종료합니다.")
-            break
+            break                                                ## 사용자가 q를 입력하여 Q값이 1이 되면 무한루프 탈출 및 게임 종료
         if count==5:
             print("갤러리 모드를 성공하셨습니다. 게임을 종료합니다.")
-            break
+            break                              ## 그림 5종류를 모두 성공하여 count값이 5가 되면 무한루프 탈출 및 게임 종료
         
-        if (i==1)or(i==2):
+        if (i==1)or(i==2):                     ## 게임을 성공하거나 실패한 경우(중도포기 제외) 점수 출력
             score=int(score)
             f = open("갤러리1등.txt", 'r')
             file = f.read()
             f.close()
-            list = file.splitlines()     
+            list = file.splitlines()     ## 갤러리1등 텍스트 파일에 저장되어있는 기존 1등의 점수를 읽어들여 list에 저장
             for line in list:
                 print("1등의 기록 : ", line)
-                line=int(line)
-                draw_matrix(Score(line))
-                time.sleep(2)
+                line=int(line)                ## 점수를 정수 형태로 받아들임
+                draw_matrix(Score(line))                 ## Score 함수를 호출해 해당 점수가 적힌 스크린을 리턴받고 draw_matrix 함수를 호출하여
+                time.sleep(2)                         ## 기존 1등 점수 led matrix에 2초동안 출력
                 print(player,"의 기록: ",score)
                 draw_matrix(Score(score))
-                time.sleep(2)
+                time.sleep(2)                 ## 동일한 방식으로 현재 사용자 점수 2초동안 출력
                 if line<score:
                     print("축하드립니다. 신기록을 세우셨군요!!")
                     f= open("갤러리1등.txt", 'w')
-                    line = f.write(str(score))
-                    print("새로운 1등 기록 : ",score)
+                    line = f.write(str(score))        ## 현 사용자가 신기록을 달성할경우 현 사용자의 점수를 갤러리1등 텍스트 파일에 1등의 점수로 새로 갱신
+                    print("새로운 1등 기록 : ",score)           ## 현재 사용자가 달성한 신기록 출력
             f.close()
-            if i==1:
+            if i==1:                                      ## 실패했지만 사용자가 게임을 다시 시작하겠다고 한 경우
                 print("게임을 다시 시작합니다.")
-            elif i==2:
+            elif i==2:                             ## 실패했지만 사용자가 게임을 종료하겠다고 한 경우
                 print("게임을 종료합니다.")
-                break
-
-        print("환영합니다. 게임을 시작합니다.")
-        player = input("플레이어의 이름을 입력하세요: ")
+                break                            ## 무한루프 탈출 및 게임 종료
+                
+        ## output
+        print("환영합니다. 게임을 시작합니다.")              ## 게임 시작
+        player = input("플레이어의 이름을 입력하세요: ")            ## 사용자 이름 입력받음
         
-        #갤러리 속 그림의 종류 수박,아스크림,당근,하트,강아지 총 5가지
-        # a,b,c,d같은 요소는 수박 4등분한 각각의 그림파일을 의미
+        ## 갤러리 속 그림의 종류 수박,아이스크림,딸기,하트,강아지 총 5가지
+        ## 각 그림은 조각 조각 나뉘어져 조각 하나씩 문제로 출제됨
+        ## a,b,c,d같은 요소는 수박 그림을 4등분한 각각의 그림 조각 파일을 의미
         gallery = [['a','b','c','d'],['e','f','g','h'],['i','j'],['k','l'],['m','n','o','p','q','r']]
-        random.shuffle(gallery)
-        #print(gallery)
+        random.shuffle(gallery)       ## 갤러리 리스트 속 요소들의 순서 무작위로 변경
 
-        for picture in gallery:
-            count = count+1
-            random.shuffle(picture)
-            #print(picture)
-            for order in picture:
-                #print(order)
-                if order == 'a':
-                    from watermelon import QarrayScreen1 as QarrayScreen
-                    QiScreen=Matrix(QarrayScreen)
+        for picture in gallery:                ## 무작위로 변경된 순서대로, 즉 랜덤으로 그림 하나씩 뽑기
+            count = count+1                    ## 뽑힌 그림 하나당 count 값이 1씩증가, count가 5가 되면 모든 그림이 출제된 것임
+            random.shuffle(picture)            ## 뽑힌 그림 리스트 속 그림 조각들의 순서 무작위로 변경
+            for order in picture:              ## 무작위로 변경된 순서대로, 즉 랜덤으로 그림 조각 하나씩 뽑혀 문제로 출제
+                if order == 'a':               ## 문제로 출제될 그림 조각이 a일 경우, 수박의 첫번째 그림 조각이므로
+                    from watermelon import QarrayScreen1 as QarrayScreen     ## watermelon 파일에서 문제로 출제할 QarrayScreen1 이라는 수박 그림 조각을 불러옴
+                    QiScreen=Matrix(QarrayScreen)                            ## matrix 함수를 통해 행렬 형태로 바꾸어 QiScreen에 저장
                 if order == 'b':
                     from watermelon import QarrayScreen2 as QarrayScreen
                     QiScreen=Matrix(QarrayScreen)
@@ -125,12 +124,12 @@ def gallery_mode_exe():
                     from dog import QarrayScreen18 as QarrayScreen
                     QiScreen=Matrix(QarrayScreen)
 
-                QoScreen=Matrix(QiScreen)
-                LED_init()
-                draw_matrix(QoScreen); print()
-                time.sleep(10)
+                QoScreen=Matrix(QiScreen)    ## matrix 함수를 통해 QiScreen을 행렬 형태로 바꾸어 QoScreen에 저장
+                LED_init()                       ## LED에 불 들어오게 하는 함수 호출
+                draw_matrix(QoScreen); print()               ## draw_matrix 함수를 호출하여 QoScreen을 출력, led matrix에 불이 들어오며 문제 화면이 출력됨
+                time.sleep(10)                      ## 10초동안 문제화면 출력
 
-                # input
+                ## input
                 AiScreenDy=12
                 AiScreenDx=28
                 AiScreenDw=2
@@ -152,7 +151,7 @@ def gallery_mode_exe():
                     [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
                     [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
                     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-                    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
+                    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]              #사용자의 답을 입력받을 AarrayScreen
 
                 #prepare the initial screen output
                 AiScreen=Matrix(AarrayScreen)
