@@ -80,3 +80,13 @@ to `browse the source`_ and  `report issues`_.
 
 
 .. _Google Cloud SDK: https://cloud.google.com/sdk/
+
+
+
+빠른 시작: 클라이언트 라이브러리 사용
+===============================================================================
+
+#. Cloud SDK에는 Python이 필요합니다. 지원되는 버전은 3.5~3.8 및 2.7.9 이상입니다.
+   
+   .. code-block:: bash
+       $ git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
