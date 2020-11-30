@@ -180,6 +180,6 @@ Pyaudio 설치
 
     .. code-block:: bash
    
-        $ pip install "파일 "
+        $ pip install "파일이름"
 
 전반적인 과정을 참고할 수 있을 것 같다 : https://blog.naver.com/rose1216_/221319294390
