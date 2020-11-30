@@ -185,6 +185,7 @@ def memory_voice():
                print('Erase the block : e(erase)')
                print('Hint : h(hint)')
                print('Finish : \' \'')
+            # 음성입력을 텍스트로 변환하여 입력키를 대신하도록 하는 함수를 
                key = fuc.voice()
                if key=='q':
                   print('Game terminated')
