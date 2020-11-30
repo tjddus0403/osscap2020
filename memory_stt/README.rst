@@ -94,7 +94,7 @@ to `browse the source`_ and  `report issues`_.
 
 #. 다음 중 하나를 다운로드합니다.
 
-.._Linux 64비트(x86_64) : google-cloud-sdk-318.0.0-linux-x86_64.tar.gz
+.._Linux 64비트(x86_64) : google-cloud-sdk-318.0.0-linux-x86_64.tar.gz  /  
 .._Linux 32비트(x86) : google-cloud-sdk-318.0.0-linux-x86.tar.gz
     
     
