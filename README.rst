@@ -252,6 +252,10 @@ to `browse the source`_ and  `report issues`_.
 
     .. code-block:: bash
    
-        $https://github.com/tjddus0403/osscap2020.git
+        $
 
-2. 
+2. Game.py 실행
+
+    .. code-block:: bash
+   
+        $ python3 Game.py
