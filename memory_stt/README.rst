@@ -13,22 +13,22 @@
     .. code-block:: bash
 
         $ pcm.!default {
-  type asym
-  capture.pcm "mic"
-  playback.pcm "speaker"
-}
-pcm.mic {
-  type plug
-  slave {
-    pcm "hw:<card number>,<device number>"
-  }
-}
-pcm.speaker {
-  type plug
-  slave {
-    pcm "hw:1,0"
-  }
-}
+            type asym
+            capture.pcm "mic"
+            playback.pcm "speaker"
+          }
+          pcm.mic {
+            type plug
+            slave {
+              pcm "hw:<card number>,<device number>"
+            }
+          }
+          pcm.speaker {
+            type plug
+            slave {
+              pcm "hw:1,0"
+            }
+          }
 
 위 예시의 경우 card 2, device 0 이므로 hw:2, 0으로 적는다.
 
