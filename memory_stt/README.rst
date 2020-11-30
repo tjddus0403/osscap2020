@@ -8,6 +8,43 @@
 
 .. image:: https://user-images.githubusercontent.com/70687128/100592909-172f6080-333b-11eb-8428-7aaa5acc0a20.PNG
 
+#. 위와 같이 표시되었다면, .asoundrc 파일을 아래와 같이 편집한다. 
+
+    .. code-block:: bash
+
+        $ pcm.!default {
+  type asym
+  capture.pcm "mic"
+  playback.pcm "speaker"
+}
+pcm.mic {
+  type plug
+  slave {
+    pcm "hw:<card number>,<device number>"
+  }
+}
+pcm.speaker {
+  type plug
+  slave {
+    pcm "hw:1,0"
+  }
+}
+
+위 예시의 경우 card 2, device 0 이므로 hw:2, 0으로 적는다.
+
+#. 설정을 저장하고 라즈베리파이를 재부팅한다.
+
+    .. code-block:: bash
+
+        $ sudo reboot
+        
+#. 다음 명령어를 통해 소리를 조절할 수 있다.
+
+    .. code-block:: bash
+
+        $ alsamixer
+        
+        
 
 Google Cloud Speech API Python Samples
 ===============================================================================
