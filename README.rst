@@ -246,5 +246,12 @@ to `browse the source`_ and  `report issues`_.
 
 6. 준비가 끝났습니다.
 -------------------------------------------------------------------------------
-이제 
+이제 Game을 실행합니다.
 
+1. git clone 진행
+
+    .. code-block:: bash
+   
+        $https://github.com/tjddus0403/osscap2020.git
+
+2. 
