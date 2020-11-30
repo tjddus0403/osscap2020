@@ -6,7 +6,7 @@
 
         $ arecord -l
 
-![arecord](https://user-images.githubusercontent.com/70687128/100592909-172f6080-333b-11eb-8428-7aaa5acc0a20.PNG)
+.. image:: https://user-images.githubusercontent.com/70687128/100592909-172f6080-333b-11eb-8428-7aaa5acc0a20.PNG
 
 
 Google Cloud Speech API Python Samples
