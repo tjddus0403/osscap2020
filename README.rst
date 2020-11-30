@@ -267,3 +267,5 @@ to `browse the source`_ and  `report issues`_.
     .. code-block:: bash
    
         $ python3 Game.py
+
+*유의할 점 : 터미널을 재실행 할 시, 항상 음성인식을 위해 export GOOGLE_APPLICATION_CREDENTIALS="json파일위치" 를 실행해주어야 합니다. 그리고 음성인식은 인터넷 연결이 약해지면 자주 끊기니 이 점도 유의하시길 바랍니다.
