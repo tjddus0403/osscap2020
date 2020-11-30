@@ -83,7 +83,7 @@ Memory_Game
         $ pip install "파일이름"
 
 전반적인 과정을 참고할 수 있을 것 같다 : https://blog.naver.com/rose1216_/221319294390
--------------------------------------------------------------------------------        
+        
 　
  　
 3. 빠른 시작: 클라이언트 라이브러리 사용
@@ -114,7 +114,7 @@ https://console.cloud.google.com/에서 프로젝트를 만들거나 선택합�
         
 
 더 많은 안내는 https://cloud.google.com/speech-to-text/docs/quickstart-client-libraries#client-libraries-install-python를 참고합니다.
--------------------------------------------------------------------------------　
+
 　
 
 4. Google Cloud SDK 설치
@@ -160,7 +160,7 @@ https://console.cloud.google.com/에서 프로젝트를 만들거나 선택합�
         
         
 더 많은 안내는 https://cloud.google.com/sdk/docs/install#linux를 참고합니다.
--------------------------------------------------------------------------------
+
 　
  　
 5. Google Cloud Speech API Python Samples
