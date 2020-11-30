@@ -27,8 +27,7 @@ def gallery_mode_exe():                                ## 갤러리 모드 게�
             break                                                ## 사용자가 중도포기하여 Q값이 1이 되면 무한루프 탈출 및 게임 종료
         if count==5:
             print("갤러리 모드를 성공하셨습니다. 게임을 종료합니다.")
-            break                              ## 그림 5종류를 모두 성공하여 count값이 5가 되면 무한루프 탈출 및 게임 종료
-        
+            break                              ## 그림 5종류를 모두 성공하여 count값이 5가 되면 무한루프 탈출 및 게임 종료       
         if (i==1)or(i==2):                     ## 게임을 성공하거나 실패한 경우(중도포기 제외) 점수 출력
             score=int(score)
             f = open("갤러리1등.txt", 'r')
@@ -58,11 +57,8 @@ def gallery_mode_exe():                                ## 갤러리 모드 게�
         ## output
         print("환영합니다. 게임을 시작합니다.")              ## 게임 시작
         player = input("플레이어의 이름을 입력하세요: ")            ## 사용자 이름 입력받음
-        
-        ## 갤러리 속 그림의 종류 수박,아이스크림,딸기,하트,강아지 총 5가지
-        ## 각 그림은 조각 조각 나뉘어져 조각 하나씩 문제로 출제됨
-        ## a,b,c,d같은 요소는 수박 그림을 4등분한 각각의 그림 조각 파일을 의미
-        gallery = [['a','b','c','d'],['e','f','g','h'],['i','j'],['k','l'],['m','n','o','p','q','r']]
+        ## 갤러리 속 그림의 종류 수박,아이스크림,딸기,하트,강아지 총 5가지, 각 그림은 조각 조각 나뉘어져 조각 하나씩 문제로 출제됨
+        gallery = [['a','b','c','d'],['e','f','g','h'],['i','j'],['k','l'],['m','n','o','p','q','r']]     ## a,b,c,d같은 요소는 수박 그림을 4등분한 각각의 그림 조각 파일을 의미
         random.shuffle(gallery)       ## 갤러리 리스트 속 요소들의 순서 무작위로 변경
 
         for picture in gallery:                ## 무작위로 변경된 순서대로, 즉 랜덤으로 그림 하나씩 뽑기
@@ -152,8 +148,6 @@ def gallery_mode_exe():                                ## 갤러리 모드 게�
                     [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
                     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
                     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]              #사용자의 답을 입력받을 AarrayScreen
-
-                #prepare the initial screen output
                 AiScreen=Matrix(AarrayScreen)
                 AoScreen=Matrix(AiScreen)             ## 행렬 형태로 변환하여 저장
                 currBlk=Matrix(arrayBlk)
@@ -190,7 +184,6 @@ def gallery_mode_exe():                                ## 갤러리 모드 게�
                         if top==2:
                             continue
                         top-=4            ## 동일한 원리, 사용자 현재 블럭 위 칸으로 이동
-                    
                     elif key=='y':
                         for a in range(top,top+currBlk.get_dy()):
                             for b in range(left,left+currBlk.get_dx()):
@@ -200,7 +193,6 @@ def gallery_mode_exe():                                ## 갤러리 모드 게�
                                 elif AarrayScreen[a][b]==3:
                                     AarrayScreen[a][b]=0
                                     continue                                ## 이미 노란 불이 켜져있는 경우 불을 끔
-                            
                     elif key=='r':
                         for a in range(top,top+currBlk.get_dy()):
                             for b in range(left,left+currBlk.get_dx()):
@@ -210,7 +202,6 @@ def gallery_mode_exe():                                ## 갤러리 모드 게�
                                 elif AarrayScreen[a][b]==4:
                                     AarrayScreen[a][b]=0
                                     continue                                ## 이미 빨간 불이 켜져있는 경우 불을 끔
-                             
                     elif key=='g':
                         for a in range(top,top+currBlk.get_dy()):
                             for b in range(left,left+currBlk.get_dx()):
@@ -220,7 +211,6 @@ def gallery_mode_exe():                                ## 갤러리 모드 게�
                                 elif AarrayScreen[a][b]==7:
                                     AarrayScreen[a][b]=0
                                     continue                                 ## 이미 초록 불이 켜져있는 경우 불을 끔
-
                     elif key=='b':
                         for a in range(top,top+currBlk.get_dy()):
                             for b in range(left,left+currBlk.get_dx()):
@@ -230,7 +220,6 @@ def gallery_mode_exe():                                ## 갤러리 모드 게�
                                 elif AarrayScreen[a][b]==12:
                                     AarrayScreen[a][b]=0
                                     continue                                ## 이미 파란 불이 켜져있는 경우 불을 끔
-
                     elif key=='p':
                         for a in range(top,top+currBlk.get_dy()):
                             for b in range(left,left+currBlk.get_dx()):
@@ -239,13 +228,11 @@ def gallery_mode_exe():                                ## 갤러리 모드 게�
                                     continue                               ## p 입력 시 해당 칸에 분홍 불을 킴
                                 elif AarrayScreen[a][b]==20:
                                     AarrayScreen[a][b]=0
-                                    continue                                ## 이미 분홍 불이 켜져있는 경우 불을 끔
-                                      
+                                    continue                                ## 이미 분홍 불이 켜져있는 경우 불을 끔  
                     elif key=='e':
                         for a in range(top,top+currBlk.get_dy()):
                             for b in range(left,left+currBlk.get_dx()):
                                 AarrayScreen[a][b]=0                           ## e 입력 시 해당 칸에 켜져있던 불을 끔
-
                     elif key=='h':                      
                         if hint==0:                                         ## 하나의 그림 조각마다 힌트는 한번만 사용가능
                             score=score-1                                   ## 힌트 사용하면 사용자의 게임 기록 점수 1점 차감
@@ -253,25 +240,22 @@ def gallery_mode_exe():                                ## 갤러리 모드 게�
                             draw_matrix(QoScreen);print()
                             time.sleep(5)                                   ## h 입력 시 힌트로 문제 화면 5초 동안 출력
                             hint+=1                                         ## hint 변수 값 1 증가시켜 힌트 한 번 이상 사용 못하도록 함
-                                      
                     elif key==' ':
-                        break                                               ## 스페이스바 입력 시 반복 입력 루프 탈출 및 사용자 입력 종료
-                            
+                        break                                               ## 스페이스바 입력 시 반복 입력 루프 탈출 및 사용자 입력 종료                            
                     else:
                         print('Wrong key!')
                         continue
-
                     AiScreen=Matrix(AarrayScreen)
                     tempBlk=AiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx())
                     tempBlk=tempBlk+currBlk
                     AoScreen = Matrix(AiScreen)
                     AoScreen.paste(tempBlk, top, left)
                     draw_matrix(AoScreen); print()
-
+                    
                 if Q==1:                                                 ## 사용자가 q를 입력하여 입력문 루프 탈출한 경우 i값을 -1로 바꾸고 계속해서 루프 탈출
                     i=-1
                     break
-                
+                    
                 draw_matrix(AiScreen); print()                        
                     
                 ## 입출력 일치 확인
@@ -314,10 +298,8 @@ def gallery_mode_exe():                                ## 갤러리 모드 게�
                 QoScreen=Matrix(QiScreen)
                 LED_init()
                 draw_matrix(QoScreen); print()
-                time.sleep(5)                 ## 불러온 QarrayScreen을 led matrix에 5초동안 출력
-                
+                time.sleep(5)                 ## 불러온 QarrayScreen을 led matrix에 5초동안 출력     
             if (i==1)or(i==2):
                 break                      ## i의 값이 1 또는 2인 경우 계속해서 루프 탈출
-            
             if Q==1:
                 break                     ## Q값이 1인 경우 계속해서 루프 탈출
