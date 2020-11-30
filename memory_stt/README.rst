@@ -159,3 +159,15 @@ https://console.cloud.google.com/에서 프로젝트를 만들거나 선택합�
 
 
 더 많은 안내는 https://cloud.google.com/speech-to-text/docs/quickstart-client-libraries#client-libraries-install-python를 참고합니다.
+
+
+Pyaudio 설치
+===============================================================================
+
+#. Pyaudio를 설치한다.
+
+    .. code-block:: bash
+   
+        $ sudo apt-get install python3-dev
+        $ sudo apt install portaudio19-dev
+        $ sudo pip3 install pyaudio
