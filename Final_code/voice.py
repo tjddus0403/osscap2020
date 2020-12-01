@@ -169,83 +169,83 @@ def memory_voice(): #기억력 게임 voice ver 게임 내용을 담은 함수
                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] ]
 
             #prepare the initial screen output
-            AiScreen=Matrix(AarrayScreen)
-            AoScreen=Matrix(AiScreen)
-            currBlk=Matrix(arrayBlk)
-            tempBlk=AiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx())
-            tempBlk=tempBlk+currBlk
-            AoScreen.paste(tempBlk,top,left)
-            draw_matrix(AoScreen); print()
-            hint=0
+            AiScreen=Matrix(AarrayScreen) #AarrayScreen을 행렬형태로 바꾼 AiScreen 생성
+            AoScreen=Matrix(AiScreen) #마찬가지로 AiScreen을 행렬형태로 받은 AoScreen생성  
+            currBlk=Matrix(arrayBlk) 
+            tempBlk=AiScreen.clip(top,left,top+currBlk.get_dy(),left+currBlk.get_dx())  #원하는 위치로 블럭을 옮기기 위해 원하는 위치의 칸을 AiScreen에서 잘라서 tempBlk생성
+            tempBlk=tempBlk+currBlk  #currBlk의 형태를 가진 tempBlk재생성
+            AoScreen.paste(tempBlk,top,left) #tempBlk을 AoScreen에 붙여주기
+            draw_matrix(AoScreen); print() #최종적으로 블럭이 위치한 화면(AoScreen)을 LED matrix에서 보여주기
+            hint=0  #처음엔 힌트를 안사용했으므로 0으로 초기화
             
-            while True:
+            while True: #키를 계속 사용해 움직여야하기에 무한루프 생성
 
-               print('Direction : q(quit), a(left), d(right), s(down)')
+               print('Direction : q(quit), a(left), d(right), s(down)')   #키에 대한 설명
                print('Fix the color block : r(red), y(yellow), g(green)')
                print('Erase the block : e(erase)')
                print('Hint : h(hint)')
                print('Finish : \' \'')
-            # 음성입력을 텍스트로 변환하여 입력키를 대신하도록 하는 함수를 
+            # 음성입력을 텍스트로 변환하여 입력키를 대신하도록 하는 함수를 사용하여 사용자로부터 키 값 받기
                key = fuc.voice()
-               if key=='q':
+               if key=='q':  #q 선택 시, while문을 탈출하며 게임 종료
                   print('Game terminated')
                   break
-               elif key=='a':
+               elif key=='a': # a 선택 시, 컨트롤하는 블럭의 left위치를 4만큼 왼쪽으로 이동/ 만약 left가 2 즉, 왼쪽 벽에 붙은 상태라면 더이상 이동하지 X
                   if left==2:
                      continue
                   left-=4
-               elif key=='d':
+               elif key=='d': # d 선택 시, 컨트롤하는 블럭의 left위치를 4만큼 오른쪽으로 이동/ 만약 left가 26 즉, 오른쪽 벽에 붙은 상태라면 더이상 이동하지 X
                   if left==26:
                      continue
                   left+=4
-               elif key=='s':
+               elif key=='s': # s 선택 시, 컨트롤하는 블럭의 top위치를 4만큼 아래로 이동/ 만약 top이 10 즉, 아래 벽에 붙은 상태라면 더이상 이동하지 X
                   if top==10:
                      continue
                   top+=4
-               elif key=='w':
+               elif key=='w': # w 선택 시, 컨트롤하는 블럭의 top위치를 4만큼 위로 이동/ 만약 top이 2 즉, 위쪽 벽에 붙은 상태라면 더이상 이동하지 X
                   if top==2:
                      continue
                   top-=4
-               elif key=='y':
+               elif key=='y':  # y 선택 시, AarrayScreen에서 해당 칸들의 색상을 노란색으로 바꿈(각 칸의 숫자를 노란색을 가리키는 3으로 바꿔줌)
                   for a in range(top,top+currBlk.get_dy()):
                      for b in range(left,left+currBlk.get_dx()):
                         if (AarrayScreen[a][b]==0)or(AarrayScreen[a][b]==4)or(AarrayScreen[a][b]==7):
                            AarrayScreen[a][b]=3
                            continue
-                        elif AarrayScreen[a][b]==3:
+                        elif AarrayScreen[a][b]==3:     #해당 칸이 이미 노란색인 상태에서 y를 한번 더 누를 경우 색상이 없어짐(취소)
                            AarrayScreen[a][b]=0
                            continue
                 
-               elif key=='r':
+               elif key=='r': # r 선택 시, AarrayScreen에서 해당 칸들의 색상을 빨간색으로 바꿈(각 칸의 숫자를 노란색을 가리키는 4으로 바꿔줌)
                   for a in range(top,top+currBlk.get_dy()):
                      for b in range(left,left+currBlk.get_dx()):
                         if (AarrayScreen[a][b]==0)or(AarrayScreen[a][b]==3)or(AarrayScreen[a][b]==7):
                            AarrayScreen[a][b]=4
                            continue
-                        elif AarrayScreen[a][b]==4:
+                        elif AarrayScreen[a][b]==4:  #해당 칸이 이미 빨간색인 상태에서 r을 한번 더 누를 경우 색상이 없어짐(취소)
                            AarrayScreen[a][b]=0
                            continue
                
-               elif key=='g':
+               elif key=='g':  # g 선택 시, AarrayScreen에서 해당 칸들의 색상을 초록색으로 바꿈(각 칸의 숫자를 초록색을 가리키는 7으로 바꿔줌)
                   for a in range(top,top+currBlk.get_dy()):
                      for b in range(left,left+currBlk.get_dx()):
                         if (AarrayScreen[a][b]==0)or(AarrayScreen[a][b]==4)or(AarrayScreen[a][b]==3):
                            AarrayScreen[a][b]=7
                            continue
-                        elif AarrayScreen[a][b]==7:
+                        elif AarrayScreen[a][b]==7:   #해당 칸이 이미 초록색인 상태에서 g를 한번 더 누를 경우 색상이 없어짐(취소)
                            AarrayScreen[a][b]=0
                            continue
                         
-               elif key=='e':
+               elif key=='e':  # e 선택 시, 해당 칸의 색상을 없애줌(각 칸의 숫자를 빈 상태를 나타내는 0으로 바꿔줌)(지우기)
                   for a in range(top,top+currBlk.get_dy()):
                      for b in range(left,left+currBlk.get_dx()):
                         AarrayScreen[a][b]=0
-               elif key=='h':
-                  if hint==0:
-                        success-=1
-                        draw_matrix(QoScreen);print()
+               elif key=='h':  # h 선택 시, 힌트 사용
+                  if hint==0:  #힌트를 한번도 사용하지 않은 상태라면, 힌트 사용가능 (두번은 사용할 수 X)
+                        success-=1 # 성공 점수에서 1점 깎임
+                        draw_matrix(QoScreen);print()  # 문제화면을 LED matrix에 3초간 보여줌
                         time.sleep(3)
-                        hint+=1
+                        hint+=1   #힌트를 사용했다는 표시
                   
                elif key==' ': #스페이스를 선택 시, 사용자의 정답 화면 제출
                   break
