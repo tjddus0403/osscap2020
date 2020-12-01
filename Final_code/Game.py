@@ -2,7 +2,7 @@ from match import*    #각 모드의 게임파일들을 가져오기
 from original import*
 from gallery import*
 from piano import*
-from stt import*
+from voice import*
 
 while True:    
    print("MODE")        #사용자로부터 모드 입력받기
