@@ -256,7 +256,7 @@ to `browse the source`_ and  `report issues`_.
 
     .. code-block:: bash
    
-        $ https://github.com/tjddus0403/osscap2020.git
+        $ git clone https://github.com/tjddus0403/osscap2020.git
 
 2. Final_code 폴더에 들어가서 Game.py 실행
 
